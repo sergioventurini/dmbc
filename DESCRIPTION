@@ -1,0 +1,26 @@
+Package: dmbc
+Title: Model Based Clustering of Dissimilarity Measurements
+Version: 0.2.0
+Date: 2015-02-27
+Authors@R: c(
+	person("Sergio", "Venturini", role=c("aut", "cre"), email = "sergio.venturini@unibocconi.it"),
+	person("Raffaella", "Piccarreta", role=c("aut"), email = "raffaella.piccarreta@unibocconi.it"))
+Description: A package to fit some Bayesian models for grouping dissimilarity
+    matrices in homogeneous clusters. Currently, it includes methods only for binary
+    data.
+Author: Sergio Venturini [aut, cre],
+    Raffaella Piccarreta [aut]
+Maintainer: Sergio Venturini <sergio.venturini@unibocconi.it>
+Depends:
+    methods,
+    utils
+Imports:
+    coda,
+    MCMCpack,
+    pcaPP,
+    robustbase
+License: GPL (>= 2) | file LICENSE
+LazyData: yes
+NeedsCompilation: yes
+Repository: CRAN
+RoxygenNote: 5.0.1

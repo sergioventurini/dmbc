@@ -1,0 +1,11 @@
+- the simulated chains should be converted to class “mcmc”
+
+- summary should be more flexible
+
+- add functions for checking convergence (see the coda package)
+
+- plot methods should include a logical argument 'burnin' to include or not the burnin period in the graphs
+
+- use the vector library or try using Rcpp
+
+- replace the current relabel algorithm with a faster one (e.g. Fruhwirth-Schnatter)
