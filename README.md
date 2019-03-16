@@ -7,6 +7,6 @@ Since the package requires some code to be compiled, you need a working C++ comp
 
 - On Windows, install [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
 - On Mac, install Xcode from the app store.
-- On Linux, sudo apt-get install r-base-dev or similar.
+- On Linux, `sudo apt-get install r-base-dev` or similar.
 
 See the help page of the `dmbc()` and `dmbc_IC()` functions for some examples or have a look at the demos in the package.
