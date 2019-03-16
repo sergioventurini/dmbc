@@ -2,7 +2,7 @@
 
 [![Travis build status](https://travis-ci.org/sergioventurini/dmbc.svg?branch=master)](https://travis-ci.org/sergioventurini/dmbc)
 
-#
+## Overview
 
 ###### Current release: 0.2.1
 ###### R version required: at least 3.5.0
