@@ -1,67 +1,72 @@
 // utils.cpp
 
-/* do this first to get the right options for math.h */
-#include <R_ext/Arith.h>
-
-#include <algorithm>
-#include <R.h>
-#include <Rmath.h>
+#include "dmbc.h"
 
 #define both_non_NA(a,b) (!ISNAN(a) && !ISNAN(b))
 
 void logit(double* res, const double* p, int n){
-	for(int i = 0; i < n; i++){
-		res[i] = log((double) p[i]/(1 - p[i]));
-	}
+  for(int i = 0; i < n; i++){
+    res[i] = log((double) p[i]/(1 - p[i]));
+  }
 }
 
 void expit(double* res, const double* x, int n){
-	for(int i = 0; i < n; i++){
-		res[i] = (double) 1/(1 + exp(-x[i]));
-	}
+  for(int i = 0; i < n; i++){
+    res[i] = (double) 1/(1 + exp(-x[i]));
+  }
 }
 
+void exp_vec(double* res, const double* x, int n){
+  for(int i = 0; i < n; i++){
+    res[i] = (double) exp(x[i]);
+  }
+}
+
+// Euclidean distance
 double euclidean(const double *x, int nr, int nc, int i1, int i2){
-	double dev = 0, dist = 0;
-	int count = 0;
+  double dev = 0, dist = 0;
+  int count = 0;
 
-	for(int j = 0; j < nc; j++){
-		if(both_non_NA(x[i1], x[i2])){
-			dev = (x[i1] - x[i2]);
-			if(!ISNAN(dev)){
-				dist += dev * dev;
-				count++;
-			}
-		}
-		i1 += nr;
-		i2 += nr;
-	}
-	if(count == 0){
-		return NA_REAL;
-	}
-	if(count != nc){
-		dist /= ((double)count/nc);
-	}
-	return sqrt(dist);
+  for(int j = 0; j < nc; j++){
+    if(both_non_NA(x[i1], x[i2])){
+      dev = (x[i1] - x[i2]);
+      if(!ISNAN(dev)){
+        dist += dev * dev;
+        count++;
+      }
+    }
+    i1 += nr;
+    i2 += nr;
+  }
+  if(count == 0){
+    return NA_REAL;
+  }
+  if(count != nc){
+    dist /= ((double)count/nc);
+  }
+  return sqrt(dist);
 }
 
+// Euclidean distance
 void dist(double* d, const double* x, int nr, int nc){
-	size_t count = 0;
-	for(int j = 0; j <= nr; j++){
-		for(int i = (j + 1); i < nr; i++){
-			d[count++] = euclidean(x, nr, nc, i, j);
-		}
-	}
+  size_t count = 0;
+  for(int j = 0; j <= nr; j++){
+    for(int i = (j + 1); i < nr; i++){
+      d[count++] = euclidean(x, nr, nc, i, j);
+    }
+  }
 }
 
-bool any_na_nan(const double* x, int n){
+bool any_na_nan(const arma::vec x, const int& n){
 	bool res = false;
+
 	for(int i = 0; i < n; i++){
-		if(ISNAN(x[i])){
+		if(ISNAN(x(i))){
 			res = true;
 			break;
 		}
 	}
+
 	return res;
 }
 
@@ -94,31 +99,28 @@ void sample_no_rep(int n, double* p, int* perm, int nans, int* ans){
 }
 
 void tableC(int* counts, const int* x, int nelem, int ndistelem){
-	int* xtmp = new int[nelem];
-	for(int i = 0; i < nelem; i++){
-		xtmp[i] = x[i];
-	}
-	// R_isort(xtmp, nelem);
-	R_qsort_int(xtmp, 1, nelem);
-	
-	int xlead = 1;
-	counts[xlead - 1] = 0;
-	for(int i = 0; i < nelem; i++){
-		if(xtmp[i] != xlead){
-			xlead++;
-			counts[xlead - 1] = 0;
-		}
-		counts[xlead - 1]++;
-	}
+  int* xtmp = new int[nelem];
+  for(int i = 0; i < nelem; i++){
+    xtmp[i] = x[i];
+  }
+  // R_isort(xtmp, nelem);
+  R_qsort_int(xtmp, 1, nelem);
+  
+  int xlead = 1;
+  counts[xlead - 1] = 0;
+  for(int i = 0; i < nelem; i++){
+    if(xtmp[i] != xlead){
+      xlead++;
+      counts[xlead - 1] = 0;
+    }
+    counts[xlead - 1]++;
+  }
 
-	delete[] xtmp;
+  delete[] xtmp;
 }
 
-int factorial(int x){
-	int fact = 1;
-	while (x > 1)
-		fact *= x--;
-	return fact;
+int factorial(const int& x){
+  return R::gammafn(x + 1);
 }
 
 void permutations(int* perm, int n, int nperm, int byrow){
