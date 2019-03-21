@@ -76,11 +76,16 @@ make_simdata <- function(prob, n, seed) {
   return(all_diss)
 }
 
-all_diss_9 <- make_simdata(prob = 0.9, n = 16, seed = 120)
-all_diss_8 <- make_simdata(prob = 0.8, n = 16, seed = 120)
-all_diss_7 <- make_simdata(prob = 0.7, n = 16, seed = 120)
-all_diss_6 <- make_simdata(prob = 0.6, n = 16, seed = 120)
-all_diss_5 <- make_simdata(prob = 0.5, n = 16, seed = 120)
+library(dmbc)
 
-simdiss <- new("dmbc_data", diss = all_diss_9, n = n, S = length(all_diss_9), 
+n <- 16
+S <- 10
+
+all_diss_9 <- make_simdata(prob = 0.9, n = n, seed = 120)
+all_diss_8 <- make_simdata(prob = 0.8, n = n, seed = 120)
+all_diss_7 <- make_simdata(prob = 0.7, n = n, seed = 120)
+all_diss_6 <- make_simdata(prob = 0.6, n = n, seed = 120)
+all_diss_5 <- make_simdata(prob = 0.5, n = n, seed = 120)
+
+simdata <- new("dmbc_data", diss = all_diss_9, n = n, S = S, 
   family = "binomial")
