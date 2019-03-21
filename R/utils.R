@@ -82,6 +82,7 @@ list.sum <- function(x) {
 #' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
 #'
 #' @examples
+#' G <- 5
 #' prior <- list(eta = list(a = rep(1, G), b = rep(2, G)))
 #' check_list_na(prior, dmbc_prior())
 #'
