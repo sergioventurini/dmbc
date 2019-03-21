@@ -67,16 +67,17 @@ list.sum <- function(x) {
   return(z)
 }
 
-checkit <- function(o, d) {
-  d.nm <- names(d)
-  d.na <- is.na(match(d.nm, names(o)))
-  if (any(d.na))
-    o <- c(o, d[d.nm[which(d.na)]])
-
-  return(o)
-}
-
+#' @export
 check_list_na <- function(orig, des) {
+  checkit <- function(o, d) {
+    d.nm <- names(d)
+    d.na <- is.na(match(d.nm, names(o)))
+    if (any(d.na))
+      o <- c(o, d[d.nm[which(d.na)]])
+
+    return(o)
+  }
+
   if (!is.list(orig))
     stop("the 'orig' argument must be a list")
   if (!is.list(des))

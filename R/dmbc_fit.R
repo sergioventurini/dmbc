@@ -248,7 +248,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 		x.ind.chain = x.ind.chain,
 		x.chain = x.chain,
 		accept = accept,
-		obsdiss = D,
+		diss = D,
 		dens = list(loglik = loglik, logprior = logprior, logpost = logpost),
     control = control,
     prior = prior,

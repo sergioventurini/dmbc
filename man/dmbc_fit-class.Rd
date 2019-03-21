@@ -42,7 +42,7 @@ the MCMC algorithm for the cluster membership labels.}
 \item{\code{accept}}{An object of class \code{matrix}; final acceptance rates
 for the MCMC algorithm.}
 
-\item{\code{obsdiss}}{An object of class \code{list}; list of observed
+\item{\code{diss}}{An object of class \code{list}; list of observed
 dissimilarity matrices.}
 
 \item{\code{dens}}{An object of class \code{list}; list of log-likelihood,

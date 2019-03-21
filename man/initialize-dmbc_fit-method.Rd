@@ -9,7 +9,7 @@
   z.chain.p = array(), alpha.chain = matrix(), eta.chain = matrix(),
   sigma2.chain = matrix(), lambda.chain = matrix(),
   prob.chain = array(), x.ind.chain = array(), x.chain = matrix(),
-  accept = matrix(), obsdiss = list(), dens = list(),
+  accept = matrix(), diss = list(), dens = list(),
   control = list(), prior = list(), prop = list(), dim = list(),
   model = NA)
 }
@@ -47,7 +47,7 @@ the MCMC algorithm for the cluster membership labels.}
 \item{accept}{An object of class \code{matrix}; final acceptance rates
 for the MCMC algorithm.}
 
-\item{obsdiss}{An object of class \code{list}; list of observed
+\item{diss}{An object of class \code{list}; list of observed
 dissimilarity matrices.}
 
 \item{dens}{An object of class \code{list}; list of log-likelihood,

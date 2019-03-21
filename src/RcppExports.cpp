@@ -91,9 +91,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_dmbc_dmbc_mcmc", (DL_FUNC) &_dmbc_dmbc_mcmc, 22},
     {"_dmbc_dmbc_relabel", (DL_FUNC) &_dmbc_dmbc_relabel, 16},
     {"_dmbc_dmbc_pack_par", (DL_FUNC) &_dmbc_dmbc_pack_par, 7},
-    {"dmbc_mcmc",           (DL_FUNC) &dmbc_mcmc,           22},
-    {"dmbc_pack_par",       (DL_FUNC) &dmbc_pack_par,        7},
-    {"dmbc_relabel",        (DL_FUNC) &dmbc_relabel,        16},
+    {"dmbc_mcmc",     (DL_FUNC) &dmbc_mcmc,     22},
+    {"dmbc_pack_par", (DL_FUNC) &dmbc_pack_par,  7},
+    {"dmbc_relabel",  (DL_FUNC) &dmbc_relabel,  16},
     {NULL, NULL, 0}
 };
 

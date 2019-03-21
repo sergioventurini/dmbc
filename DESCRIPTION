@@ -1,7 +1,7 @@
 Package: dmbc
 Type: Package
 Title: Model Based Clustering of Binary Dissimilarity Measurements
-Version: 0.2.1
+Version: 0.2.2
 Date: 2019-03-20
 Authors@R: c(
   person("Sergio", "Venturini", role=c("aut", "cre"), email = "sergio.venturini@unibocconi.it"),

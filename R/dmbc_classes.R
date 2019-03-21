@@ -68,7 +68,8 @@ setMethod("initialize", "dmbc_data",
     .Object@diss <- diss
     .Object@n <- n
     .Object@S <- S
-    .Object@family <- family
+    # .Object@family <- family
+    .Object@family <- "binomial"
     .Object
   }
 )
@@ -300,7 +301,7 @@ setMethod("show",
 #'   the MCMC algorithm for the cluster membership labels.
 #' @slot accept An object of class \code{matrix}; final acceptance rates
 #'   for the MCMC algorithm.
-#' @slot obsdiss An object of class \code{list}; list of observed
+#' @slot diss An object of class \code{list}; list of observed
 #'   dissimilarity matrices.
 #' @slot dens An object of class \code{list}; list of log-likelihood,
 #'   log-prior and log-posterior values at each iteration of the MCMC simulation.
@@ -342,7 +343,7 @@ setClass(Class = "dmbc_fit",
 		x.ind.chain = "array",
 		x.chain = "matrix",
 		accept = "matrix",
-		obsdiss = "list",
+		diss = "list",
 		dens = "list",
 		control = "list",
     prior = "list",
@@ -376,7 +377,7 @@ setClass(Class = "dmbc_fit",
 #'   the MCMC algorithm for the cluster membership labels.
 #' @param accept An object of class \code{matrix}; final acceptance rates
 #'   for the MCMC algorithm.
-#' @param obsdiss An object of class \code{list}; list of observed
+#' @param diss An object of class \code{list}; list of observed
 #'   dissimilarity matrices.
 #' @param dens An object of class \code{list}; list of log-likelihood,
 #'   log-prior and log-posterior values at each iteration of the MCMC simulation.
@@ -415,7 +416,7 @@ setMethod("initialize",
 			x.ind.chain = array(),
 			x.chain = matrix(),
 			accept = matrix(),
-			obsdiss = list(),
+			diss = list(),
 			dens = list(),
 			control = list(),
       prior = list(),
@@ -434,7 +435,7 @@ setMethod("initialize",
 			.Object@x.ind.chain <- x.ind.chain
 			.Object@x.chain <- x.chain
 			.Object@accept <- accept
-			.Object@obsdiss <- obsdiss
+			.Object@diss <- diss
 			.Object@dens <- dens
       .Object@control <- control
       .Object@prior <- prior
@@ -1383,7 +1384,7 @@ setMethod("update", "dmbc_ic",
       Gmax <- Gmax.old
     }
 
-    D <- x@res_last_p[[1]]@results[[1]]@obsdiss
+    D <- x@res_last_p[[1]]@results[[1]]@diss
     data <- new("dmbc_data", diss = D, n = x@res_last_p[[1]]@results[[1]]@dim[["n"]],
       S = x@res_last_p[[1]]@results[[1]]@dim[["S"]])
     est <- x@est

@@ -140,7 +140,7 @@ dmbc_IC <- function(data, pmax = 3, Gmax = 5, control = dmbc_control(), prior = 
 }
 
 log_marg_lik <- function(res, Z) {
-	D <- res@results[[1]]@obsdiss
+	D <- res@results[[1]]@diss
 	control <- res@results[[1]]@control
   prior <- res@results[[1]]@prior
 
