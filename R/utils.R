@@ -67,9 +67,27 @@ list.sum <- function(x) {
   return(z)
 }
 
+#' Auxiliary function to recursively check NAs in a list.
+#'
+#' \code{check_list_na()} compares two lists and fills in the missing
+#'   elements in the first with those included in the second. The
+#'   comparison is recursive in the sense that the process is repeated for
+#'   all lists included in those given.
+#'
+#' @param orig A list whose content must be checked.
+#' @param des A list to use as a reference with which compare the first one.
+#'
+#' @return A list with all elements added.
+#'
+#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#'
+#' @examples
+#' prior <- list(eta = list(a = rep(1, G), b = rep(2, G)))
+#' check_list_na(prior, dmbc_prior())
+#'
 #' @export
 check_list_na <- function(orig, des) {
-  checkit <- function(o, d) {
+  check_it <- function(o, d) {
     d.nm <- names(d)
     d.na <- is.na(match(d.nm, names(o)))
     if (any(d.na))
@@ -83,7 +101,7 @@ check_list_na <- function(orig, des) {
   if (!is.list(des))
     stop("the 'des' argument must be a list")
 
-  orig_new <- checkit(orig_new <- orig, des)
+  orig_new <- check_it(orig_new <- orig, des)
 
   for (el in 1:length(orig_new)) {
     if (is.list(orig_new[[el]]))
