@@ -53,8 +53,8 @@
 #' dmbc_get_postmean(sim.dmbc, chain = 1)
 #' @export
 dmbc_get_postmean <- function(res, chain = 1) {
-  res_chain <- res@results[[1]]
-  control <- res_chain@control
+  res_chain <- res@results[[chain]]
+  control <- res@results[[1]]@control
   burnin <- control[["burnin"]]
   nsim <- control[["nsim"]]
   thin <- control[["thin"]]
@@ -148,8 +148,8 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #' dmbc_get_postmedian(sim.dmbc, chain = 1)
 #' @export
 dmbc_get_postmedian <- function(res, chain = 1) {
-  res_chain <- res@results[[1]]
-  control <- res_chain@control
+  res_chain <- res@results[[chain]]
+  control <- res@results[[1]]@control
   burnin <- control[["burnin"]]
 	nsim <- control[["nsim"]]
   thin <- control[["thin"]]
@@ -245,8 +245,8 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #' dmbc_get_ml(sim.dmbc, chain = 1)
 #' @export
 dmbc_get_ml <- function(res, chain = 1) {
-  res_chain <- res@results[[1]]
-  control <- res_chain@control
+  res_chain <- res@results[[chain]]
+  control <- res@results[[1]]@control
   burnin <- control[["burnin"]]
   nsim <- control[["nsim"]]
   thin <- control[["thin"]]
@@ -343,8 +343,8 @@ dmbc_get_ml <- function(res, chain = 1) {
 #' dmbc_get_map(sim.dmbc, chain = 1)
 #' @export
 dmbc_get_map <- function(res, chain = 1) {
-  res_chain <- res@results[[1]]
-  control <- res_chain@control
+  res_chain <- res@results[[chain]]
+  control <- res@results[[1]]@control
   burnin <- control[["burnin"]]
   nsim <- control[["nsim"]]
   thin <- control[["thin"]]
@@ -437,8 +437,8 @@ dmbc_get_map <- function(res, chain = 1) {
 #' graph + geom_text(aes(label = lbl), nudge_x = .75, nudge_y = 0, size = 3)
 #' @export
 dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = character(0)) {
-  res_chain <- res@results[[1]]
-  control <- res_chain@control
+  res_chain <- res@results[[chain]]
+  control <- res@results[[1]]@control
   burnin <- control[["burnin"]]
   nsim <- control[["nsim"]]
   thin <- control[["thin"]]
