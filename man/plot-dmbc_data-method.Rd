@@ -26,6 +26,12 @@ Can be a vector. \code{NA} values (the default) mean use \code{par("font")}.}
 \description{
 Provide a graphical summary of a \code{dmbc_data} class instance.
 }
+\examples{
+data(simdiss)
+library(bayesplot)
+cols <- color_scheme_set("brightblue")
+plot(simdiss, colors = unlist(cols)[c(1, 6)], font = 1, cex.font = 0.75)
+}
 \author{
 Sergio Venturini \email{sergio.venturini@unibocconi.it}
 }

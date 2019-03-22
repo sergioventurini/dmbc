@@ -143,6 +143,12 @@ setMethod("summary",
 #' @aliases dmbc_data-plot
 #' 
 #' @exportMethod plot
+#' 
+#' @examples
+#' data(simdiss)
+#' library(bayesplot)
+#' cols <- color_scheme_set("brightblue")
+#' plot(simdiss, colors = unlist(cols)[c(1, 6)], font = 1, cex.font = 0.75)
 setMethod("plot",
   signature(x = "dmbc_data"),
   function(x, colors = c("white", "black"), font = NA, cex.font = NA, ...) {
