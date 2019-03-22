@@ -11,9 +11,9 @@
 #'   partition the \emph{S} subjects.
 #' @param control A list of control parameters that affect the sampling
 #'   but do not affect the posterior distribution See
-#'   \code{\link{dmbc_control}} for more details.
+#'   \code{\link{dmbc_control}()} for more details.
 #' @param prior A list containing the prior hyperparameters. See
-#'   \code{\link{dmbc_prior}} for more details.
+#'   \code{\link{dmbc_prior}()} for more details.
 #' @param cl An optional \pkg{parallel} or \pkg{snow} cluster for use if
 #'   \code{parallel = "snow"}. If not supplied, a cluster on the local machine
 #'   is created for the duration of the \code{dmbc()} call.

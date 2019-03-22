@@ -13,7 +13,7 @@
 \item{x}{An object of class \code{\link{dmbc_fit_list}}.}
 
 \item{what}{A length-one character vector providing the plot type to produce.
-Admissible values are all provided by in the \pkg{\link{bayesplot}} package,
+Admissible values are those provided by the \pkg{\link{bayesplot}} package,
 that is: \code{acf}, \code{areas}, \code{dens}, \code{hex}, \code{hist},
 \code{intervals}, \code{neff}, \code{pairs}, \code{parcoord}, \code{recover},
 \code{rhat}, \code{scatter}, \code{trace}, \code{violin} or \code{combo}.

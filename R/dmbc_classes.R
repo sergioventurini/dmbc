@@ -552,7 +552,7 @@ setMethod("subset",
 #'
 #' @param x An object of class \code{\link{dmbc_fit}}.
 #' @param what A length-one character vector providing the plot type to produce.
-#'   Admissible values are all provided by in the \pkg{\link{bayesplot}} package,
+#'   Admissible values are those provided by the \pkg{\link{bayesplot}} package,
 #'   that is: \code{acf}, \code{areas}, \code{dens}, \code{hex}, \code{hist},
 #'   \code{intervals}, \code{neff}, \code{pairs}, \code{parcoord}, \code{recover},
 #'   \code{rhat}, \code{scatter}, \code{trace}, \code{violin} or \code{combo}.
@@ -853,7 +853,7 @@ setMethod("subset",
 #'
 #' @param x An object of class \code{\link{dmbc_fit_list}}.
 #' @param what A length-one character vector providing the plot type to produce.
-#'   Admissible values are all provided by in the \pkg{\link{bayesplot}} package,
+#'   Admissible values are those provided by the \pkg{\link{bayesplot}} package,
 #'   that is: \code{acf}, \code{areas}, \code{dens}, \code{hex}, \code{hist},
 #'   \code{intervals}, \code{neff}, \code{pairs}, \code{parcoord}, \code{recover},
 #'   \code{rhat}, \code{scatter}, \code{trace}, \code{violin} or \code{combo}.
@@ -1161,7 +1161,7 @@ setMethod("show",
 
       dcic_rownm <- paste0("p = ", 1:pmax)
       dcic_colnm <- paste0("G = ", 1:Gmax)
-      print_matrix(object@DCIC, dcic_rownm, dcic_colnm)
+      print_matrix(object@DCIC, dcic_rownm, dcic_colnm, colwidth = 8)
     }
 )
 
@@ -1756,11 +1756,11 @@ setMethod("plot",
             arrow = ggplot2::arrow(angle = 45, length = ggplot2::unit(0.05, "npc"), type = "open"), size = .5)
       }
       graph <- graph + ggplot2::facet_wrap(~ G + cl,
-        labeller = ggplot2::label_bquote(cols = paste("Cluster ", .(G), ", ", italic(J)[.(G)], " = ", .(cl))))
+        labeller = ggplot2::label_bquote(cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl))))
     } else {
       graph <- graph + ggplot2::facet_grid(p_vs + p_i + p_j ~ G + cl,
         labeller = ggplot2::label_bquote(
-                    cols = paste("Cluster ", .(G), ", ", italic(J)[.(G)], " = ", .(cl)),
+                    cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl)),
                     rows = paste(italic(p)[.(p_j)], " vs. ", italic(p)[.(p_i)])))
     }
 

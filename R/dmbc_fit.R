@@ -15,9 +15,9 @@
 #'   multinomial and count data.
 #' @param control A list of control parameters that affect the sampling
 #'   but do not affect the posterior distribution See
-#'   \code{\link{dmbc_control}} for more details.
+#'   \code{\link{dmbc_control}()} for more details.
 #' @param prior A list containing the prior hyperparameters. See
-#'   \code{\link{dmbc_prior}} for more details.
+#'   \code{\link{dmbc_prior}()} for more details.
 #' @param start A named list of starting values for the MCMC algorithm (see
 #'   \code{\link{dmbc_init}}).
 #' @return A \code{dmbc_fit_list} object.

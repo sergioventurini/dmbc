@@ -24,10 +24,10 @@ multinomial and count data.}
 
 \item{control}{A list of control parameters that affect the sampling
 but do not affect the posterior distribution See
-\code{\link{dmbc_control}} for more details.}
+\code{\link{dmbc_control}()} for more details.}
 
 \item{prior}{A list containing the prior hyperparameters. See
-\code{\link{dmbc_prior}} for more details.}
+\code{\link{dmbc_prior}()} for more details.}
 
 \item{start}{A named list of starting values for the MCMC algorithm (see
 \code{\link{dmbc_init}}).}
