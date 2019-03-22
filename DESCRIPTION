@@ -17,6 +17,7 @@ NeedsCompilation: yes
 Repository: CRAN
 LazyData: TRUE
 Imports:
+    abind,
     bayesplot (>= 1.6.0),
     coda (>= 0.19-2),
     ggplot2 (>= 3.1.0),

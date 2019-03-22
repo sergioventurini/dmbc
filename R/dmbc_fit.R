@@ -72,7 +72,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 	p <- as.integer(p)
 	G <- as.integer(G)
 	
-	z.chain <- z.proc <- array(NA, dim = c(totiter, n, p, G))
+	z.chain <- z.chain.p <- array(NA, dim = c(totiter, n, p, G))
 	eta.chain <- alpha.chain <- sigma2.chain <- lambda.chain <- array(NA, dim = c(totiter, G))
 	x.chain <- array(NA, dim = c(totiter, S))
 	prob.chain <- x.ind.chain <- array(0, dim = c(totiter, S, G))
@@ -138,10 +138,10 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 		for (g in 1:G) {
       if (control[["verbose"]]) dmbc_setpb(pb, no)
 			if (p == 1) {
-				z.proc[niter, , , g] <- as.numeric(MCMCpack::procrustes(as.matrix(z.chain[niter, , , g]),
+				z.chain.p[niter, , , g] <- as.numeric(MCMCpack::procrustes(as.matrix(z.chain[niter, , , g]),
           as.matrix(z.chain[totiter, , , g]), translation = TRUE, dilation = FALSE)$X.new)
 			} else {
-				z.proc[niter, , , g] <- MCMCpack::procrustes(z.chain[niter, , , g], z.chain[totiter, , , g],
+				z.chain.p[niter, , , g] <- MCMCpack::procrustes(z.chain[niter, , , g], z.chain[totiter, , , g],
           translation = TRUE, dilation = FALSE)$X.new
 			}
       no <- no + 1
@@ -159,7 +159,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 			init <- ifelse(totiter <= 100, 5, 100)
 			
 			theta <- .Call('dmbc_pack_par', PACKAGE = 'dmbc',
-				radz = as.double(z.proc),
+				radz = as.double(z.chain.p),
 				radalpha = as.double(alpha.chain),
 				radlambda = as.double(lambda.chain),
 				rn = as.integer(n),
@@ -170,7 +170,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 
 			theta.relab <- .Call('dmbc_relabel', PACKAGE = 'dmbc',
 				radtheta = as.double(theta),
-				radz = as.double(z.proc),
+				radz = as.double(z.chain.p),
 				radalpha = as.double(alpha.chain),
 				radeta = as.double(eta.chain),
 				radsigma2 = as.double(sigma2.chain),
@@ -188,7 +188,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 			)
 
 			theta <- array(theta.relab[[1]], c(totiter, (m + 1), G))  # this is not needed elsewhere
-			z.proc <- array(theta.relab[[2]], c(totiter, n, p, G))
+			z.chain.p <- array(theta.relab[[2]], c(totiter, n, p, G))
 			alpha.chain <- array(theta.relab[[3]], c(totiter, G))
 			eta.chain <- array(theta.relab[[4]], c(totiter, G))
 			sigma2.chain <- array(theta.relab[[5]], c(totiter, G))
@@ -219,7 +219,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
     }
   }
   z.chain <- z.chain[tokeep, , , , drop = FALSE]
-  z.chain.p <- z.proc[tokeep, , , , drop = FALSE]
+  z.chain.p <- z.chain.p[tokeep, , , , drop = FALSE]
   alpha.chain <- alpha.chain[tokeep, , drop = FALSE]
   eta.chain <- eta.chain[tokeep, , drop = FALSE]
   sigma2.chain <- sigma2.chain[tokeep, , drop = FALSE]
