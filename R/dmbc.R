@@ -187,7 +187,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
 
     if (verbose) {
       if (.Platform$OS.type != "windows" && !have_mc){
-        cat("--- END OF PARALLEL SIMULATION OF", nchains, "CHAINS ---\n")
+        cat("--- END OF PARALLEL SIMULATION OF", nchains, "CHAINS ---\n\n")
       } else {
         # cat("done!\n")
       }
