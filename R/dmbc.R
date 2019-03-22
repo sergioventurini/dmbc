@@ -193,6 +193,9 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
       }
     }
   } else {
+    if (!is.null(seed)) {
+     set.seed(seed)
+    }
     res <- list()
     for (ch in 1:nchains) {
       if (verbose && nchains > 1L) cat("--- STARTING SIMULATION OF CHAIN", ch, "OF", nchains, "---\n")
