@@ -55,10 +55,6 @@ etc.). See \code{\link{dmbc_control}()} for more information.}
 \item{\code{prior}}{An object of class \code{list}; list of the prior
 hyperparameters. See \code{\link{dmbc_prior}()} for more information.}
 
-\item{\code{prop}}{An object of class \code{list}; list of the proposal
-distribution parameters. See \code{\link{dmbc_control}()} for more
-information.}
-
 \item{\code{dim}}{An object of class \code{list}; list of dimensions for
 the estimated model, i.e. number of objects (\emph{n}), number of latent
 dimensions (\emph{p}), number of clusters (\emph{G}), and number of

@@ -316,9 +316,6 @@ setMethod("show",
 #'   etc.). See \code{\link{dmbc_control}()} for more information.
 #' @slot prior An object of class \code{list}; list of the prior
 #'   hyperparameters. See \code{\link{dmbc_prior}()} for more information.
-#' @slot prop An object of class \code{list}; list of the proposal
-#'   distribution parameters. See \code{\link{dmbc_control}()} for more
-#'   information.
 #' @slot dim An object of class \code{list}; list of dimensions for
 #'   the estimated model, i.e. number of objects (\emph{n}), number of latent
 #'   dimensions (\emph{p}), number of clusters (\emph{G}), and number of
@@ -353,7 +350,6 @@ setClass(Class = "dmbc_fit",
 		dens = "list",
 		control = "list",
     prior = "list",
-    prop = "list",
 		dim = "list",
     model = "dmbc_model"
 	)
@@ -392,9 +388,6 @@ setClass(Class = "dmbc_fit",
 #'   etc.). See \code{\link{dmbc_control}()} for more information.
 #' @param prior An object of class \code{list}; list of the prior
 #'   hyperparameters. See \code{\link{dmbc_prior}()} for more information.
-#' @param prop An object of class \code{list}; list of the proposal
-#'   distribution parameters. See \code{\link{dmbc_control}()} for more
-#'   information.
 #' @param dim An object of class \code{list}; list of dimensions for
 #'   the estimated model, i.e. number of objects (\emph{n}), number of latent
 #'   dimensions (\emph{p}), number of clusters (\emph{G}), and number of
@@ -426,7 +419,6 @@ setMethod("initialize",
 			dens = list(),
 			control = list(),
       prior = list(),
-      prop = list(),
 			dim = list(),
       model = NA
 		)
@@ -445,7 +437,6 @@ setMethod("initialize",
 			.Object@dens <- dens
       .Object@control <- control
       .Object@prior <- prior
-			.Object@prop <- prop
 			.Object@dim <- dim
       .Object@model <- model
 			.Object

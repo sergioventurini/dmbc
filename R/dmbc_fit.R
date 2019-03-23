@@ -232,11 +232,6 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
   logpost <- logpost[tokeep]
 
   # return results
-  prop <- list()
-  prop[["z"]] <- control[["z.prop"]]
-  prop[["alpha"]] <- control[["alpha.prop"]]
-  model <- new("dmbc_model", p = p, G = G, family = family)
-
 	out <- new("dmbc_fit",
 		z.chain = z.chain,
 		z.chain.p = z.chain.p,
@@ -252,9 +247,8 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 		dens = list(loglik = loglik, logprior = logprior, logpost = logpost),
     control = control,
     prior = prior,
-    prop = prop,
 		dim = list(n = n, p = p, G = G, S = S),
-    model = model
+    model = new("dmbc_model", p = p, G = G, family = family)
 	)
 
 	return(out)

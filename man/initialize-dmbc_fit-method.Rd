@@ -10,8 +10,7 @@
   sigma2.chain = matrix(), lambda.chain = matrix(),
   prob.chain = array(), x.ind.chain = array(), x.chain = matrix(),
   accept = matrix(), diss = list(), dens = list(),
-  control = list(), prior = list(), prop = list(), dim = list(),
-  model = NA)
+  control = list(), prior = list(), dim = list(), model = NA)
 }
 \arguments{
 \item{.Object}{Prototype object from the class \code{\link{dmbc_fit}}.}
@@ -59,10 +58,6 @@ etc.). See \code{\link{dmbc_control}()} for more information.}
 
 \item{prior}{An object of class \code{list}; list of the prior
 hyperparameters. See \code{\link{dmbc_prior}()} for more information.}
-
-\item{prop}{An object of class \code{list}; list of the proposal
-distribution parameters. See \code{\link{dmbc_control}()} for more
-information.}
 
 \item{dim}{An object of class \code{list}; list of dimensions for
 the estimated model, i.e. number of objects (\emph{n}), number of latent
