@@ -752,6 +752,30 @@ setClass(Class = "dmbc_fit_list",
   )
 )
 
+#' Create an instance of the \code{dmbc_fit_list} class using new/initialize.
+#'
+#' @param .Object Prototype object from the class \code{\link{dmbc_fit_list}}.
+#' @param results A list whose elements are the \code{dmbc_fit} objects for
+#'   each simulated chain.
+#'
+#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#'
+#' @aliases initialize,dmbc_fit_list-method
+#' @aliases dmbc_fit_list-initialize
+#' 
+#' @importFrom methods initialize
+#' @exportMethod initialize
+setMethod("initialize", "dmbc_fit_list",
+  function(
+    .Object,
+    results = list()
+  )
+  {
+    .Object@results <- results
+    .Object
+  }
+)
+
 #' Show an instance of the \code{dmbc_fit_list} class.
 #'
 #' @param object An object of class \code{\link{dmbc_fit_list}}.
