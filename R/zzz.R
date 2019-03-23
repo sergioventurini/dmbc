@@ -7,7 +7,7 @@
   # needed to avoid annoying notes in R CMD CHECK
   # (see https://github.com/tidyverse/magrittr/issues/29)
   if (getRversion() >= "2.15.1") {
-    utils::globalVariables(c(".", "J", "cl", "italic", "lbl", "p_i", "p_j"))
+    utils::globalVariables(c(".", "S", "cl", "italic", "lbl", "p_i", "p_j"))
   }
   .dmbcEnv$path.to.me <- tools::file_path_as_absolute(lib)
   .dmbcEnv$nlog.double.eps <- -log(.Machine[["double.eps"]])
