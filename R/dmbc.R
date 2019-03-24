@@ -136,18 +136,19 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
       control.c[["verbose"]] <- FALSE
       # cat("Starting cluster node", c, "on local machine\n")
       start.c <- dmbc_init(D = D.c, p = p.c, G = G.c, family = family.c, random.start = control.c[["random.start"]])
-      if (is.null(prior.c)) {
-        prior.c <- dmbc_prior()
-      } else {
-        prior.c <- check_list_na(prior.c, dmbc_prior())
-      }
-      if (!check_prior(prior.c))
-        stop("the prior hyperparameter list is not correct; see the documentation for more details.")
       dmbc_fit(D = D.c, p = p.c, G = G.c, family = family.c, control = control.c, prior = prior.c, start = start.c)
     }
-    environment(dmbc_fit_parallel) <- .GlobalEnv # this prevents passing objects other than those needed for
-                                                 # evaluating the dmbc_fit_parallel function (maybe it is not strictly
-                                                 # needed)
+    # environment(dmbc_fit_parallel) <- .GlobalEnv # this prevents passing objects other than those needed for
+    #                                              # evaluating the dmbc_fit_parallel function
+
+    if (is.null(prior)) {
+      prior <- dmbc_prior()
+    } else {
+      prior <- check_list_na(prior, dmbc_prior())
+    }
+    if (!check_prior(prior)) {
+      stop("the prior hyperparameter list is not correct; see the documentation for more details.")
+    }
 
     if (verbose) {
       devout <- ""
@@ -320,13 +321,13 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
     }
 
     for (ch in 1:nchains) {
-      res[[ch]]@z.chain.p <- z.chain.p[(niter*(ch - 1) + 1):(niter*ch), , , ]
-      res[[ch]]@alpha.chain <- alpha.chain[(niter*(ch - 1) + 1):(niter*ch), ]
-      res[[ch]]@eta.chain <- eta.chain[(niter*(ch - 1) + 1):(niter*ch), ]
-      res[[ch]]@sigma2.chain <- sigma2.chain[(niter*(ch - 1) + 1):(niter*ch), ]
-      res[[ch]]@lambda.chain <- lambda.chain[(niter*(ch - 1) + 1):(niter*ch), ]
-      res[[ch]]@prob.chain <- prob.chain[(niter*(ch - 1) + 1):(niter*ch), , ]
-      res[[ch]]@x.ind.chain <- x.ind.chain[(niter*(ch - 1) + 1):(niter*ch), , ]
+      res[[ch]]@z.chain.p <- z.chain.p[(niter*(ch - 1) + 1):(niter*ch), , , , drop = FALSE]
+      res[[ch]]@alpha.chain <- alpha.chain[(niter*(ch - 1) + 1):(niter*ch), , drop = FALSE]
+      res[[ch]]@eta.chain <- eta.chain[(niter*(ch - 1) + 1):(niter*ch), , drop = FALSE]
+      res[[ch]]@sigma2.chain <- sigma2.chain[(niter*(ch - 1) + 1):(niter*ch), , drop = FALSE]
+      res[[ch]]@lambda.chain <- lambda.chain[(niter*(ch - 1) + 1):(niter*ch), , drop = FALSE]
+      res[[ch]]@prob.chain <- prob.chain[(niter*(ch - 1) + 1):(niter*ch), , , drop = FALSE]
+      res[[ch]]@x.ind.chain <- x.ind.chain[(niter*(ch - 1) + 1):(niter*ch), , , drop = FALSE]
     }
   }
 

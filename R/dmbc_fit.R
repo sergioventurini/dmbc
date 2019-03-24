@@ -131,8 +131,9 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 
 	## Procrustes transformation of Z_g
 	if (control[["verbose"]]) cat("   - applying Procrustes transformation...\n")
-  if (control[["verbose"]])
+  if (control[["verbose"]]) {
     pb <- dmbc_pb(min = 0, max = (totiter*G - 1), width = 49)
+  }
   no <- 0
 	for (niter in 1:totiter) {
 		for (g in 1:G) {

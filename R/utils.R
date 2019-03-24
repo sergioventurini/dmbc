@@ -145,6 +145,7 @@ dmbc_pb <- function(min = 0, max = 1, initial = 0, char = "=", width = 49, skip 
   empty_string <- strrep(" ", skip)
   cat(empty_string, "0%   10   20   30   40   50   60   70   80   90   100%\n", sep = "");
   cat(empty_string, "[----|----|----|----|----|----|----|----|----|----]\n", sep = "");
+  utils::flush.console()
   up3 <- function(value) {
     if (!is.finite(value) || value < min || value > max) 
       return()

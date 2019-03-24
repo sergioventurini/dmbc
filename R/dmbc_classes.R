@@ -1764,8 +1764,8 @@ setMethod("plot",
 
     if (p <= 2) {
       if (p == 1) {
-        min_val <- min(data[, 1:(ncol(data) - ifelse(length(x@labels), 3, 2))])*1.15
-        max_val <- max(data[, 1:(ncol(data) - ifelse(length(x@labels), 3, 2))])*1.15
+        min_val <- min(data[, 1:(ncol(data) - 3)])*1.15
+        max_val <- max(data[, 1:(ncol(data) - 3)])*1.15
         graph <- graph +
           ggplot2::geom_segment(ggplot2::aes(x = min_val, y = min_val, xend = max_val, yend = max_val),
             arrow = ggplot2::arrow(angle = 45, length = ggplot2::unit(0.05, "npc"), type = "open"), size = .5)
