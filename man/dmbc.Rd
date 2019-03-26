@@ -5,7 +5,7 @@
 \title{Estimation of a DMBC model.}
 \usage{
 dmbc(data, p = 2, G = 3, control = dmbc_control(), prior = NULL,
-  cl = NULL)
+  cl = NULL, post_all = FALSE)
 }
 \arguments{
 \item{data}{An object of class \code{dmbc_data} containing the data
@@ -27,6 +27,9 @@ but do not affect the posterior distribution See
 \item{cl}{An optional \pkg{parallel} or \pkg{snow} cluster for use if
 \code{parallel = "snow"}. If not supplied, a cluster on the local machine
 is created for the duration of the \code{dmbc()} call.}
+
+\item{post_all}{A length-one logical vector, which if TRUE applies a further
+post-processing to the simulated chains (in case these are more than one).}
 }
 \value{
 A \code{dmbc_fit_list} object.

@@ -17,6 +17,8 @@
 #' @param cl An optional \pkg{parallel} or \pkg{snow} cluster for use if
 #'   \code{parallel = "snow"}. If not supplied, a cluster on the local machine
 #'   is created for the duration of the \code{dmbc()} call.
+#' @param post_all A length-one logical vector, which if TRUE applies a further
+#'   post-processing to the simulated chains (in case these are more than one).
 #' @return A \code{dmbc_fit_list} object.
 #' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
 #' @seealso \code{\link{bmds}} for Bayesian (metric) multidimensional scaling.
@@ -64,7 +66,7 @@
 #'
 #' @importFrom abind abind
 #' @export
-dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl = NULL) {
+dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl = NULL, post_all = FALSE) {
   D <- data@diss
 
   if (any(sapply(D, class) != "dist"))
@@ -223,7 +225,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
   }
 
   # final post-processing of all chains:
-  if (nchains > 1) {
+  if (nchains > 1 && post_all) {
     z.chain <- res[[1]]@z.chain
     z.chain.p <- res[[1]]@z.chain.p
     alpha.chain <- res[[1]]@alpha.chain
