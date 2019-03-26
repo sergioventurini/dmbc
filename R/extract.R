@@ -47,7 +47,7 @@
 #' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 #'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
 #'   nchains = 2, thin = 10, store.burnin = TRUE, threads = 2,
-#'   parallel = "multicore")
+#'   parallel = "snow")
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_postmean(sim.dmbc, chain = 1)
@@ -142,7 +142,7 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 #'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
 #'   nchains = 2, thin = 10, store.burnin = TRUE, threads = 2,
-#'   parallel = "multicore")
+#'   parallel = "snow")
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_postmedian(sim.dmbc, chain = 1)
@@ -239,7 +239,7 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 #'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
 #'   nchains = 2, thin = 10, store.burnin = TRUE, threads = 2,
-#'   parallel = "multicore")
+#'   parallel = "snow")
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_ml(sim.dmbc, chain = 1)
@@ -337,7 +337,7 @@ dmbc_get_ml <- function(res, chain = 1) {
 #' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 #'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
 #'   nchains = 2, thin = 10, store.burnin = TRUE, threads = 2,
-#'   parallel = "multicore")
+#'   parallel = "snow")
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_map(sim.dmbc, chain = 1)
@@ -423,7 +423,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 #'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
 #'   nchains = 2, thin = 10, store.burnin = TRUE, threads = 2,
-#'   parallel = "multicore")
+#'   parallel = "snow")
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' z <- dmbc_get_configuration(sim.dmbc, chain = 1, est = "mean")
@@ -470,6 +470,9 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
     map = dmbc_get_map(res, chain = chain))
   Z.est <- res.est$z
   Z.sd <- apply(res_chain@z.chain.p[tokeep, , , , drop = FALSE], c(2, 3, 4), sd, na.rm = TRUE)
+  dimnames(Z.est)[[1]] <- dimnames(Z.sd)[[1]] <- if (length(labels)) labels else paste0("i = ", 1:dim(Z.est)[1])
+  dimnames(Z.est)[[2]] <- dimnames(Z.sd)[[2]] <- paste0("p_", 1:dim(Z.est)[2])
+  dimnames(Z.est)[[3]] <- dimnames(Z.sd)[[3]] <- paste0("g = ", 1:dim(Z.est)[3])
   cl <- res.est$cluster
 
   out <- new("dmbc_config",
@@ -486,4 +489,194 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
     labels = labels)
 
   return(out)
+}
+
+#' Auxiliary function for checking the grouping results of a fitted DMBC model.
+#'
+#' \code{dmbc_check_groups()} is an auxiliary function for checking whether
+#'   the cluster membership estimates provided by the individual chains of the
+#'   fitted model provided agree or not.
+#'
+#' @param res An object of class \code{dmbc_fit_list}.
+#' @param est A length-one character vector indicating the estimate type to use.
+#'
+#' @return A length-one logical vector, which is equal to TRUE if all simulated chains
+#'   provide the same cluster membership estimates, and FALSE otherwise.
+#'
+#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#'
+#' @seealso \code{\link{dmbc_get_configuration}()} for a description of the
+#'   configuration extractor function.
+#' @seealso \code{\link{dmbc_fit_list}} for a description of a fitted
+#'   DMBC model.
+#'
+#' @references
+#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
+#'   Package in \code{R}", Technical report.
+#'
+#' @examples
+#' data(simdiss, package = "dmbc")
+#'
+#' G <- 3
+#' p <- 2
+#' prm.prop <- list(z = 1.5, alpha = .75)
+#' burnin <- 2000
+#' nsim <- 1000
+#' seed <- 2301
+#'
+#' set.seed(seed)
+#'
+#' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
+#'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
+#'   nchains = 2, thin = 10, store.burnin = TRUE, threads = 2,
+#'   parallel = "snow")
+#' sim.dmbc <- dmbc(simdiss, p, G, control)
+#'
+#' dmbc_check_groups(sim.dmbc)
+#' 
+#' @importFrom stats chisq.test
+#' @export
+dmbc_check_groups <- function(res, est = "mean") {
+  consistent <- TRUE
+  control <- res@results[[1]]@control
+  dims <- res@results[[1]]@dim
+  nchains <- control$nchains
+  S <- dims[["S"]]
+  G <- dims[["G"]]
+  cluster <- matrix(NA, nrow = S, ncol = nchains)
+  cluster_tbl <- array(NA, dim = c(G, G, nchains*(nchains - 1)/2))
+  cluster_chk <- logical(nchains*(nchains - 1)/2)
+  cluster_count <- 1
+
+  ow <- options("warn")
+  options(warn = -1) # suppress all warnings
+
+  if (nchains > 1) {
+    for (ch in 1:nchains) {
+      cluster[, ch] <- dmbc_get_configuration(res, est = est)@cluster
+    }
+    for (i in 1:(nchains - 1)) {
+      for (j in (i + 1):nchains) {
+        cluster_tbl[, , cluster_count] <- table(factor(cluster[, i], levels = 1:G),
+                                                factor(cluster[, j], levels = 1:G))
+        cluster_chk[cluster_count] <- all.equal(stats::chisq.test(cluster_tbl[, , cluster_count])$statistic,
+          S*(G - 1), check.attributes = FALSE)
+        cluster_count <- cluster_count + 1
+      }
+    }
+    if (!all(cluster_chk)) consistent <- FALSE
+  }
+
+  options(ow) # reset to previous, typically 'warn = 0'
+  
+  return(consistent)
+}
+
+#' Auxiliary function for realigning the grouping of a fitted DMBC model.
+#'
+#' \code{dmbc_match_groups()} is an auxiliary function for realigning the
+#'   cluster membership estimates provided by the individual chains of the
+#'   fitted model if they do not agree.
+#'
+#' @param res An object of class \code{dmbc_fit_list}.
+#' @param est A length-one character vector indicating the estimate type to use.
+#' @param ref A length-one numeric vector indicating the chain number to use as
+#'   the reference.
+#'
+#' @return An object of class \code{dmbc_fit_list}.
+#'
+#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#'
+#' @seealso \code{\link{dmbc_check_groups}()} for checking the consistency
+#'   of the cluster memberships across chains for a fitted DMBC model.
+#' @seealso \code{\link{dmbc_get_configuration}()} for a description of the
+#'   configuration extractor function.
+#' @seealso \code{\link{dmbc_fit_list}} for a description of a fitted
+#'   DMBC model.
+#'
+#' @references
+#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
+#'   Package in \code{R}", Technical report.
+#'
+#' @examples
+#' data(simdiss, package = "dmbc")
+#'
+#' G <- 5
+#' p <- 3
+#' prm.prop <- list(z = 4, alpha = 2)
+#' burnin <- 2000
+#' nsim <- 1000
+#' seed <- 2301
+#'
+#' set.seed(seed)
+#'
+#' control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
+#'   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
+#'   nchains = 6, store.burnin = TRUE, threads = 6, parallel = "snow")
+#' sim.dmbc <- dmbc(simdiss, p, G, control)
+#'
+#' sim.dmbc_new <- dmbc_match_groups(sim.dmbc)
+#' 
+#' @importFrom stats chisq.test
+#' @export
+dmbc_match_groups <- function(res, est = "mean", ref = 1) {
+  control <- res@results[[1]]@control
+  dims <- res@results[[1]]@dim
+  nchains <- control$nchains
+  S <- dims[["S"]]
+  G <- dims[["G"]]
+  cluster <- matrix(NA, nrow = S, ncol = nchains)
+  cluster_tbl <- array(NA, dim = c(G, G, nchains))
+
+  ow <- options("warn")
+  options(warn = -1) # suppress all warnings
+
+  if (nchains > 1) {
+    for (ch in 1:nchains) {
+      cluster[, ch] <- dmbc_get_configuration(res, est = est)@cluster
+    }
+    for (i in (1:nchains)[-ref]) {
+      cluster_tbl[, , i] <- table(factor(cluster[, i], levels = 1:G),
+                                  factor(cluster[, ref], levels = 1:G))
+      chisq <- stats::chisq.test(cluster_tbl[, , i])$statistic
+      if (is.nan(chisq)) {
+        # [[TODO: the following condition is not general enough]]
+        cluster_chk <- all(sort(margin.table(cluster_tbl[, , i], 1)) == 
+          sort(margin.table(cluster_tbl[, , i], 2)))
+      } else {
+        cluster_chk <- all.equal(chisq, S*(G - 1), check.attributes = FALSE)
+      }
+      if (!cluster_chk) {
+        warning("the cluster memberships of some chains do not fully agree.")
+        options(ow) # reset to previous, typically 'warn = 0'
+        return(res)
+      } else {
+        if (sum(diag(cluster_tbl[, , i])) != S) {
+          new_cluster <- apply(cluster_tbl[, , i], 2, which.max)
+          res@results[[i]]@z.chain <- res@results[[i]]@z.chain[, , , new_cluster]
+          res@results[[i]]@z.chain.p <- res@results[[i]]@z.chain.p[, , , new_cluster]
+          res@results[[i]]@alpha.chain <- res@results[[i]]@alpha.chain[, new_cluster]
+          res@results[[i]]@eta.chain <- res@results[[i]]@eta.chain[, new_cluster]
+          res@results[[i]]@sigma2.chain <- res@results[[i]]@sigma2.chain[, new_cluster]
+          res@results[[i]]@lambda.chain <- res@results[[i]]@lambda.chain[, new_cluster]
+          res@results[[i]]@prob.chain <- res@results[[i]]@prob.chain[, , new_cluster]
+          for (it in 1:dim(res@results[[i]]@x.chain)[1]) {
+            x <- x_tmp <- res@results[[i]]@x.chain[it, ]
+            for (g in 1:G) {
+              x <- replace(x, x_tmp == g, new_cluster[g])
+            }
+            res@results[[i]]@x.chain[it, ] <- x
+          }
+          res@results[[i]]@x.ind.chain <- res@results[[i]]@x.ind.chain[, , new_cluster]
+          res@results[[i]]@accept <- res@results[[i]]@accept[, new_cluster]
+        }
+      }
+    }
+  }
+
+  options(ow) # reset to previous, typically 'warn = 0'
+
+  return(res)
 }

@@ -1714,7 +1714,8 @@ setMethod("summary",
         dash_string_L <- strrep("-", floor((wd - nchar(paste0("Cluster ", object@G)) - 2)/2))
         dash_string_R <- strrep("-", floor((wd - nchar(paste0("Cluster ", object@G)) - 2)/2) - nchar(g) + 1)
         cat(dash_string_L, " ", "Cluster ", g, " ", dash_string_R, "\n", sep = "")
-        print_matrix(as.matrix(object@Z.est[, , g]), paste0("n = ", 1:object@n),
+        print_matrix(as.matrix(object@Z.est[, , g]),
+          if (length(object@labels)) object@labels else paste0("i = ", 1:dim(Z.est)[1]),
           paste0("Dimension ", 1:object@p), colwidth = 11, ndigits = 4)
       }
     }
