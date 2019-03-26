@@ -655,13 +655,13 @@ dmbc_match_groups <- function(res, est = "mean", ref = 1) {
       } else {
         if (sum(diag(cluster_tbl[, , i])) != S) {
           new_cluster <- apply(cluster_tbl[, , i], 2, which.max)
-          res@results[[i]]@z.chain <- res@results[[i]]@z.chain[, , , new_cluster]
-          res@results[[i]]@z.chain.p <- res@results[[i]]@z.chain.p[, , , new_cluster]
-          res@results[[i]]@alpha.chain <- res@results[[i]]@alpha.chain[, new_cluster]
-          res@results[[i]]@eta.chain <- res@results[[i]]@eta.chain[, new_cluster]
-          res@results[[i]]@sigma2.chain <- res@results[[i]]@sigma2.chain[, new_cluster]
-          res@results[[i]]@lambda.chain <- res@results[[i]]@lambda.chain[, new_cluster]
-          res@results[[i]]@prob.chain <- res@results[[i]]@prob.chain[, , new_cluster]
+          res@results[[i]]@z.chain <- res@results[[i]]@z.chain[, , , new_cluster, drop = FALSE]
+          res@results[[i]]@z.chain.p <- res@results[[i]]@z.chain.p[, , , new_cluster, drop = FALSE]
+          res@results[[i]]@alpha.chain <- res@results[[i]]@alpha.chain[, new_cluster, drop = FALSE]
+          res@results[[i]]@eta.chain <- res@results[[i]]@eta.chain[, new_cluster, drop = FALSE]
+          res@results[[i]]@sigma2.chain <- res@results[[i]]@sigma2.chain[, new_cluster, drop = FALSE]
+          res@results[[i]]@lambda.chain <- res@results[[i]]@lambda.chain[, new_cluster, drop = FALSE]
+          res@results[[i]]@prob.chain <- res@results[[i]]@prob.chain[, , new_cluster, drop = FALSE]
           for (it in 1:dim(res@results[[i]]@x.chain)[1]) {
             x <- x_tmp <- res@results[[i]]@x.chain[it, ]
             for (g in 1:G) {
@@ -669,8 +669,8 @@ dmbc_match_groups <- function(res, est = "mean", ref = 1) {
             }
             res@results[[i]]@x.chain[it, ] <- x
           }
-          res@results[[i]]@x.ind.chain <- res@results[[i]]@x.ind.chain[, , new_cluster]
-          res@results[[i]]@accept <- res@results[[i]]@accept[, new_cluster]
+          res@results[[i]]@x.ind.chain <- res@results[[i]]@x.ind.chain[, , new_cluster, drop = FALSE]
+          res@results[[i]]@accept <- res@results[[i]]@accept[, new_cluster, drop = FALSE]
         }
       }
     }
