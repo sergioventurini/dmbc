@@ -36,7 +36,7 @@ set.seed(seed)
 
 control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
-  nchains = 6, store.burnin = TRUE, threads = 6, parallel = "snow")
+  nchains = 6, store.burnin = TRUE, threads = 2, parallel = "snow")
 sim.dmbc <- dmbc(simdiss, p, G, control)
 
 sim.dmbc_new <- dmbc_match_groups(sim.dmbc)
