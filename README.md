@@ -4,7 +4,7 @@
 
 ## Overview
 
-###### Current release: 0.2.2
+###### Current release: 0.2.3
 ###### R version required: at least 3.5.0
 `R` package for Bayesian model-based clustering of several dissimilarity
 matrices.
