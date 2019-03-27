@@ -1729,7 +1729,7 @@ setMethod("summary",
 #' @param size_lbl A length-one numeric vector providing the size of labels.
 #' @param adjust A length-one numeric vector providing the optional horizontal
 #'   and vertical adjustment to nudge labels by.
-#' @param label_object A length-one logical vector. If \code{TRUE}, labels are
+#' @param label_objects A length-one logical vector. If \code{TRUE}, labels are
 #'   added to the plot.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
@@ -1741,7 +1741,7 @@ setMethod("summary",
 #' @exportMethod plot
 setMethod("plot",
   signature(x = "dmbc_config"),
-  function(x, size = NULL, size_lbl = NULL, adjust = 0.05, label_object = TRUE, ...) {
+  function(x, size = NULL, size_lbl = NULL, adjust = 0.05, label_objects = TRUE, ...) {
     n <- x@n
     p <- x@p
     G <- x@G
@@ -1762,14 +1762,18 @@ setMethod("plot",
     mapping <- ggplot2::aes_(x = ~ p_1, y = ~ p_2, color = ~ G)
     graph <- ggplot2::ggplot(data, mapping) + bayesplot::bayesplot_theme_get()
     graph <- graph + ggplot2::geom_point(size = geom_args$size)
-
+ 
     if (p <= 2) {
       if (p == 1) {
-        min_val <- min(data[, 1:(ncol(data) - 3)])*1.15
-        max_val <- max(data[, 1:(ncol(data) - 3)])*1.15
-        # graph <- graph +
-        #   ggplot2::geom_segment(ggplot2::aes(x = min_val, y = min_val, xend = max_val, yend = max_val),
-        #     arrow = ggplot2::arrow(angle = 45, length = ggplot2::unit(0.05, "npc"), type = "open"), size = .5)
+        min_val <- tapply(data[, 1], data$G, min, na.rm = TRUE)*1.15
+        max_val <- tapply(data[, 1], data$G, max, na.rm = TRUE)*1.15
+        lbl_cl <- unique(data$cl)
+        lbl_data <- data.frame(min_val = min_val, max_val = max_val, G = factor(1:G, levels = 1:G),
+          cl = lbl_cl)
+        graph <- graph +
+          ggplot2::geom_segment(data = lbl_data,
+            mapping = ggplot2::aes_(x = ~ min_val, y = ~ min_val, xend = ~ max_val, yend = ~ max_val),
+            arrow = ggplot2::arrow(angle = 45, length = ggplot2::unit(0.05, "npc"), type = "open"), size = .5)
       }
       graph <- graph + ggplot2::facet_wrap(~ G + cl,
         labeller = ggplot2::label_bquote(cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl))),
@@ -1782,16 +1786,10 @@ setMethod("plot",
         scales = "free")
     }
 
-    if (label_object) {
-      if (p == 1) {
-        nx <- -diff(range(data$p_1))*adjust
-        ny <- diff(range(data$p_2))*.03
-      } else {
-        nx <- diff(range(data$p_1))*adjust
-        ny <- diff(range(data$p_2))*adjust
-      }
-      graph <- graph + ggplot2::geom_text(ggplot2::aes(label = lbl), size = geom_args$size_lbl,
-        nudge_x = nx, nudge_y = ny)
+    if (label_objects) {
+      graph <- graph +
+        ggrepel::geom_text_repel(ggplot2::aes(label = lbl), size = geom_args$size_lbl,
+          segment.size = .25, nudge_y = 1)
     }
 
     graph <- graph +

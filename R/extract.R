@@ -432,7 +432,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #' library(bayesplot)
 #' library(ggplot2)
 #' color_scheme_set("mix-pink-blue")
-#' graph <- plot(z, size = 2, size_lbl = 3, label_object = TRUE, adjust = .1)
+#' graph <- plot(z, size = 2, size_lbl = 3, label_objects = TRUE, adjust = .1)
 #' graph <- graph + panel_bg(fill = "gray90", color = NA)
 #' graph + geom_text(aes(label = lbl), nudge_x = .75, nudge_y = 0, size = 3)
 #' @export
