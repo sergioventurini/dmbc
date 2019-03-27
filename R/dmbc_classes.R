@@ -1767,17 +1767,19 @@ setMethod("plot",
       if (p == 1) {
         min_val <- min(data[, 1:(ncol(data) - 3)])*1.15
         max_val <- max(data[, 1:(ncol(data) - 3)])*1.15
-        graph <- graph +
-          ggplot2::geom_segment(ggplot2::aes(x = min_val, y = min_val, xend = max_val, yend = max_val),
-            arrow = ggplot2::arrow(angle = 45, length = ggplot2::unit(0.05, "npc"), type = "open"), size = .5)
+        # graph <- graph +
+        #   ggplot2::geom_segment(ggplot2::aes(x = min_val, y = min_val, xend = max_val, yend = max_val),
+        #     arrow = ggplot2::arrow(angle = 45, length = ggplot2::unit(0.05, "npc"), type = "open"), size = .5)
       }
       graph <- graph + ggplot2::facet_wrap(~ G + cl,
-        labeller = ggplot2::label_bquote(cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl))))
+        labeller = ggplot2::label_bquote(cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl))),
+        scales = "free")
     } else {
       graph <- graph + ggplot2::facet_grid(p_vs + p_i + p_j ~ G + cl,
         labeller = ggplot2::label_bquote(
                     cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl)),
-                    rows = paste(italic(p)[.(p_j)], " vs. ", italic(p)[.(p_i)])))
+                    rows = paste(italic(p)[.(p_j)], " vs. ", italic(p)[.(p_i)])),
+        scales = "free")
     }
 
     if (label_object) {
