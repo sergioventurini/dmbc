@@ -1690,6 +1690,17 @@ setMethod("show",
       rownames(cl_sizes) <- paste0("Cluster ", levels(cl))
       colnames(cl_sizes) <- "Size"
       print_matrix(cl_sizes, rownames(cl_sizes), colnames(cl_sizes), ndigits = 0, colwidth = 6, isint = TRUE)
+      cat("Subjects assigned to each cluster:\n")
+      for (g in 1:object@G) {
+        subj_clg <- which(object@cluster == g)
+        subj_str <- subj_clg[1]
+        if (length(subj_clg) > 1) {
+          for (h in 2:length(subj_clg)) {
+            subj_str <- paste0(subj_str, ", ", subj_clg[h])
+          }
+        }
+        cat("Cluster", g, ": ", subj_str, "\n", sep = "")
+      }
     }
 )
 
@@ -1727,8 +1738,10 @@ setMethod("summary",
 #' @param size A length-two numeric vector providing the optional sizes of
 #'   points and lines in the plot.
 #' @param size_lbl A length-one numeric vector providing the size of labels.
-#' @param adjust A length-one numeric vector providing the optional horizontal
-#'   and vertical adjustment to nudge labels by.
+#' @param nudge_x A length-one numeric vector providing the optional horizontal
+#'   adjustment to nudge labels by.
+#' @param nudge_y A length-one numeric vector providing the optional vertical
+#'   adjustment to nudge labels by.
 #' @param label_objects A length-one logical vector. If \code{TRUE}, labels are
 #'   added to the plot.
 #' @param ... Further arguments to pass on (currently ignored).
@@ -1741,7 +1754,7 @@ setMethod("summary",
 #' @exportMethod plot
 setMethod("plot",
   signature(x = "dmbc_config"),
-  function(x, size = NULL, size_lbl = NULL, adjust = 0.05, label_objects = TRUE, ...) {
+  function(x, size = NULL, size_lbl = NULL, nudge_x = 0, nudge_y = 0, label_objects = TRUE, ...) {
     n <- x@n
     p <- x@p
     G <- x@G
@@ -1789,7 +1802,7 @@ setMethod("plot",
     if (label_objects) {
       graph <- graph +
         ggrepel::geom_text_repel(ggplot2::aes(label = lbl), size = geom_args$size_lbl,
-          segment.size = .25, nudge_y = 1)
+          segment.size = .25, nudge_x = nudge_x, nudge_y = nudge_y)
     }
 
     graph <- graph +

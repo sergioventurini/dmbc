@@ -6,7 +6,7 @@
 \title{Provide a graphical summary of a \code{dmbc_config} class instance.}
 \usage{
 \S4method{plot}{dmbc_config}(x, size = NULL, size_lbl = NULL,
-  adjust = 0.05, label_objects = TRUE, ...)
+  nudge_x = 0, nudge_y = 0, label_objects = TRUE, ...)
 }
 \arguments{
 \item{x}{An object of class \code{\link{dmbc_config}}.}
@@ -16,8 +16,11 @@ points and lines in the plot.}
 
 \item{size_lbl}{A length-one numeric vector providing the size of labels.}
 
-\item{adjust}{A length-one numeric vector providing the optional horizontal
-and vertical adjustment to nudge labels by.}
+\item{nudge_x}{A length-one numeric vector providing the optional horizontal
+adjustment to nudge labels by.}
+
+\item{nudge_y}{A length-one numeric vector providing the optional vertical
+adjustment to nudge labels by.}
 
 \item{label_objects}{A length-one logical vector. If \code{TRUE}, labels are
 added to the plot.}
