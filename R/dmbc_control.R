@@ -39,6 +39,8 @@
 #'   burnin are also stored and returned.
 #' @param verbose A logical scalar. If \code{TRUE}, causes information to be
 #'   printed out about the progress of the fitting.
+#' @param post.proc A logical scalar. If \code{TRUE}, performs post-processing
+#'   after the model has been fitted.
 #' @param control A list of control options.
 #' @return A named list with the control options as components.
 #' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
@@ -64,7 +66,8 @@ dmbc_control <- function(nsim = 5000,
                          alpha.prop = 0.75,
                          random.start = TRUE,
                          store.burnin = TRUE,
-                         verbose = FALSE){
+                         verbose = FALSE,
+                         post.proc = TRUE){
   control <- list()
   for (arg in names(formals(sys.function())))
     control[[arg]] <- get(arg)
@@ -131,6 +134,10 @@ check_control <- function(control) {
     return(control_ok)
   }
   if (!is.logical(control[["verbose"]])) {
+    control_ok <- FALSE
+    return(control_ok)
+  }
+  if (!is.logical(control[["post.proc"]])) {
     control_ok <- FALSE
     return(control_ok)
   }

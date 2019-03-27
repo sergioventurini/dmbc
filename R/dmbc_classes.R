@@ -154,7 +154,7 @@ setMethod("plot",
   function(x, colors = c("white", "black"), font = NA, cex.font = NA, ...) {
     if (x@family == "binomial") {
       plot_dmbc_data <- function(ncat, colors, crit, INPUT, MD_SOL, MD_DIM,
-        xlab1 = "", ylab1 = "", labxaxis = "", labyaxis = "") {
+        labxaxis = "", labyaxis = "") {
         nsat <- length((1:nrow(INPUT))[crit])
         if (nsat < 2) {
           a <- matrix(0, ncol = ncol(INPUT), nrow = 1)
@@ -168,10 +168,10 @@ setMethod("plot",
         graphics::box()
         graphics::axis(side = 1, tck = -.03, labels = NA)
         graphics::axis(side = 2, tck = -.03, labels = NA)
-        graphics::axis(side = 1, lwd = 0, line = -.9, cex.axis = 0.8)
-        graphics::axis(side = 2, lwd = 0, line = -.6, las = 1, cex.axis = 0.8)
-        graphics::mtext(side = 1, labxaxis, line = 2, cex = 0.8)
-        graphics::mtext(side = 2, labyaxis, line = 2.5, cex = 0.8)
+        graphics::axis(side = 1, lwd = 0, line = -.9, cex.axis = 0.6)
+        graphics::axis(side = 2, lwd = 0, line = -.6, las = 1, cex.axis = 0.6)
+        graphics::mtext(side = 1, labxaxis, line = 2, cex = 0.6)
+        graphics::mtext(side = 2, labyaxis, line = 2.5, cex = 0.6)
       }
 
       D <- x@diss
@@ -181,7 +181,7 @@ setMethod("plot",
       nr <- floor(sqrt(S))
       nc <- S %/% nr
       nr <- ifelse(S %% nr, nr + 1, nr)
-      graphics::par(mfrow = c(nr, nc), mar = c(1, 1.5, 1.5, 1), oma = c(1, 0, 0, 0))
+      graphics::par(mfrow = c(nr, nc), mar = c(1, .75, .75, .5) + 0.1, oma = c(1, 0, 0, 0))
       for(s in 1:S) {
         use <- as.matrix(D[[s]]) + 1
         plot_dmbc_data(2, col_bn, use[, 1] > 0, use, as.matrix((1:nrow(use))), 1)

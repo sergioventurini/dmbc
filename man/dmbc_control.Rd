@@ -9,12 +9,12 @@
 dmbc_control(nsim = 5000, burnin = 10000, thin = 1, nchains = 1,
   threads = 1, seed = NULL, parallel = "no", z.prop = 1.5,
   alpha.prop = 0.75, random.start = TRUE, store.burnin = TRUE,
-  verbose = FALSE)
+  verbose = FALSE, post.proc = TRUE)
 
 control_dmbc(nsim = 5000, burnin = 10000, thin = 1, nchains = 1,
   threads = 1, seed = NULL, parallel = "no", z.prop = 1.5,
   alpha.prop = 0.75, random.start = TRUE, store.burnin = TRUE,
-  verbose = FALSE)
+  verbose = FALSE, post.proc = TRUE)
 
 check_control(control)
 }
@@ -56,6 +56,9 @@ burnin are also stored and returned.}
 
 \item{verbose}{A logical scalar. If \code{TRUE}, causes information to be
 printed out about the progress of the fitting.}
+
+\item{post.proc}{A logical scalar. If \code{TRUE}, performs post-processing
+after the model has been fitted.}
 
 \item{control}{A list of control options.}
 }
