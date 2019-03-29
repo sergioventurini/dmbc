@@ -68,9 +68,8 @@ z <- dmbc_get_configuration(sim.dmbc, chain = 1, est = "mean",
   labels = 1:16)
 summary(z)
 color_scheme_set("mix-pink-blue")
-graph <- plot(z, size = 2, size_lbl = 3, label_objects = FALSE, adjust = .1)
+graph <- plot(z, size = 2, size_lbl = 3)
 graph + panel_bg(fill = "gray90", color = NA)
-graph + geom_text(aes(label = lbl), nudge_x = .75, nudge_y = 0, size = 3)
 }
 }
 \references{
