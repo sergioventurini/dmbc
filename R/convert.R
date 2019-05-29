@@ -116,7 +116,7 @@ dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
   return(out)
 }
 
-#' Conversion of an \code{dmbc_fit_list} object to a list.
+#' Conversion of an \code{dmbc_fit_list} object to a \code{list}.
 #' 
 #' \code{dmbc_fit_list_to_list} converts an object of class
 #'   \code{dmbc_fit_list} to a list of arrays including all the parameter.

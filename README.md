@@ -9,12 +9,21 @@
 `R` package for Bayesian model-based clustering of several dissimilarity
 matrices.
 
+## Installation
+
 Since the package requires some code to be compiled, you need a working C++
 compiler. To get it:
 
 - On Windows, install [Rtools](https://cran.r-project.org/bin/windows/Rtools/).
 - On Mac, install Xcode from the app store.
 - On Linux, `sudo apt-get install r-base-dev` or similar.
+
+Then, the easiest way to get the package is to install it from GitHub:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("sergioventurini/dmbc")
+```
 
 See the help pages of the `dmbc()` and `dmbc_IC()` functions for some examples
 or have a look at the demos in the package.

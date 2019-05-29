@@ -10,7 +10,7 @@
 #' @param G A length-one numeric vector indicating the number of cluster to
 #'   partition the \emph{S} subjects.
 #' @param control A list of control parameters that affect the sampling
-#'   but do not affect the posterior distribution See
+#'   but do not affect the posterior distribution. See
 #'   \code{\link{dmbc_control}()} for more details.
 #' @param prior A list containing the prior hyperparameters. See
 #'   \code{\link{dmbc_prior}()} for more details.

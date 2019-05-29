@@ -59,7 +59,7 @@ prior_dmbc <- dmbc_prior
 check_prior <- function(prior) {
   prior_ok <- TRUE
 
-  # check eta prior
+  # check prior list
   if (!is.list(prior)) {
     prior_ok <- FALSE
     return(prior_ok)
