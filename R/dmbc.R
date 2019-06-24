@@ -133,7 +133,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
   # perform MCMC simulation
   if (nchains > 1L && (have_mc || have_snow)) {
     dmbc_fit_parallel <- function(c, D.c, p.c, G.c, family.c, control.c, prior.c, lib) {
-      suppressPackageStartupMessages(require(dmbc, lib.loc = lib))
+      suppressMessages(require(dmbc, lib.loc = lib))
       control.c[["verbose"]] <- FALSE
       # cat("Starting cluster node", c, "on local machine\n")
       start.c <- dmbc_init(D = D.c, p = p.c, G = G.c, family = family.c, random.start = control.c[["random.start"]])

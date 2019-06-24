@@ -1,6 +1,11 @@
 # dmbc
 
+<!-- badges: start -->
+
 [![Travis build status](https://travis-ci.org/sergioventurini/dmbc.svg?branch=master)](https://travis-ci.org/sergioventurini/dmbc)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/dmbc)](https://cran.r-project.org/package=dmbc)
+<!-- badges: end -->
 
 ## Overview
 
