@@ -18,7 +18,7 @@ latent space.}
 partition the \emph{S} subjects.}
 
 \item{control}{A list of control parameters that affect the sampling
-but do not affect the posterior distribution See
+but do not affect the posterior distribution. See
 \code{\link{dmbc_control}()} for more details.}
 
 \item{prior}{A list containing the prior hyperparameters. See

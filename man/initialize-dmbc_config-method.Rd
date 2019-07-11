@@ -40,7 +40,7 @@ dimensions.}
 elements representing the parameter estimates corresponding to different
 values of \emph{p} and \emph{G}.}
 
-\item{chain}{A length-one numeric vector representing the number of
+\item{chain}{A length-one numeric vector representing the ID of
 the MCMC chain used to compute the estimates.}
 
 \item{labels}{A character vector for the (optional) strings to use

@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert.R
 \name{dmbc_fit_list_to_list}
 \alias{dmbc_fit_list_to_list}
-\title{Conversion of an \code{dmbc_fit_list} object to a list.}
+\title{Conversion of an \code{dmbc_fit_list} object to a \code{list}.}
 \usage{
 dmbc_fit_list_to_list(res, include.burnin = FALSE, verbose = TRUE)
 }

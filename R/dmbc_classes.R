@@ -1169,8 +1169,8 @@ setMethod("show",
       family <- object@res_last_p[[1]]@results[[1]]@model@family
 
       cat("Dissimilarity Model Based Clustering -- Model choice\n")
-      cat("Latent dimensions (p) included: from 1 to", pmax, "\n")
-      cat("Number of clusters (G) included: from 1 to", Gmax, "\n")
+      cat("Latent dimensions (p) requested: from 1 to", pmax, "\n")
+      cat("Number of clusters (G) requested: from 1 to", Gmax, "\n")
       cat("Family:", family, "\n")
       cat("Dissimilarity Model Based Clustering Information Criterion (DCIC):\n")
 
@@ -1557,7 +1557,7 @@ setMethod("update", "dmbc_ic",
 #' @slot family An object of class \code{list}; named list with
 #'   elements representing the parameter estimates corresponding to different
 #'   values of \emph{p} and \emph{G}.
-#' @slot chain A length-one numeric vector representing the number of
+#' @slot chain A length-one numeric vector representing the ID of
 #'   the MCMC chain used to compute the estimates.
 #' @slot labels A character vector for the (optional) strings to use
 #'   in the plots for labeling the objects.
@@ -1612,7 +1612,7 @@ setClass(Class = "dmbc_config",
 #' @param family An object of class \code{list}; named list with
 #'   elements representing the parameter estimates corresponding to different
 #'   values of \emph{p} and \emph{G}.
-#' @param chain A length-one numeric vector representing the number of
+#' @param chain A length-one numeric vector representing the ID of
 #'   the MCMC chain used to compute the estimates.
 #' @param labels A character vector for the (optional) strings to use
 #'   in the plots for labeling the objects.
@@ -1681,7 +1681,7 @@ setMethod("show",
       cat("Number of subjects (S):", object@S, "\n")
       cat("Number of clusters (G):", object@G, "\n")
       cat("Family:", object@family, "\n")
-      cat("Chain number used:", object@chain, "\n")
+      cat("Chain ID:", object@chain, "\n")
       cat("Estimate type:", est, "\n")
       cat("Cluster sizes:\n")
       cl <- factor(object@cluster, levels = 1:object@G)
