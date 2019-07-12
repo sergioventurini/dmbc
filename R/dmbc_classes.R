@@ -1284,7 +1284,8 @@ setMethod("plot",
         stop("the 'size' argument must be a numeric vector with two elements.")
       geom_args$size <- size
     }
-    mapping <- ggplot2::aes_(x = ~ G, y = ~ DCIC, color = ~ p, group = ~ p, shape = ~ p)
+    # mapping <- ggplot2::aes_(x = ~ G, y = ~ DCIC, color = ~ p, group = ~ p, shape = ~ p)
+    mapping <- ggplot2::aes(x = G, y = DCIC, color = p, group = p, shape = p)
     graph <- ggplot2::ggplot(data, mapping) + bayesplot::bayesplot_theme_get()
 
     graph <- graph + ggplot2::geom_point(size = geom_args$size[1]) +
