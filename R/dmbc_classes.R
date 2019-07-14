@@ -1782,6 +1782,10 @@ setMethod("plot",
         min_val <- tapply(data[, 1], data$G, min, na.rm = TRUE)*1.15
         max_val <- tapply(data[, 1], data$G, max, na.rm = TRUE)*1.15
         lbl_cl <- unique(data$cl)
+        lbl_cl_rep <- margin.table(table(data$G, data$cl), margin = 2)/n
+        if (any(lbl_cl_rep > 1)) {
+          lbl_cl <- rep(lbl_cl, lbl_cl_rep[match(lbl_cl, names(lbl_cl_rep))])
+        }
         lbl_data <- data.frame(min_val = min_val, max_val = max_val, G = factor(1:G, levels = 1:G),
           cl = lbl_cl)
         graph <- graph +
