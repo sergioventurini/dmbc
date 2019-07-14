@@ -1796,7 +1796,7 @@ setMethod("plot",
       graph <- graph + ggplot2::facet_grid(p_vs + p_i + p_j ~ G + cl,
         labeller = ggplot2::label_bquote(
                     cols = paste("Cluster ", .(G), ", ", italic(S)[.(G)], " = ", .(cl)),
-                    rows = paste(italic(p)[.(p_j)], " vs. ", italic(p)[.(p_i)])),
+                    rows = paste("Dimension ", .(p_j), " vs. ", "Dimension ", .(p_i))),
         scales = "free")
     }
 
