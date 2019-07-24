@@ -183,7 +183,7 @@ void dmbc_mcmc_binom(
       alpha[g] = alpha_old;
       alpha_chain[(niter - 1) + totiter*g] = alpha[g];
 
-      // // generate eta_g using its full conditional posterior distribution
+      // generate eta_g using its full conditional posterior distribution
       sum_z2 = 0;
       for(int j = 0; j < p; j++){
         for(int k = 0; k < n; k++){
