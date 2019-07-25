@@ -19,5 +19,5 @@ points and lines in the plot.}
 Provide a graphical summary of a \code{dmbc_ic} class instance.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }

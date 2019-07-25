@@ -27,7 +27,7 @@
 #'   contain a single numeric vector.
 #' @param prior A named list of prior hyperparameters.
 #' @return A list with the prior hyperparameters as components.
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #' @seealso \code{\link{dmbc}()}
 #' @keywords model based clustering
 #' @examples

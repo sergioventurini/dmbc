@@ -21,7 +21,7 @@
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
@@ -116,7 +116,7 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
@@ -213,7 +213,7 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
@@ -311,7 +311,7 @@ dmbc_get_ml <- function(res, chain = 1) {
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
@@ -397,7 +397,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #'
 #' @return A \code{\link{dmbc_config}} object.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
@@ -502,7 +502,7 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #' @return A length-one logical vector, which is equal to TRUE if all simulated chains
 #'   provide the same cluster membership estimates, and FALSE otherwise.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_get_configuration}()} for a description of the
 #'   configuration extractor function.
@@ -585,7 +585,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 #'
 #' @return An object of class \code{dmbc_fit_list}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc_check_groups}()} for checking the consistency
 #'   of the cluster memberships across chains for a fitted DMBC model.

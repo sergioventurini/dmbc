@@ -20,7 +20,7 @@
 #' @param post_all A length-one logical vector, which if TRUE applies a further
 #'   post-processing to the simulated chains (in case these are more than one).
 #' @return A \code{dmbc_fit_list} object.
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #' @seealso \code{\link{bmds}} for Bayesian (metric) multidimensional scaling.
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements

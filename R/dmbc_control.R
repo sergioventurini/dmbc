@@ -43,7 +43,7 @@
 #'   after the model has been fitted.
 #' @param control A list of control options.
 #' @return A named list with the control options as components.
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #' @seealso \code{\link{dmbc}()}
 #' @keywords model based clustering
 #' @examples

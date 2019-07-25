@@ -62,7 +62,7 @@
 #'  \item{\strong{General questions and help}:}{
 #'  To ask a question about \pkg{dmbc} send and email to:
 #'
-#'  \email{sergio.venturini@@unibocconi.it}.
+#'  \email{sergio.venturini@@gmail.com}.
 #' }
 #' }
 #'

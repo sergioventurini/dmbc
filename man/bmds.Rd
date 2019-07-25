@@ -169,5 +169,5 @@ Oh, M.-S., Raftery, A. E. (2001), "Bayesian Multidimensional Scaling and
 \code{\link{cmdscale}} for classical (metric) multidimensional scaling.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }

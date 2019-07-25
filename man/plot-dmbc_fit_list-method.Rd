@@ -40,5 +40,5 @@ burnin iterations (if available) are included in the summary.}
 Provide a graphical summary of a \code{dmbc_fit_list} class instance.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }

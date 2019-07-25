@@ -92,7 +92,7 @@ sim.fit <- dmbc(simdiss,
 \code{\link{dmbc}()}
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }
 \keyword{based}
 \keyword{clustering}

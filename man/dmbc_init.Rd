@@ -53,5 +53,5 @@ Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
 \code{\link{dmbc}()} for fitting a DMBC model.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }

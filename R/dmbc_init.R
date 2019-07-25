@@ -25,7 +25,7 @@
 #'     \item{\code{sigma2}: }{numeric vector of sigma2 starting values}
 #'     \item{\code{lambda}: }{numeric vector of lambda starting values}
 #'   }
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #' @seealso \code{\link{dmbc}()} for fitting a DMBC model.
 #' @references
 #'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based

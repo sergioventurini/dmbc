@@ -48,5 +48,5 @@ mcmc_trace(sim.list, regex_pars = "lambda")
   \code{\link{dmbc_fit_list-class}}.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }

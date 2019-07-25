@@ -37,5 +37,5 @@ plot(ssr, xlab = "number of dimensions", ylab = "SSR", type = "b")
   scaling.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unibocconi.it}
+Sergio Venturini \email{sergio.venturini@gmail.com}
 }

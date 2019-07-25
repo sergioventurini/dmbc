@@ -21,7 +21,7 @@
 #'
 #' @return A \code{dmbc_ic} object.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@unibocconi.it}
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
 #'
 #' @seealso \code{\link{dmbc}()} for fitting a DMBC model.
 #' @seealso \code{\link{dmbc_ic}} for a description of the elements included
