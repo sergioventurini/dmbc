@@ -5,10 +5,10 @@
 \alias{update,dmbc_ic-method}
 \title{Provide an update of a \code{dmbc_ic} class instance.}
 \usage{
-\S4method{update}{dmbc_ic}(x, pmax = NULL, Gmax = NULL, ...)
+\S4method{update}{dmbc_ic}(object, pmax = NULL, Gmax = NULL, ...)
 }
 \arguments{
-\item{x}{An object of class \code{\link{dmbc_ic}}.}
+\item{object}{An object of class \code{\link{dmbc_ic}}.}
 
 \item{pmax}{A length-one numeric vector indicating the maximum number of
 dimensions of the latent space to consider.}

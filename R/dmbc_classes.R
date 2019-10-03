@@ -569,7 +569,7 @@ setMethod("subset",
 #' @exportMethod plot
 setMethod("plot",
   signature(x = "dmbc_fit"),
-  function(x, what = character(), pars = character(), regex_pars = character(), include.burnin = FALSE,
+  function(x, what = "trace", pars = character(), regex_pars = "lambda", include.burnin = FALSE,
     combo = NULL, ...) {
     stopifnot(is.character(pars),
               is.character(regex_pars),
@@ -894,7 +894,7 @@ setMethod("subset",
 #' @exportMethod plot
 setMethod("plot",
 	signature(x = "dmbc_fit_list"),
-	function(x, what = character(), pars = character(), regex_pars = character(), include.burnin = FALSE,
+	function(x, what = "trace", pars = character(), regex_pars = "lambda", include.burnin = FALSE,
     combo = NULL, ...) {
     stopifnot(is.character(pars),
               is.character(regex_pars),
@@ -1304,18 +1304,9 @@ setMethod("plot",
 	}
 )
 
-#' Provide an update generic method for the dmbc package.
-#'
-#' @param x An object of class \code{\link{dmbc_ic}}.
-#' @param ... Further arguments to pass on (currently ignored).
-#'
-#' @importFrom stats update
-#' @export
-setGeneric("update", function(x, ...) standardGeneric("update"))
-
 #' Provide an update of a \code{dmbc_ic} class instance.
 #'
-#' @param x An object of class \code{\link{dmbc_ic}}.
+#' @param object An object of class \code{\link{dmbc_ic}}.
 #' @param pmax A length-one numeric vector indicating the maximum number of
 #'   dimensions of the latent space to consider.
 #' @param Gmax A length-one numeric vector indicating the maximum number of
@@ -1371,18 +1362,18 @@ setGeneric("update", function(x, ...) standardGeneric("update"))
 #' }
 #'
 #' @importFrom methods new
-#' @importFrom stats update
+#' @importFrom stats4 update
 #' @exportMethod update
 setMethod("update", "dmbc_ic",
-  function(x, pmax = NULL, Gmax = NULL, ...) {
-    control <- x@res_last_p[[1]]@results[[1]]@control
+  function(object, pmax = NULL, Gmax = NULL, ...) {
+    control <- object@res_last_p[[1]]@results[[1]]@control
     verbose <- control[["verbose"]]
     burnin <- control[["burnin"]]
     nsim <- control[["nsim"]]
-    prior <- x@res_last_p[[1]]@results[[1]]@prior
+    prior <- object@res_last_p[[1]]@results[[1]]@prior
 
-    pmax.old <- nrow(x@DCIC)
-    Gmax.old <- ncol(x@DCIC)
+    pmax.old <- nrow(object@DCIC)
+    Gmax.old <- ncol(object@DCIC)
     if (is.null(pmax) & is.null(Gmax))
       stop("pmax and Gmax cannot be both null.")
     if (is.null(pmax)) {
@@ -1406,19 +1397,19 @@ setMethod("update", "dmbc_ic",
       Gmax <- Gmax.old
     }
 
-    D <- x@res_last_p[[1]]@results[[1]]@diss
-    data <- new("dmbc_data", diss = D, n = x@res_last_p[[1]]@results[[1]]@dim[["n"]],
-      S = x@res_last_p[[1]]@results[[1]]@dim[["S"]])
-    est <- x@est
+    D <- object@res_last_p[[1]]@results[[1]]@diss
+    data <- new("dmbc_data", diss = D, n = object@res_last_p[[1]]@results[[1]]@dim[["n"]],
+      S = object@res_last_p[[1]]@results[[1]]@dim[["S"]])
+    est <- object@est
     logprior <- logmlik <- logcorrfact <- dcic <- matrix(NA, nrow = pmax, ncol = Gmax)
-    logprior[1:pmax.old, 1:Gmax.old] <- x@logprior
-    logmlik[1:pmax.old, 1:Gmax.old] <- x@logmlik
-    logcorrfact[1:pmax.old, 1:Gmax.old] <- x@logcorrfact
-    dcic[1:pmax.old, 1:Gmax.old] <- x@DCIC
+    logprior[1:pmax.old, 1:Gmax.old] <- object@logprior
+    logmlik[1:pmax.old, 1:Gmax.old] <- object@logmlik
+    logcorrfact[1:pmax.old, 1:Gmax.old] <- object@logcorrfact
+    dcic[1:pmax.old, 1:Gmax.old] <- object@DCIC
     res_list <- list()
     res_save <- list()
-    res_all <- x@post.est
-    res_last_p <- x@res_last_p
+    res_all <- object@post.est
+    res_last_p <- object@res_last_p
     res.i <- pmax.old*Gmax.old + 1
     p.seq <- if (pmax == pmax.old) pmax.old else seq(from = (pmax.old + 1), to = pmax, by = 1)
     G.seq <- if (Gmax == Gmax.old) Gmax.old else seq(from = (Gmax.old + 1), to = Gmax, by = 1)
@@ -1824,5 +1815,25 @@ setMethod("plot",
     }
 
     graph
+  }
+)
+
+#' Extract the final cluster memberships from a \code{dmbc_config} class instance.
+#'
+#' @param object An object of class \code{\link{dmbc_config}}.
+#' @param newdata An object of no explicit specification ()currently ignored).
+#' @param ... Further arguments to pass on (currently ignored).
+#'
+#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
+#'
+#' @aliases clusters,dmbc_config-method
+#' @aliases dmbc_config-clusters
+#' 
+#' @importFrom modeltools clusters
+#' @exportMethod clusters
+setMethod("clusters",
+  signature(object = "dmbc_config", newdata = "ANY"),
+  function(object, newdata = NULL, ...) {
+    object@cluster
   }
 )

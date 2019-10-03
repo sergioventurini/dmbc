@@ -553,7 +553,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 
   if (nchains > 1) {
     for (ch in 1:nchains) {
-      cluster[, ch] <- dmbc_get_configuration(res, est = est)@cluster
+      cluster[, ch] <- clusters(dmbc_get_configuration(res, est = est))
     }
     for (i in 1:(nchains - 1)) {
       for (j in (i + 1):nchains) {
@@ -634,7 +634,7 @@ dmbc_match_groups <- function(res, est = "mean", ref = 1) {
 
   if (nchains > 1) {
     for (ch in 1:nchains) {
-      cluster[, ch] <- dmbc_get_configuration(res, est = est, chain = ch)@cluster
+      cluster[, ch] <- clusters(dmbc_get_configuration(res, est = est, chain = ch))
     }
     for (i in (1:nchains)[-ref]) {
       cluster_tbl[, , i] <- table(factor(cluster[, i], levels = 1:G),

@@ -1,11 +1,11 @@
 Package: dmbc
 Type: Package
 Title: Model Based Clustering of Binary Dissimilarity Measurements
-Version: 0.2.7
-Date: 2019-07-25
+Version: 0.2.8
+Date: 2019-10-05
 Authors@R: c(
   person("Sergio", "Venturini", role=c("aut", "cre"), email = "sergio.venturini@gmail.com"),
-  person("Raffaella", "Piccarreta", role=c("aut"), email = "raffaella.piccarreta@gmail.com"))
+  person("Raffaella", "Piccarreta", role=c("aut"), email = "raffaella.piccarreta@unibocconi.it"))
 Description: Functions for fitting a Bayesian model for grouping binary
     dissimilarity matrices in homogeneous clusters. Currently, it includes
     methods only for binary data.
@@ -18,15 +18,17 @@ Repository: CRAN
 LazyData: TRUE
 Imports:
     abind,
-    bayesplot (>= 1.6.0),
-    coda (>= 0.19-2),
-    ggplot2 (>= 3.1.0),
-    ggrepel (>= 0.8.0),
+    bayesplot (>= 1.7.0),
+    coda (>= 0.19-3),
+    ggplot2 (>= 3.2.1),
+    ggrepel (>= 0.8.1),
     graphics,
     MCMCpack (>= 1.4-4),
-    parallel (>= 3.5.2),
+    modeltools (>= 0.2-22),
+    parallel (>= 3.6.1),
     pcaPP (>= 1.9-73),
-    robustbase (>= 0.93-3),
+    robustbase (>= 0.93-5),
+    stats4 (>= 3.6.0),
     tools
 Suggests:
     knitr,
@@ -35,7 +37,7 @@ Suggests:
     testthat
 Depends:
     methods,
-    R (>= 3.5.0),
+    R (>= 3.6.0),
     stats,
     utils
 LinkingTo: Rcpp, RcppArmadillo, RcppProgress

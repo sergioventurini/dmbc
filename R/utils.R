@@ -389,7 +389,7 @@ prepare_data_to_plot <- function(x) {
   p <- x@p
   G <- x@G
 
-  cl_tbl <- table(factor(x@cluster, levels = 1:G))
+  cl_tbl <- table(factor(clusters(x), levels = 1:G))
   
   if (p <= 2) {
     out <- as.data.frame(stack_array(x@Z.est))
