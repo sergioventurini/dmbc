@@ -1821,7 +1821,7 @@ setMethod("plot",
 #' Extract the final cluster memberships from a \code{dmbc_config} class instance.
 #'
 #' @param object An object of class \code{\link{dmbc_config}}.
-#' @param newdata An object of no explicit specification ()currently ignored).
+#' @param newdata An object of no explicit specification (currently ignored).
 #' @param ... Further arguments to pass on (currently ignored).
 #'
 #' @author Sergio Venturini \email{sergio.venturini@@gmail.com}

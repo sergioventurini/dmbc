@@ -10,7 +10,7 @@
 \arguments{
 \item{object}{An object of class \code{\link{dmbc_config}}.}
 
-\item{newdata}{An object of no explicit specification ()currently ignored).}
+\item{newdata}{An object of no explicit specification (currently ignored).}
 
 \item{...}{Further arguments to pass on (currently ignored).}
 }
