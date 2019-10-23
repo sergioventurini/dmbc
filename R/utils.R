@@ -15,7 +15,7 @@ ddirichlet <- function(x, alpha) {
 		exp(sum(s) - logD)
 	}
 	if (!is.matrix(x)) 
-		if (is.data.frame(x)) 
+		if (is.data.frame(x))
 			x <- as.matrix(x)
 		else x <- t(x)
 	if (!is.matrix(alpha)) 
@@ -79,7 +79,7 @@ list.sum <- function(x) {
 #'
 #' @return A list with all elements added.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
+#' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #'
 #' @examples
 #' G <- 5

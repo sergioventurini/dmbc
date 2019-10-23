@@ -21,7 +21,7 @@
 #' @param start A named list of starting values for the MCMC algorithm (see
 #'   \code{\link{dmbc_init}}).
 #' @return A \code{dmbc_fit_list} object.
-#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
+#' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
@@ -268,7 +268,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 #'
 #' @return A length-one numeric vector of the log-likelihood value.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
+#' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #'
 #' @seealso \code{\link{dmbc}()}.
 #'
@@ -303,7 +303,7 @@ dmbc_logLik_rbmds <- function(D, Z, alpha) {
 #'
 #' @return A length-one numeric vector of the log-likelihood value.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@@gmail.com}
+#' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #'
 #' @seealso \code{\link{dmbc}()}.
 #'
