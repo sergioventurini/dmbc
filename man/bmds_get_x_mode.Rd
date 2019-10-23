@@ -80,5 +80,5 @@ legend(x = "bottomright", legend = c("Classical MDS", "Bayesian MDS"),
   scaling.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

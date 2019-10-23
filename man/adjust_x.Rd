@@ -36,5 +36,5 @@ adj_x$Sig_x
   scaling.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

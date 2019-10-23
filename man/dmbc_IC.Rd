@@ -80,5 +80,5 @@ Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
   in the returned object.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

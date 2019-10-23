@@ -26,5 +26,5 @@ multinomial and count data.}
 Create an instance of the \code{dmbc_model} class using new/initialize.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

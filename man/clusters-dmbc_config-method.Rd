@@ -18,5 +18,5 @@
 Extract the final cluster memberships from a \code{dmbc_config} class instance.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

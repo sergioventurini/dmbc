@@ -34,5 +34,5 @@ cols <- color_scheme_set("brightblue")
 plot(simdiss, colors = unlist(cols)[c(1, 6)], font = 1, cex.font = 0.75)
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

@@ -32,5 +32,5 @@ added to the plot.}
 Provide a graphical summary of a \code{dmbc_config} class instance.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

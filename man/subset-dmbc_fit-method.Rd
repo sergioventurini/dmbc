@@ -25,5 +25,5 @@ to \code{pars}.}
 Subsetting a \code{dmbc_fit} object.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }

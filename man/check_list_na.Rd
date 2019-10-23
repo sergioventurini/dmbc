@@ -27,5 +27,5 @@ check_list_na(prior, dmbc_prior())
 
 }
 \author{
-Sergio Venturini \email{sergio.venturini@gmail.com}
+Sergio Venturini \email{sergio.venturini@unito.it}
 }
