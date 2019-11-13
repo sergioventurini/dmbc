@@ -4,6 +4,7 @@
 \name{dmbc-package}
 \alias{dmbc-package}
 \alias{dmbc-pkg}
+\alias{dmbc-p}
 \title{Model-Based Clustering of Several Dissimilarity Matrices.}
 \description{
 The \pkg{dmbc} package implements a Bayesian algorithm for clustering a set

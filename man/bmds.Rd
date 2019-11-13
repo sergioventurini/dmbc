@@ -5,8 +5,15 @@
 \title{Bayesian multidimensional scaling (BMDS) using Markov Chain Monte Carlo
   (MCMC).}
 \usage{
-bmds(D, min_p = 1, max_pm1 = 6, burnin = 0, nsim = 13000,
-  ic = TRUE, verbose = TRUE)
+bmds(
+  D,
+  min_p = 1,
+  max_pm1 = 6,
+  burnin = 0,
+  nsim = 13000,
+  ic = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{D}{Observed dissimilarities (provided as a distance matrix).}
@@ -79,7 +86,7 @@ airline.bmds.x.mode <- bmds_get_x_mode(airline, airline.bmds, MDSICmin,
 airline.bmds.d <- dist(airline.bmds.x.mode)
 airline.mds.d <- dist(airline.mds[, 1:((min_p:max_p)[MDSICmin])])
 plot(airline, airline.bmds.d, type = "n", xlab = "observed",
-  ylab = "estimated", main = "Airline Distances \\n Between Cities",
+  ylab = "estimated", main = "Airline Distances \n Between Cities",
   xlim = c(0, max(airline, airline.bmds.d)),
   ylim = c(0, max(airline, airline.bmds.d)))
 abline(0, 1, lty = 2, col = "gray")
@@ -117,7 +124,7 @@ lloyds.bmds.x.mode <- bmds_get_x_mode(lloyds, lloyds.bmds, MDSICmin,
 lloyds.bmds.d <- dist(lloyds.bmds.x.mode)
 lloyds.mds.d <- dist(lloyds.mds[, 1:((min_p:max_p)[MDSICmin])])
 plot(lloyds, lloyds.bmds.d, type = "n", xlab = "observed",
-  ylab = "estimated", main = "Careers of Lloyds \\n Bank Employees, 1905-1950",
+  ylab = "estimated", main = "Careers of Lloyds \n Bank Employees, 1905-1950",
   xlim = c(0, max(lloyds, lloyds.bmds.d)),
   ylim = c(0, max(lloyds, lloyds.bmds.d)))
 abline(0, 1, lty = 2, col = "gray")
@@ -150,7 +157,7 @@ eurodist.bmds.x.mode <- bmds_get_x_mode(eurodist, eurodist.bmds,
 eurodist.bmds.d <- dist(eurodist.bmds.x.mode)
 eurodist.mds.d <- dist(eurodist.mds[, 1:((min_p:max_p)[MDSICmin])])
 plot(eurodist, eurodist.bmds.d, type = "n", xlab = "observed",
-  ylab = "estimated", main = "Road distances (in km) \\n between 21 cities in Europe",
+  ylab = "estimated", main = "Road distances (in km) \n between 21 cities in Europe",
   xlim = c(0, max(eurodist, eurodist.bmds.d)),
   ylim = c(0, max(eurodist, eurodist.bmds.d)))
 abline(0, 1, lty = 2, col = "gray")

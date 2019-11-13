@@ -4,8 +4,15 @@
 \alias{dmbc}
 \title{Estimation of a DMBC model.}
 \usage{
-dmbc(data, p = 2, G = 3, control = dmbc_control(), prior = NULL,
-  cl = NULL, post_all = FALSE)
+dmbc(
+  data,
+  p = 2,
+  G = 3,
+  control = dmbc_control(),
+  prior = NULL,
+  cl = NULL,
+  post_all = FALSE
+)
 }
 \arguments{
 \item{data}{An object of class \code{dmbc_data} containing the data

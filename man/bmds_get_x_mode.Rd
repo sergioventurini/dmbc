@@ -65,7 +65,7 @@ airline.bmds.x.mode <- bmds_get_x_mode(airline, airline.bmds, MDSICmin,
 airline.bmds.d <- dist(airline.bmds.x.mode)
 airline.mds.d <- dist(airline.mds[, 1:((min_p:max_p)[MDSICmin])])
 plot(airline, airline.bmds.d, type = "n", xlab = "observed",
-  ylab = "estimated", main = "Airline Distances \\n Between Cities",
+  ylab = "estimated", main = "Airline Distances \n Between Cities",
   xlim = c(0, max(airline, airline.bmds.d)),
   ylim = c(0, max(airline, airline.bmds.d)))
 abline(0, 1, lty = 2, col = "gray")

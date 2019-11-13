@@ -4,8 +4,14 @@
 \alias{dmbc_IC}
 \title{Model selection of DMBC models.}
 \usage{
-dmbc_IC(data, pmax = 3, Gmax = 5, control = dmbc_control(),
-  prior = NULL, est = "mean")
+dmbc_IC(
+  data,
+  pmax = 3,
+  Gmax = 5,
+  control = dmbc_control(),
+  prior = NULL,
+  est = "mean"
+)
 }
 \arguments{
 \item{data}{An object of class \code{dmbc_data} containing the data

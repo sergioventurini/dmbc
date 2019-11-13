@@ -7,13 +7,17 @@
 \alias{update_prior}
 \title{Auxiliary Function for Setting DMBC Model Priors}
 \usage{
-dmbc_prior(eta = list(a = rep(1.5, .dmbcEnv$current_G), b = rep(0.5,
-  .dmbcEnv$current_G)), sigma2 = list(a = 0.1, b = 0.1),
-  lambda = rep(1, .dmbcEnv$current_G))
+dmbc_prior(
+  eta = list(a = rep(1.5, .dmbcEnv$current_G), b = rep(0.5, .dmbcEnv$current_G)),
+  sigma2 = list(a = 0.1, b = 0.1),
+  lambda = rep(1, .dmbcEnv$current_G)
+)
 
-prior_dmbc(eta = list(a = rep(1.5, .dmbcEnv$current_G), b = rep(0.5,
-  .dmbcEnv$current_G)), sigma2 = list(a = 0.1, b = 0.1),
-  lambda = rep(1, .dmbcEnv$current_G))
+prior_dmbc(
+  eta = list(a = rep(1.5, .dmbcEnv$current_G), b = rep(0.5, .dmbcEnv$current_G)),
+  sigma2 = list(a = 0.1, b = 0.1),
+  lambda = rep(1, .dmbcEnv$current_G)
+)
 
 check_prior(prior)
 

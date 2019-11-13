@@ -3,17 +3,54 @@
 \name{dmbc_mcmc}
 \alias{dmbc_mcmc}
 \alias{dmbc-internal}
+\alias{dmbc_internal}
 \alias{dmbc_relabel}
 \alias{dmbc_pack_par}
 \title{Internal functions for MCMC simulation.}
 \usage{
-dmbc_mcmc(raiD, raix, raing, radalpha, rn, rp, rG, rS, rtotiter, radZ,
-  rgamma_z, reta, rgamma_alpha, rsigma2, rlambda, rhyper_eta_a,
-  rhyper_eta_b, rhyper_sigma2_a, rhyper_sigma2_b, rhyper_lambda, rfamily,
-  rverbose)
+dmbc_mcmc(
+  raiD,
+  raix,
+  raing,
+  radalpha,
+  rn,
+  rp,
+  rG,
+  rS,
+  rtotiter,
+  radZ,
+  rgamma_z,
+  reta,
+  rgamma_alpha,
+  rsigma2,
+  rlambda,
+  rhyper_eta_a,
+  rhyper_eta_b,
+  rhyper_sigma2_a,
+  rhyper_sigma2_b,
+  rhyper_lambda,
+  rfamily,
+  rverbose
+)
 
-dmbc_relabel(radtheta, radz, radalpha, radeta, radsigma2, radlambda,
-  radprob, raix_ind, rinit, rn, rp, rS, rM, rR, rG, rverbose)
+dmbc_relabel(
+  radtheta,
+  radz,
+  radalpha,
+  radeta,
+  radsigma2,
+  radlambda,
+  radprob,
+  raix_ind,
+  rinit,
+  rn,
+  rp,
+  rS,
+  rM,
+  rR,
+  rG,
+  rverbose
+)
 
 dmbc_pack_par(radz, radalpha, radlambda, rn, rp, rM, rG)
 }

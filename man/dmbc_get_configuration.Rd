@@ -4,8 +4,7 @@
 \alias{dmbc_get_configuration}
 \title{Extractor function for a fitted DMBC model.}
 \usage{
-dmbc_get_configuration(res, chain = 1, est = "mean",
-  labels = character(0))
+dmbc_get_configuration(res, chain = 1, est = "mean", labels = character(0))
 }
 \arguments{
 \item{res}{An object of class \code{dmbc_fit_list}.}

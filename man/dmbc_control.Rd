@@ -6,15 +6,37 @@
 \alias{check_control}
 \title{Auxiliary Function for Controlling DMBC Model Fitting}
 \usage{
-dmbc_control(nsim = 5000, burnin = 10000, thin = 1, nchains = 1,
-  threads = 1, seed = NULL, parallel = "no", z.prop = 1.5,
-  alpha.prop = 0.75, random.start = TRUE, store.burnin = TRUE,
-  verbose = FALSE, post.proc = TRUE)
+dmbc_control(
+  nsim = 5000,
+  burnin = 10000,
+  thin = 1,
+  nchains = 1,
+  threads = 1,
+  seed = NULL,
+  parallel = "no",
+  z.prop = 1.5,
+  alpha.prop = 0.75,
+  random.start = TRUE,
+  store.burnin = TRUE,
+  verbose = FALSE,
+  post.proc = TRUE
+)
 
-control_dmbc(nsim = 5000, burnin = 10000, thin = 1, nchains = 1,
-  threads = 1, seed = NULL, parallel = "no", z.prop = 1.5,
-  alpha.prop = 0.75, random.start = TRUE, store.burnin = TRUE,
-  verbose = FALSE, post.proc = TRUE)
+control_dmbc(
+  nsim = 5000,
+  burnin = 10000,
+  thin = 1,
+  nchains = 1,
+  threads = 1,
+  seed = NULL,
+  parallel = "no",
+  z.prop = 1.5,
+  alpha.prop = 0.75,
+  random.start = TRUE,
+  store.burnin = TRUE,
+  verbose = FALSE,
+  post.proc = TRUE
+)
 
 check_control(control)
 }
