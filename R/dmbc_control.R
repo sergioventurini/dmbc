@@ -35,6 +35,11 @@
 #'   of the proposal distribution for the jump in the individual random effect value.
 #' @param random.start A length-one logical vector. If \code{TRUE} the starting
 #'   values are drawn randomly, otherwise.
+#' @param method A length-one character vector that specifies the distance
+#'   measure to use in determining the initial partition. Allowed values are
+#'   those from the \code{\link{dist}()} function.
+#' @param partition A length-one numeric vector providing the user-defined
+#'   starting partition.
 #' @param store.burnin A logical scalar. If \code{TRUE}, the samples from the
 #'   burnin are also stored and returned.
 #' @param verbose A logical scalar. If \code{TRUE}, causes information to be
@@ -65,6 +70,8 @@ dmbc_control <- function(nsim = 5000,
                          z.prop = 1.5,
                          alpha.prop = 0.75,
                          random.start = TRUE,
+                         partition = NULL,
+                         method = "binary",
                          store.burnin = TRUE,
                          verbose = FALSE,
                          post.proc = TRUE){
@@ -81,6 +88,7 @@ control_dmbc <- dmbc_control
 #' @rdname dmbc_control
 #' @export
 check_control <- function(control) {
+  all_method <- c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski")
   control_ok <- TRUE
 
   if (!is.list(control)) {
@@ -128,6 +136,19 @@ check_control <- function(control) {
   if (!is.logical(control[["random.start"]])) {
     control_ok <- FALSE
     return(control_ok)
+  }
+  if (!control[["random.start"]]) {
+    if (is.null(control[["partition"]])) {
+      if (!(control[["method"]] %in% all_method)) {
+        control_ok <- FALSE
+        return(control_ok)
+      }
+    } else {
+      if (!is.numeric(control[["partition"]])) {
+        control_ok <- FALSE
+        return(control_ok)
+      }
+    }
   }
   if (!is.logical(control[["store.burnin"]])) {
     control_ok <- FALSE

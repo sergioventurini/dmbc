@@ -4,7 +4,8 @@
 \name{animals}
 \alias{animals}
 \title{List of binary dissimilarity matrices among 18 animals.}
-\format{{
+\format{
+{
   A \code{\link{dmbc_data}} object whose \code{diss} element is a list of 20
   binary dissimilarity matrices. Each matrix is defined as a \code{dist}
   object measuring whether each pair of the 18 animals has is placed in the
@@ -31,7 +32,8 @@
     \item{tg}{tiger}
     \item{wf}{wolf}
   }
-}}
+}
+}
 \usage{
 data(animals)
 }

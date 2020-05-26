@@ -17,6 +17,8 @@ dmbc_control(
   z.prop = 1.5,
   alpha.prop = 0.75,
   random.start = TRUE,
+  partition = NULL,
+  method = "binary",
   store.burnin = TRUE,
   verbose = FALSE,
   post.proc = TRUE
@@ -33,6 +35,8 @@ control_dmbc(
   z.prop = 1.5,
   alpha.prop = 0.75,
   random.start = TRUE,
+  partition = NULL,
+  method = "binary",
   store.burnin = TRUE,
   verbose = FALSE,
   post.proc = TRUE
@@ -72,6 +76,13 @@ of the proposal distribution for the jump in the individual random effect value.
 
 \item{random.start}{A length-one logical vector. If \code{TRUE} the starting
 values are drawn randomly, otherwise.}
+
+\item{partition}{A length-one numeric vector providing the user-defined
+starting partition.}
+
+\item{method}{A length-one character vector that specifies the distance
+measure to use in determining the initial partition. Allowed values are
+those from the \code{\link{dist}()} function.}
 
 \item{store.burnin}{A logical scalar. If \code{TRUE}, the samples from the
 burnin are also stored and returned.}

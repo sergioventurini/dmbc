@@ -15,6 +15,11 @@
 #'   multinomial and count data.
 #' @param random.start A length-one logical vector. If \code{TRUE} the starting
 #'   values are drawn randomly, otherwise.
+#' @param method A length-one character vector specifying the distance
+#'   measure to use in determining the initial partition. Allowed values are
+#'   those from the \code{\link{dist}()} function.
+#' @param partition A length-one numeric vector providing the user-defined
+#'   starting partition.
 #' @return A named \code{list} with the following items:
 #'   \describe{
 #'     \item{\code{z}: }{array of latent coordinates starting values}
@@ -35,7 +40,7 @@
 #' data(simdiss, package = "dmbc")
 #' dmbc_init(simdiss@diss, p = 2, G = 3, family = "binomial", random.start = TRUE)
 #' @export
-dmbc_init <- function(D, p, G, family, random.start) {
+dmbc_init <- function(D, p, G, family, random.start, method, partition) {
   S <- length(D)
   n <- attr(D[[1]], "Size")
 
@@ -46,9 +51,19 @@ dmbc_init <- function(D, p, G, family, random.start) {
       x <- sample(1:G, S, replace = TRUE)
     }
   } else {
-    dmat <- list2matrix(D)
-    d.clust <- hclust(dist(dmat, method = "manhattan"), method = "ward")
-    x <- cutree(d.clust, k = G)
+    if (is.null(partition)) {
+      dmat <- list2matrix(D)
+      d.clust <- hclust(dist(dmat, method = method), method = "ward.D")
+      x <- cutree(d.clust, k = G)
+    } else {
+      if (length(partition) != S) {
+        stop(paste0("the initial partition must include S = ", S, " values."))
+      }
+      if (length(unique(partition)) != G) {
+        stop(paste0("the initial partition must include G = ", G, " unique values."))
+      }
+      x <- partition
+    }
   }
   ng <- table(factor(x, levels = 1:G))
   

@@ -4,9 +4,11 @@
 \name{simdiss}
 \alias{simdiss}
 \title{Simulated binary dissimilarity matrices.}
-\format{A \code{\link{dmbc_data}} object whose \code{diss} element is a list
+\format{
+A \code{\link{dmbc_data}} object whose \code{diss} element is a list
   of 10 binary dissimilarity matrices. Each matrix is defined as a \code{dist}
-  object measuring the agreement among 16 different units.}
+  object measuring the agreement among 16 different units.
+}
 \usage{
 data(simdiss)
 }

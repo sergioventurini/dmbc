@@ -4,7 +4,7 @@
 \alias{dmbc_init}
 \title{Function to compute the starting values before fitting a DMBC models.}
 \usage{
-dmbc_init(D, p, G, family, random.start)
+dmbc_init(D, p, G, family, random.start, method, partition)
 }
 \arguments{
 \item{D}{A list whose elements are the dissimilarity matrices corresponding
@@ -24,6 +24,13 @@ multinomial and count data.}
 
 \item{random.start}{A length-one logical vector. If \code{TRUE} the starting
 values are drawn randomly, otherwise.}
+
+\item{method}{A length-one character vector specifying the distance
+measure to use in determining the initial partition. Allowed values are
+those from the \code{\link{dist}()} function.}
+
+\item{partition}{A length-one numeric vector providing the user-defined
+starting partition.}
 }
 \value{
 A named \code{list} with the following items:

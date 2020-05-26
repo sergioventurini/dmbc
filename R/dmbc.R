@@ -102,6 +102,8 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
   seed <- control[["seed"]]
   parallel <- control[["parallel"]]
   random.start <- control[["random.start"]]
+  method <- control[["method"]]
+  partition <- control[["partition"]]
   store.burnin <- control[["store.burnin"]]
   verbose <- control[["verbose"]]
 
@@ -136,7 +138,8 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
       suppressMessages(require(dmbc, lib.loc = lib))
       control.c[["verbose"]] <- FALSE
       # cat("Starting cluster node", c, "on local machine\n")
-      start.c <- dmbc_init(D = D.c, p = p.c, G = G.c, family = family.c, random.start = control.c[["random.start"]])
+      start.c <- dmbc_init(D = D.c, p = p.c, G = G.c, family = family.c, random.start = control.c[["random.start"]],
+        method = control.c[["method"]], partition = control.c[["partition"]])
       dmbc_fit(D = D.c, p = p.c, G = G.c, family = family.c, control = control.c, prior = prior.c, start = start.c)
     }
     # environment(dmbc_fit_parallel) <- .GlobalEnv # this prevents passing objects other than those needed for
@@ -180,7 +183,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
                                                                                              # Windows
                parallel::clusterSetRNGStream(cl, seed)
                res <- parallel::parLapply(cl, seq_len(nchains), dmbc_fit_parallel, D.c = D, p.c = p, G.c = G, 
-                family.c = family, control.c = control, prior.c = prior, lib = .dmbcEnv$path.to.me)
+                 family.c = family, control.c = control, prior.c = prior, lib = .dmbcEnv$path.to.me)
                parallel::stopCluster(cl)
                res
              } else parallel::parLapply(cl, seq_len(nchains), dmbc_fit_parallel, D.c = D, p.c = p, G.c = G,
@@ -204,7 +207,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
 
       if (verbose) cat("Initialization of the algorithm...\n")
   
-      dmbc.start <- dmbc_init(D, p, G, family, random.start)
+      dmbc.start <- dmbc_init(D, p, G, family, random.start, method, partition = partition)
       if (is.null(prior)) {
         prior <- dmbc_prior()
       } else {

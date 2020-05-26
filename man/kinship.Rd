@@ -4,7 +4,8 @@
 \name{kinship}
 \alias{kinship}
 \title{List of binary dissimilarity matrices among 15 kinship terms.}
-\format{{
+\format{
+{
   A \code{\link{dmbc_data}} object whose \code{diss} element is a list of 85
   binary dissimilarity matrices. Each matrix is defined as a \code{dist}
   object measuring whether each pair of the 15 kinship terms is judged as
@@ -28,7 +29,8 @@
     \item{Aun}{aunt}
     \item{Unc}{uncle}
   }
-}}
+}
+}
 \usage{
 data(kinship)
 }
