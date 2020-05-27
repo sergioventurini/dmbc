@@ -24,6 +24,7 @@ An object of type \code{mcmc.list}.
   chains. It is intended for internal use mainly.
 }
 \examples{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3
@@ -42,6 +43,7 @@ sim.list <- dmbc_fit_list_to_list(sim.dmbc, TRUE)
 
 library(bayesplot)
 mcmc_trace(sim.list, regex_pars = "lambda")
+}
 }
 \seealso{
 \code{\link{dmbc}()} for for fitting a DMBC model;

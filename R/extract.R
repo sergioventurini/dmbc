@@ -33,6 +33,7 @@
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -51,6 +52,7 @@
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_postmean(sim.dmbc, chain = 1)
+#' }
 #' @export
 dmbc_get_postmean <- function(res, chain = 1) {
   res_chain <- res@results[[chain]]
@@ -128,6 +130,7 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -146,6 +149,7 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_postmedian(sim.dmbc, chain = 1)
+#' }
 #' @export
 dmbc_get_postmedian <- function(res, chain = 1) {
   res_chain <- res@results[[chain]]
@@ -225,6 +229,7 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -243,6 +248,7 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_ml(sim.dmbc, chain = 1)
+#' }
 #' @export
 dmbc_get_ml <- function(res, chain = 1) {
   res_chain <- res@results[[chain]]
@@ -323,6 +329,7 @@ dmbc_get_ml <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -341,6 +348,7 @@ dmbc_get_ml <- function(res, chain = 1) {
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_get_map(sim.dmbc, chain = 1)
+#' }
 #' @export
 dmbc_get_map <- function(res, chain = 1) {
   res_chain <- res@results[[chain]]
@@ -409,6 +417,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -434,6 +443,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #' color_scheme_set("mix-pink-blue")
 #' graph <- plot(z, size = 2, size_lbl = 3)
 #' graph + panel_bg(fill = "gray90", color = NA)
+#' }
 #' @export
 dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = character(0)) {
   res_chain <- res@results[[chain]]
@@ -515,6 +525,7 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -533,6 +544,7 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' dmbc_check_groups(sim.dmbc)
+#' }
 #' 
 #' @importFrom stats chisq.test
 #' @export
@@ -600,6 +612,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 5
@@ -617,6 +630,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #'
 #' sim.dmbc_new <- dmbc_match_groups(sim.dmbc)
+#' }
 #' 
 #' @importFrom stats chisq.test
 #' @export

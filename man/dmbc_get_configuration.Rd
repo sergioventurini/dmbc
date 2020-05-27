@@ -24,6 +24,7 @@ A \code{\link{dmbc_config}} object.
   latent configuration estimates of a fitted DMBC model.
 }
 \examples{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3
@@ -49,6 +50,7 @@ library(ggplot2)
 color_scheme_set("mix-pink-blue")
 graph <- plot(z, size = 2, size_lbl = 3)
 graph + panel_bg(fill = "gray90", color = NA)
+}
 }
 \references{
 Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based

@@ -21,6 +21,7 @@ A length-one logical vector, which is equal to TRUE if all simulated chains
   fitted model provided agree or not.
 }
 \examples{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3
@@ -39,6 +40,7 @@ control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 sim.dmbc <- dmbc(simdiss, p, G, control)
 
 dmbc_check_groups(sim.dmbc)
+}
 
 }
 \references{

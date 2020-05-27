@@ -15,6 +15,7 @@
 #'   \code{\link[coda]{mcmc}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -31,6 +32,7 @@
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #' sim.mcmc <- dmbc_fit_to_mcmc(sim.dmbc@results[[1]], TRUE)
 #' plot(sim.mcmc)
+#' }
 #' @export
 dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
   control <- res@control
@@ -133,6 +135,7 @@ dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #'   \code{\link{dmbc_fit_list-class}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -151,6 +154,7 @@ dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #' 
 #' library(bayesplot)
 #' mcmc_trace(sim.list, regex_pars = "lambda")
+#' }
 #' @export
 dmbc_fit_list_to_list <- function(res, include.burnin = FALSE, verbose = TRUE) {
   control <- res@results[[1]]@control
@@ -249,6 +253,7 @@ dmbc_fit_list_to_list <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #'   \code{\link[coda]{mcmc.list}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -265,6 +270,7 @@ dmbc_fit_list_to_list <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #' sim.dmbc <- dmbc(simdiss, p, G, control)
 #' sim.mcmc <- dmbc_fit_list_to_mcmc.list(sim.dmbc, TRUE)
 #' plot(sim.mcmc)
+#' }
 #' @export
 dmbc_fit_list_to_mcmc.list <- function(res, include.burnin = FALSE, verbose = TRUE) {
   control <- res@results[[1]]@control

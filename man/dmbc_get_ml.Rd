@@ -34,6 +34,7 @@ A named \code{list} with the following elements:
   maximum likelihood estimates of the parameters for a fitted DMBC model.
 }
 \examples{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3
@@ -52,6 +53,7 @@ control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 sim.dmbc <- dmbc(simdiss, p, G, control)
 
 dmbc_get_ml(sim.dmbc, chain = 1)
+}
 }
 \references{
 Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based

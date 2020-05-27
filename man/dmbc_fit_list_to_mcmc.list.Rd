@@ -24,6 +24,7 @@ An object of type \code{mcmc.list}.
   \code{dmbc_fit_list} to an object with class \code{mcmc.list}.
 }
 \examples{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3
@@ -40,6 +41,7 @@ control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 sim.dmbc <- dmbc(simdiss, p, G, control)
 sim.mcmc <- dmbc_fit_list_to_mcmc.list(sim.dmbc, TRUE)
 plot(sim.mcmc)
+}
 }
 \seealso{
 \code{\link{dmbc}()} for for fitting a DMBC model;

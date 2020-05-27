@@ -23,6 +23,7 @@ An object of class \code{dmbc_fit_list}.
   fitted model if they do not agree.
 }
 \examples{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 5
@@ -40,6 +41,7 @@ control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
 sim.dmbc <- dmbc(simdiss, p, G, control)
 
 sim.dmbc_new <- dmbc_match_groups(sim.dmbc)
+}
 
 }
 \references{
