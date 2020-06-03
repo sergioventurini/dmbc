@@ -34,7 +34,7 @@ A list with the following elements:
   Oh & Raftery (2001).
 }
 \examples{
-\dontrun{
+\donttest{
 # Road distances (in km) between 21 cities in Europe
 data(eurodist, package = "datasets")
 

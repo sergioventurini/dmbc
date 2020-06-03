@@ -33,7 +33,7 @@
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -130,7 +130,7 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -229,7 +229,7 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -329,7 +329,7 @@ dmbc_get_ml <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -417,7 +417,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -525,7 +525,7 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -560,26 +560,23 @@ dmbc_check_groups <- function(res, est = "mean") {
   cluster_chk <- logical(nchains*(nchains - 1)/2)
   cluster_count <- 1
 
-  ow <- options("warn")
-  options(warn = -1) # suppress all warnings
-
-  if (nchains > 1) {
-    for (ch in 1:nchains) {
-      cluster[, ch] <- clusters(dmbc_get_configuration(res, est = est))
-    }
-    for (i in 1:(nchains - 1)) {
-      for (j in (i + 1):nchains) {
-        cluster_tbl[, , cluster_count] <- table(factor(cluster[, i], levels = 1:G),
-                                                factor(cluster[, j], levels = 1:G))
-        cluster_chk[cluster_count] <- all.equal(stats::chisq.test(cluster_tbl[, , cluster_count])$statistic,
-          S*(G - 1), check.attributes = FALSE)
-        cluster_count <- cluster_count + 1
+  suppressWarnings(
+    if (nchains > 1) {
+      for (ch in 1:nchains) {
+        cluster[, ch] <- clusters(dmbc_get_configuration(res, est = est))
       }
+      for (i in 1:(nchains - 1)) {
+        for (j in (i + 1):nchains) {
+          cluster_tbl[, , cluster_count] <- table(factor(cluster[, i], levels = 1:G),
+                                                  factor(cluster[, j], levels = 1:G))
+          cluster_chk[cluster_count] <- all.equal(stats::chisq.test(cluster_tbl[, , cluster_count])$statistic,
+            S*(G - 1), check.attributes = FALSE)
+          cluster_count <- cluster_count + 1
+        }
+      }
+      if (!all(cluster_chk)) consistent <- FALSE
     }
-    if (!all(cluster_chk)) consistent <- FALSE
-  }
-
-  options(ow) # reset to previous, typically 'warn = 0'
+  )
   
   return(consistent)
 }
@@ -612,7 +609,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 5
@@ -643,9 +640,6 @@ dmbc_match_groups <- function(res, est = "mean", ref = 1) {
   cluster <- matrix(NA, nrow = S, ncol = nchains)
   cluster_tbl <- array(NA, dim = c(G, G, nchains))
 
-  ow <- options("warn")
-  options(warn = -1) # suppress all warnings
-
   if (nchains > 1) {
     for (ch in 1:nchains) {
       cluster[, ch] <- clusters(dmbc_get_configuration(res, est = est, chain = ch))
@@ -663,7 +657,6 @@ dmbc_match_groups <- function(res, est = "mean", ref = 1) {
       }
       if (!cluster_chk) {
         warning("the cluster memberships of some chains do not fully agree.")
-        options(ow) # reset to previous, typically 'warn = 0'
         return(res)
       } else {
         if (sum(diag(cluster_tbl[, , i])) != S) {
@@ -688,8 +681,6 @@ dmbc_match_groups <- function(res, est = "mean", ref = 1) {
       }
     }
   }
-
-  options(ow) # reset to previous, typically 'warn = 0'
 
   return(res)
 }

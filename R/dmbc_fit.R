@@ -30,7 +30,7 @@
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
 #'   Package in \code{R}", Technical report.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -85,7 +85,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 	hyper.lambda <- prior[["lambda"]]
 	
 	# start iteration
-	if (control[["verbose"]]) cat("Running the MCMC simulation...\n")
+	if (control[["verbose"]]) message("Running the MCMC simulation...")
 	
 	res.mcmc <- .Call('dmbc_mcmc', PACKAGE = 'dmbc',
 		raiD = as.integer(unlist(D)),
@@ -127,10 +127,10 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 
   if (control[["post.proc"]]) {
   	# post-processing:
-  	if (control[["verbose"]]) cat("Post-processing the chain:\n")
+  	if (control[["verbose"]]) message("Post-processing the chain:")
 
   	## Procrustes transformation of Z_g
-  	if (control[["verbose"]]) cat("   - applying Procrustes transformation...\n")
+  	if (control[["verbose"]]) message("   - applying Procrustes transformation...")
     if (control[["verbose"]]) {
       pb <- dmbc_pb(min = 0, max = (totiter*G - 1), width = 49)
     }
@@ -149,14 +149,14 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
   		}
   	}
     if (control[["verbose"]]) {
-      # cat("done!\n")
+      # message("done!")
       close(pb)
     }
 
   	# relabel the parameter chain
   	if (G > 1) {
   		if (totiter > 10) {
-        if (control[["verbose"]]) cat("   - relabeling the parameter chain...\n")
+        if (control[["verbose"]]) message("   - relabeling the parameter chain...")
   			init <- ifelse(totiter <= 100, 5, 100)
   			
   			theta <- .Call('dmbc_pack_par', PACKAGE = 'dmbc',
@@ -198,7 +198,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
   			x.ind.chain <- array(theta.relab[[8]], c(totiter, S, G))
   			x.chain <- t(apply(x.ind.chain, 1, function(x) as.integer(x %*% 1:G)))
 
-  			# if (control[["verbose"]]) # cat("done!\n")
+  			# if (control[["verbose"]]) # message("done!")
   		} else {
   			warning("the number of iterations is too small for relabeling; relabeling skipped.", call. = FALSE,
           immediate. = TRUE)

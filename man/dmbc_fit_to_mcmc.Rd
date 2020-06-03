@@ -23,7 +23,7 @@ An object of type \code{mcmc}.
   to an object with class \code{mcmc}.
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 
 G <- 3

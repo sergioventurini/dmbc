@@ -30,7 +30,7 @@
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
 #'   Package in \code{R}", Technical report.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -137,7 +137,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
     dmbc_fit_parallel <- function(c, D.c, p.c, G.c, family.c, control.c, prior.c, lib) {
       suppressMessages(require(dmbc, lib.loc = lib))
       control.c[["verbose"]] <- FALSE
-      # cat("Starting cluster node", c, "on local machine\n")
+      # message("Starting cluster node ", c, " on local machine")
       start.c <- dmbc_init(D = D.c, p = p.c, G = G.c, family = family.c, random.start = control.c[["random.start"]],
         method = control.c[["method"]], partition = control.c[["partition"]])
       dmbc_fit(D = D.c, p = p.c, G = G.c, family = family.c, control = control.c, prior = prior.c, start = start.c)
@@ -157,9 +157,9 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
     if (verbose) {
       devout <- ""
       if (.Platform$OS.type != "windows" && !have_mc) {
-        cat("--- STARTING PARALLEL SIMULATION OF", nchains, "CHAINS ---\n")
+        message("--- STARTING PARALLEL SIMULATION OF ", nchains, " CHAINS ---")
       } else {
-        cat("Performing parallel simulation of", nchains, "chains...\n")
+        message("Performing parallel simulation of ", nchains, " chains...")
       }
     } else {
       if (.Platform$OS.type != "windows") {
@@ -192,9 +192,9 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
 
     if (verbose) {
       if (.Platform$OS.type != "windows" && !have_mc){
-        cat("--- END OF PARALLEL SIMULATION OF", nchains, "CHAINS ---\n\n")
+        message("--- END OF PARALLEL SIMULATION OF ", nchains, " CHAINS ---\n")
       } else {
-        # cat("done!\n")
+        # message("done!")
       }
     }
   } else {
@@ -203,9 +203,9 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
     }
     res <- list()
     for (ch in 1:nchains) {
-      if (verbose && nchains > 1L) cat("--- STARTING SIMULATION OF CHAIN", ch, "OF", nchains, "---\n")
+      if (verbose && nchains > 1L) message("--- STARTING SIMULATION OF CHAIN ", ch, " OF ", nchains, " ---")
 
-      if (verbose) cat("Initialization of the algorithm...\n")
+      if (verbose) message("Initialization of the algorithm...")
   
       dmbc.start <- dmbc_init(D, p, G, family, random.start, method, partition = partition)
       if (is.null(prior)) {
@@ -217,12 +217,12 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
         stop("the prior hyperparameter list is not correct; see the documentation for more details.")
     
       if (verbose) {
-        # cat("done!\n")
+        # message("done!")
       }
 
       res[[ch]] <- dmbc_fit(D = D, p = p, G = G, family = family, control = control, prior = prior, start = dmbc.start)
 
-      if (verbose && nchains > 1L) cat("--- END OF CHAIN", ch, "OF", nchains, "---\n\n")
+      if (verbose && nchains > 1L) message("--- END OF CHAIN ", ch, " OF ", nchains, " ---\n")
     }
   }
 
@@ -248,10 +248,10 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
       x.ind.chain <- abind::abind(x.ind.chain, res[[ch]]@x.ind.chain, along = 1)
     }
 
-    if (control[["verbose"]]) cat("Final post-processing of all chains:\n")
+    if (control[["verbose"]]) message("Final post-processing of all chains:")
 
     ## Procrustes transformation of Z_g
-    if (control[["verbose"]]) cat("   - applying Procrustes transformation...\n")
+    if (control[["verbose"]]) message("   - applying Procrustes transformation...")
     if (control[["verbose"]])
       pb <- dmbc_pb(min = 0, max = (niter*G*nchains - 1), width = 49)
     no <- 0
@@ -269,13 +269,13 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
       }
     }
     if (control[["verbose"]]) {
-      # cat("done!\n")
+      # message("done!")
       close(pb)
     }
 
     if (G > 1) {
       if ((niter*nchains) > 10) {
-        if (control[["verbose"]]) cat("   - relabeling the parameter chain...\n")
+        if (control[["verbose"]]) message("   - relabeling the parameter chain...")
         init <- ifelse((niter*nchains) <= 100, 5, 100)
         
         theta <- .Call('dmbc_pack_par', PACKAGE = 'dmbc',
@@ -317,7 +317,7 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
         x.ind.chain <- array(theta.relab[[8]], c((niter*nchains), S, G))
         x.chain <- t(apply(x.ind.chain, 1, function(x) as.integer(x %*% 1:G)))
 
-        # if (control[["verbose"]]) # cat("done!\n")
+        # if (control[["verbose"]]) # message("done!")
       } else {
         warning("the number of iterations is too small for relabeling; relabeling skipped.", call. = FALSE,
           immediate. = TRUE)

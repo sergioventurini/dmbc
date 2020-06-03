@@ -23,7 +23,7 @@ An object of class \code{dmbc_fit_list}.
   fitted model if they do not agree.
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 
 G <- 5

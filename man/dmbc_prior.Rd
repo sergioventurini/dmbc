@@ -65,7 +65,7 @@ A list with the prior hyperparameters as components.
 }
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 # Shorter run than default.
 sim.fit <- dmbc(simdiss,

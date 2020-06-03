@@ -15,7 +15,7 @@
 #'   \code{\link[coda]{mcmc}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -58,7 +58,7 @@ dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
     }
   } else {
     if (verbose && include.burnin)
-      cat("warning: burnin iterations not shown because the 'store.burnin' option was set to FALSE.")
+      warning("burnin iterations not shown because the 'store.burnin' option was set to FALSE.")
     tokeep <- seq(1, nsim, by = thin)
     tokeep <- 1:length(tokeep)
   }
@@ -135,7 +135,7 @@ dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #'   \code{\link{dmbc_fit_list-class}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -181,7 +181,7 @@ dmbc_fit_list_to_list <- function(res, include.burnin = FALSE, verbose = TRUE) {
     }
   } else {
     if (verbose && include.burnin)
-      cat("warning: burnin iterations not shown because the 'store.burnin' option was set to FALSE.")
+      warning("burnin iterations not shown because the 'store.burnin' option was set to FALSE.")
     tokeep <- seq(1, nsim, by = thin)
     tokeep <- 1:length(tokeep)
   }
@@ -253,7 +253,7 @@ dmbc_fit_list_to_list <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #'   \code{\link[coda]{mcmc.list}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3

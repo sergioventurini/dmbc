@@ -82,6 +82,10 @@ dmbc_init <- function(D, p, G, family, random.start, method, partition) {
     Dg <- Dm[, , x == g]
     Dm_sum <- apply(Dg, c(1, 2), sum)
     z_mds <- stats::cmdscale(d = Dm_sum, k = p)
+    if (ncol(z_mds) != p) {
+      stop(paste0("the initialization of the MDS configuration for cluster g = ", g, " of ", G,
+        " using p = ", p, " dimensions failed."))
+    }
     z[, , g] <- scale(z_mds)
     
     # initialize alpha_g

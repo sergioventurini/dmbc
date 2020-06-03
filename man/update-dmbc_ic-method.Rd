@@ -25,7 +25,7 @@ A \code{dmbc_ic} object.
 Provide an update of a \code{dmbc_ic} class instance.
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 
 pmax <- 2

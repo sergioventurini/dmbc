@@ -97,7 +97,7 @@ adjust_x <- function(x) {
 #'   scaling.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Airline Distances Between Cities
 #' airline <- read.csv(file = system.file("extdata", "airline.csv",
 #'   package = "dmbc"))
@@ -115,6 +115,8 @@ adjust_x <- function(x) {
 #' airline.mds <- cmdscale(airline, max_p)
 #' airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 #' 
+#' opar <- par("mfrow")
+#' on.exit(par(opar))
 #' par(mfrow = c(1, 2))
 #' plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
@@ -184,7 +186,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #'   96, 1031-1044.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Airline Distances Between Cities
 #' airline <- read.csv(file = system.file("extdata", "airline.csv",
 #'   package = "dmbc"))
@@ -202,6 +204,8 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' airline.mds <- cmdscale(airline, max_p)
 #' airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 #' 
+#' opar <- par("mfrow")
+#' on.exit(par(opar))
 #' par(mfrow = c(1, 2))
 #' plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
@@ -240,6 +244,8 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' lloyds.mds <- cmdscale(lloyds, max_p)
 #' lloyds.bmds <- bmds(lloyds, min_p, max_p, burnin, nsim)
 #' 
+#' opar <- par("mfrow")
+#' on.exit(par(opar))
 #' par(mfrow = c(1, 2))
 #' plot((min_p:max_p), lloyds.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
@@ -273,6 +279,8 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' eurodist.mds <- cmdscale(eurodist, max_p)
 #' eurodist.bmds <- bmds(eurodist, min_p, max_p, burnin, nsim)
 #' 
+#' opar <- par("mfrow")
+#' on.exit(par(opar))
 #' par(mfrow = c(1, 2))
 #' plot((min_p:max_p), eurodist.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
@@ -527,7 +535,7 @@ bmds <- function(D, min_p = 1, max_pm1 = 6, burnin = 0, nsim = 13000, ic = TRUE,
 #'   Choice of Dimension", Journal of the American Statistical Association,
 #'   96, 1031-1044.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Road distances (in km) between 21 cities in Europe
 #' data(eurodist, package = "datasets")
 #' 

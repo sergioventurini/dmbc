@@ -17,6 +17,8 @@ totiter <- burnin + nsim
 airline.mds <- cmdscale(airline, max_p)
 airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 
+opar <- par("mfrow")
+on.exit(par(opar))
 par(mfrow = c(1, 2))
 plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
@@ -55,6 +57,8 @@ totiter <- burnin + nsim
 lloyds.mds <- cmdscale(lloyds, max_p)
 lloyds.bmds <- bmds(lloyds, min_p, max_p, burnin, nsim)
 
+opar <- par("mfrow")
+on.exit(par(opar))
 par(mfrow = c(1, 2))
 plot((min_p:max_p), lloyds.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
@@ -88,6 +92,8 @@ totiter <- burnin + nsim
 eurodist.mds <- cmdscale(eurodist, max_p)
 eurodist.bmds <- bmds(eurodist, min_p, max_p, burnin, nsim)
 
+opar <- par("mfrow")
+on.exit(par(opar))
 par(mfrow = c(1, 2))
 plot((min_p:max_p), eurodist.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")

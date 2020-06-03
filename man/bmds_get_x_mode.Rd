@@ -35,7 +35,7 @@ A real matrix containing the posterior mode latent configuration.
   largest posterior value during the MCMC.
 }
 \examples{
-\dontrun{
+\donttest{
 # Airline Distances Between Cities
 airline <- read.csv(file = system.file("extdata", "airline.csv",
   package = "dmbc"))
@@ -53,6 +53,8 @@ totiter <- burnin + nsim
 airline.mds <- cmdscale(airline, max_p)
 airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 
+opar <- par("mfrow")
+on.exit(par(opar))
 par(mfrow = c(1, 2))
 plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")

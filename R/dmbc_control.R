@@ -52,7 +52,7 @@
 #' @seealso \code{\link{dmbc}()}
 #' @keywords model based clustering
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #' # Shorter run than default.
 #' sim.fit <- dmbc(simdiss,

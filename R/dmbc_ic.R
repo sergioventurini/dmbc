@@ -33,7 +33,7 @@
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' pmax <- 2
@@ -85,7 +85,7 @@ dmbc_IC <- function(data, pmax = 3, Gmax = 5, control = dmbc_control(), prior = 
 	for (G.i in 1:Gmax) {
 		for (p.i in 1:pmax) {
 			if (verbose)
-				cat("--- p = ", p.i, " -- G = ", G.i, " ---\n", sep = "")
+			  message("--- p = ", p.i, " -- G = ", G.i, " ---")
 			
 			res <- dmbc(data = data, p = p.i, G = G.i, control = control, prior = prior)
 			res_list[[p.i]] <- res
@@ -120,7 +120,7 @@ dmbc_IC <- function(data, pmax = 3, Gmax = 5, control = dmbc_control(), prior = 
         ifelse(p.i > 1, sum(logcorrfact[2:p.i, G.i], na.rm = TRUE), 0))
 			
 			if (verbose) {
-				cat("\n")
+				message(" ")
 			}
 		}
 		res_list <- list()

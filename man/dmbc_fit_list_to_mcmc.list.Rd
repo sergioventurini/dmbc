@@ -24,7 +24,7 @@ An object of type \code{mcmc.list}.
   \code{dmbc_fit_list} to an object with class \code{mcmc.list}.
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 
 G <- 3

@@ -32,7 +32,7 @@ A named \code{list} with the following elements:
   posterior median estimates of the parameters for a fitted DMBC model.
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 
 G <- 3

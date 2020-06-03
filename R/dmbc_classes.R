@@ -181,6 +181,8 @@ setMethod("plot",
       nr <- floor(sqrt(S))
       nc <- S %/% nr
       nr <- ifelse(S %% nr, nr + 1, nr)
+      opar <- graphics::par(c("mfrow", "mar", "oma"))
+      on.exit(par(opar))
       graphics::par(mfrow = c(nr, nc), mar = c(1, .75, .75, .5) + 0.1, oma = c(1, 0, 0, 0))
       for(s in 1:S) {
         use <- as.matrix(D[[s]]) + 1
@@ -582,9 +584,6 @@ setMethod("plot",
 
     control <- x@control
 
-    ow <- options("warn")
-    # options(warn = -1) # suppress all warnings
-
     if (what %in% acf_plot_list) {
       if (what == "acf") {
         p <- bayesplot::mcmc_acf(x = x_mcmc, pars = pars, regex_pars = regex_pars, ...)
@@ -703,8 +702,6 @@ setMethod("plot",
         stop("to produce an 'mcmc_combo' plot, the 'combo' option must be specified.")
       }
     }
-
-    options(ow) # reset to previous, typically 'warn = 0'
 
     p
   }
@@ -907,9 +904,6 @@ setMethod("plot",
 
     control <- x@results[[1]]@control
 
-    ow <- options("warn")
-    # options(warn = -1) # suppress all warnings
-
     if (what %in% acf_plot_list) {
       if (what == "acf") {
         p <- bayesplot::mcmc_acf(x = x_mcmc.list, pars = pars, regex_pars = regex_pars, ...)
@@ -1028,8 +1022,6 @@ setMethod("plot",
         stop("to produce an 'mcmc_combo' plot, the 'combo' option must be specified.")
       }
     }
-
-    options(ow) # reset to previous, typically 'warn = 0'
 
     p
 	}
@@ -1286,10 +1278,13 @@ setMethod("plot",
     }
     # mapping <- ggplot2::aes_(x = ~ G, y = ~ DCIC, color = ~ p, group = ~ p, shape = ~ p)
     mapping <- ggplot2::aes(x = G, y = DCIC, color = p, group = p, shape = p)
-    graph <- ggplot2::ggplot(data, mapping) + bayesplot::bayesplot_theme_get()
+    graph <- ggplot2::ggplot(data, mapping) + scale_shape_manual(values = 1:n_p) +
+      bayesplot::bayesplot_theme_get()
 
-    graph <- graph + ggplot2::geom_point(size = geom_args$size[1]) +
-      ggplot2::geom_line(size = geom_args$size[2])
+    graph <- graph + ggplot2::geom_point(size = geom_args$size[1])
+    if (n_p > 1) {
+      graph <- graph + ggplot2::geom_line(size = geom_args$size[2])
+    }
 
     graph <- graph +
       ggplot2::scale_color_manual("p", values = choose_colors(n_p))
@@ -1330,7 +1325,7 @@ setMethod("plot",
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(simdiss, package = "dmbc")
 #'
 #' pmax <- 2

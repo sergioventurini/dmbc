@@ -143,8 +143,8 @@ dmbc_pb <- function(min = 0, max = 1, initial = 0, char = "=", width = 49, skip 
   if (max <= min)
     stop("must have 'max' > 'min'")
   empty_string <- strrep(" ", skip)
-  cat(empty_string, "0%   10   20   30   40   50   60   70   80   90   100%\n", sep = "");
-  cat(empty_string, "[----|----|----|----|----|----|----|----|----|----]\n", sep = "");
+  message(empty_string, "0%   10   20   30   40   50   60   70   80   90   100%")
+  message(empty_string, "[----|----|----|----|----|----|----|----|----|----]")
   utils::flush.console()
   up3 <- function(value) {
     if (!is.finite(value) || value < min || value > max) 
@@ -153,14 +153,15 @@ dmbc_pb <- function(min = 0, max = 1, initial = 0, char = "=", width = 49, skip 
     nb <- round(width * (value - min)/(max - min))
     if (nb == .nb) 
       return()
-    cat(paste0("\r     |", strrep(" ", nw * width + 6)))
-    cat(paste(c("\r     |", rep.int(char, nb), rep.int(" ", nw * (width - nb)), "|"), collapse = ""))
+    message(paste0("\r     |", strrep(" ", nw * width + 6)), appendLF = FALSE)
+    message(paste(c("\r     |", rep.int(char, nb), rep.int(" ", nw * (width - nb)), "|"), collapse = ""),
+      appendLF = FALSE)
     utils::flush.console()
     .nb <<- nb
   }
   getVal <- function() .val
   kill <- function() if (!.killed) {
-    cat("\n")
+    message(" ")
     utils::flush.console()
     .killed <<- TRUE
   }
@@ -327,24 +328,24 @@ print_matrix <- function(mat, rownm = NULL, colnm = NULL, colwidth = 10, between
   empty_string_between_cols <- strrep(" ", between_cols)
   empty_string_rows <- empty_string_cols <- character(nc)
 
-  cat(empty_string_shift, sep = "")
-  cat(empty_string_firstcol, sep = "")
-  cat(empty_string_between_cols, sep = "")
+  message(empty_string_shift, appendLF = FALSE)
+  message(empty_string_firstcol, appendLF = FALSE)
+  message(empty_string_between_cols, appendLF = FALSE)
   for (j in 1:nc) {
     empty_string_cols[j] <- strrep(" ", colwidth - nchar(colnm[j]))
-    cat(empty_string_cols[j], colnm[j], sep = "")
-    cat(empty_string_between_cols, sep = "")
+    message(empty_string_cols[j], colnm[j], appendLF = FALSE)
+    message(empty_string_between_cols, appendLF = FALSE)
   }
-  cat("\n")
+  message(" ")
   for (i in 1:nr) {
     empty_string_rows[i] <- strrep(" ", firstcolwidth - nchar(rownm[i]))
-    cat(empty_string_shift, sep = "")
-    cat(rownm[i], empty_string_rows[i], sep = "")
-    cat(empty_string_between_cols, sep = "")
+    message(empty_string_shift, appendLF = FALSE)
+    message(rownm[i], empty_string_rows[i], appendLF = FALSE)
+    message(empty_string_between_cols, appendLF = FALSE)
     for (j in 1:nc) {
-      cat(mat_str[i, j], sep = "")
-      cat(empty_string_between_cols, sep = "")
-      if (j == nc) cat("\n")
+      message(mat_str[i, j], appendLF = FALSE)
+      message(empty_string_between_cols, appendLF = FALSE)
+      if (j == nc) message(" ")
     }
   }
 }

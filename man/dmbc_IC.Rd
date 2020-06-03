@@ -43,7 +43,7 @@ A \code{dmbc_ic} object.
   (\emph{G}) for a DMBC analysis.
 }
 \examples{
-\dontrun{
+\donttest{
 data(simdiss, package = "dmbc")
 
 pmax <- 2
