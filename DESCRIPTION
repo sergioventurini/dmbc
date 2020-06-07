@@ -2,7 +2,7 @@ Package: dmbc
 Type: Package
 Title: Model Based Clustering of Binary Dissimilarity Measurements
 Version: 0.3.0
-Date: 2020-06-03
+Date: 2020-06-07
 Authors@R: c(
   person("Sergio", "Venturini", role=c("aut", "cre"), email = "sergio.venturini@unito.it"),
   person("Raffaella", "Piccarreta", role=c("aut"), email = "raffaella.piccarreta@unibocconi.it"))
@@ -12,7 +12,7 @@ Description: Functions for fitting a Bayesian model for grouping binary
 Author: Sergio Venturini [aut, cre],
     Raffaella Piccarreta [aut]
 Maintainer: Sergio Venturini <sergio.venturini@unito.it>
-License: GPL (>= 2) | file LICENSE
+License: GPL (>= 2)
 NeedsCompilation: yes
 Repository: CRAN
 LazyData: TRUE

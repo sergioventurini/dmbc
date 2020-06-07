@@ -53,9 +53,7 @@ totiter <- burnin + nsim
 airline.mds <- cmdscale(airline, max_p)
 airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 
-opar <- par("mfrow")
-on.exit(par(opar))
-par(mfrow = c(1, 2))
+opar <- par(mfrow = c(1, 2))
 plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 MDSICmin <- which.min(airline.bmds$mdsIC$mdsic)
@@ -75,6 +73,7 @@ points(airline, airline.mds.d, pch = 19, col = "cyan", cex = .5)
 points(airline, airline.bmds.d, pch = 19, col = "magenta", cex = .5)
 legend(x = "bottomright", legend = c("Classical MDS", "Bayesian MDS"),
   pch = c(19, 19), col = c("cyan", "magenta"))
+par(opar)
 }
 }
 \seealso{

@@ -131,9 +131,10 @@ colMedians <- function(x, na.rm = TRUE, dims = 1L) {
 }
 
 dmbc_pb <- function(min = 0, max = 1, initial = 0, char = "=", width = 49, skip = 5) {
-  .val <- initial
-  .killed <- FALSE
-  .nb <- 0L
+  e <- new.env(parent = emptyenv())
+  e$.val <- initial
+  e$.killed <- FALSE
+  e$.nb <- 0L
   nw <- nchar(char, "w")
   if (is.na(width)) {
     width <- getOption("width")
@@ -149,21 +150,21 @@ dmbc_pb <- function(min = 0, max = 1, initial = 0, char = "=", width = 49, skip 
   up3 <- function(value) {
     if (!is.finite(value) || value < min || value > max) 
       return()
-    .val <<- value
+    e$.val <- value
     nb <- round(width * (value - min)/(max - min))
-    if (nb == .nb) 
+    if (nb == e$.nb) 
       return()
     message(paste0("\r     |", strrep(" ", nw * width + 6)), appendLF = FALSE)
     message(paste(c("\r     |", rep.int(char, nb), rep.int(" ", nw * (width - nb)), "|"), collapse = ""),
       appendLF = FALSE)
     utils::flush.console()
-    .nb <<- nb
+    e$.nb <- nb
   }
-  getVal <- function() .val
-  kill <- function() if (!.killed) {
+  getVal <- function() e$.val
+  kill <- function() if (!e$.killed) {
     message(" ")
     utils::flush.console()
-    .killed <<- TRUE
+    e$.killed <- TRUE
   }
   up3(initial)
   structure(list(getVal = getVal, up = up3, kill = kill), class = "txtProgressBar")

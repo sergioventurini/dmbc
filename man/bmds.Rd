@@ -74,9 +74,7 @@ totiter <- burnin + nsim
 airline.mds <- cmdscale(airline, max_p)
 airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 
-opar <- par("mfrow")
-on.exit(par(opar))
-par(mfrow = c(1, 2))
+opar <- par(mfrow = c(1, 2))
 plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 MDSICmin <- which.min(airline.bmds$mdsIC$mdsic)
@@ -96,6 +94,7 @@ points(airline, airline.mds.d, pch = 19, col = "cyan", cex = .5)
 points(airline, airline.bmds.d, pch = 19, col = "magenta", cex = .5)
 legend(x = "bottomright", legend = c("Classical MDS", "Bayesian MDS"),
   pch = c(19, 19), col = c("cyan", "magenta"))
+par(opar)
 
 # Careers of Lloyds Bank Employees
 lloyds <- read.csv(file = system.file("extdata", "lloyds.csv",
@@ -114,9 +113,7 @@ totiter <- burnin + nsim
 lloyds.mds <- cmdscale(lloyds, max_p)
 lloyds.bmds <- bmds(lloyds, min_p, max_p, burnin, nsim)
 
-opar <- par("mfrow")
-on.exit(par(opar))
-par(mfrow = c(1, 2))
+opar <- par(mfrow = c(1, 2))
 plot((min_p:max_p), lloyds.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 MDSICmin <- which.min(lloyds.bmds$mdsIC$mdsic)
@@ -136,6 +133,7 @@ points(lloyds, lloyds.mds.d, pch = 19, col = "cyan", cex = .5)
 points(lloyds, lloyds.bmds.d, pch = 19, col = "magenta", cex = .5)
 legend(x = "topleft", legend = c("Classical MDS", "Bayesian MDS"),
   pch = c(19, 19), col = c("cyan", "magenta"))
+par(opar)
 
 # Road distances (in km) between 21 cities in Europe
 data(eurodist, package = "datasets")
@@ -149,9 +147,7 @@ totiter <- burnin + nsim
 eurodist.mds <- cmdscale(eurodist, max_p)
 eurodist.bmds <- bmds(eurodist, min_p, max_p, burnin, nsim)
 
-opar <- par("mfrow")
-on.exit(par(opar))
-par(mfrow = c(1, 2))
+opar <- par(mfrow = c(1, 2))
 plot((min_p:max_p), eurodist.bmds$mdsIC$mdsic, type = "b",
   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 MDSICmin <- which.min(eurodist.bmds$mdsIC$mdsic)
@@ -171,6 +167,7 @@ points(eurodist, eurodist.mds.d, pch = 19, col = "cyan", cex = .5)
 points(eurodist, eurodist.bmds.d, pch = 19, col = "magenta", cex = .5)
 legend(x = "topleft", legend = c("Classical MDS", "Bayesian MDS"),
   pch = c(19, 19), col = c("cyan", "magenta"))
+par(opar)
 }
 }
 \references{

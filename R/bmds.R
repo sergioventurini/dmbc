@@ -115,9 +115,7 @@ adjust_x <- function(x) {
 #' airline.mds <- cmdscale(airline, max_p)
 #' airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 #' 
-#' opar <- par("mfrow")
-#' on.exit(par(opar))
-#' par(mfrow = c(1, 2))
+#' opar <- par(mfrow = c(1, 2))
 #' plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 #' MDSICmin <- which.min(airline.bmds$mdsIC$mdsic)
@@ -137,6 +135,7 @@ adjust_x <- function(x) {
 #' points(airline, airline.bmds.d, pch = 19, col = "magenta", cex = .5)
 #' legend(x = "bottomright", legend = c("Classical MDS", "Bayesian MDS"),
 #'   pch = c(19, 19), col = c("cyan", "magenta"))
+#' par(opar)
 #' }
 #' @export
 bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
@@ -204,9 +203,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' airline.mds <- cmdscale(airline, max_p)
 #' airline.bmds <- bmds(airline, min_p, max_p, burnin, nsim)
 #' 
-#' opar <- par("mfrow")
-#' on.exit(par(opar))
-#' par(mfrow = c(1, 2))
+#' opar <- par(mfrow = c(1, 2))
 #' plot(min_p:max_p, airline.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 #' MDSICmin <- which.min(airline.bmds$mdsIC$mdsic)
@@ -226,6 +223,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' points(airline, airline.bmds.d, pch = 19, col = "magenta", cex = .5)
 #' legend(x = "bottomright", legend = c("Classical MDS", "Bayesian MDS"),
 #'   pch = c(19, 19), col = c("cyan", "magenta"))
+#' par(opar)
 #'
 #' # Careers of Lloyds Bank Employees
 #' lloyds <- read.csv(file = system.file("extdata", "lloyds.csv",
@@ -244,9 +242,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' lloyds.mds <- cmdscale(lloyds, max_p)
 #' lloyds.bmds <- bmds(lloyds, min_p, max_p, burnin, nsim)
 #' 
-#' opar <- par("mfrow")
-#' on.exit(par(opar))
-#' par(mfrow = c(1, 2))
+#' opar <- par(mfrow = c(1, 2))
 #' plot((min_p:max_p), lloyds.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 #' MDSICmin <- which.min(lloyds.bmds$mdsIC$mdsic)
@@ -266,6 +262,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' points(lloyds, lloyds.bmds.d, pch = 19, col = "magenta", cex = .5)
 #' legend(x = "topleft", legend = c("Classical MDS", "Bayesian MDS"),
 #'   pch = c(19, 19), col = c("cyan", "magenta"))
+#' par(opar)
 #'
 #' # Road distances (in km) between 21 cities in Europe
 #' data(eurodist, package = "datasets")
@@ -279,9 +276,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' eurodist.mds <- cmdscale(eurodist, max_p)
 #' eurodist.bmds <- bmds(eurodist, min_p, max_p, burnin, nsim)
 #' 
-#' opar <- par("mfrow")
-#' on.exit(par(opar))
-#' par(mfrow = c(1, 2))
+#' opar <- par(mfrow = c(1, 2))
 #' plot((min_p:max_p), eurodist.bmds$mdsIC$mdsic, type = "b",
 #'   main = "MDS Information Criterion", xlab = "p", ylab = "MDSIC")
 #' MDSICmin <- which.min(eurodist.bmds$mdsIC$mdsic)
@@ -301,6 +296,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #' points(eurodist, eurodist.bmds.d, pch = 19, col = "magenta", cex = .5)
 #' legend(x = "topleft", legend = c("Classical MDS", "Bayesian MDS"),
 #'   pch = c(19, 19), col = c("cyan", "magenta"))
+#' par(opar)
 #' }
 #' @export
 bmds <- function(D, min_p = 1, max_pm1 = 6, burnin = 0, nsim = 13000, ic = TRUE, verbose = TRUE) {
