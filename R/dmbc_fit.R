@@ -30,7 +30,7 @@
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
 #'   Package in \code{R}", Technical report.
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3

@@ -24,7 +24,7 @@ A \code{\link{dmbc_config}} object.
   latent configuration estimates of a fitted DMBC model.
 }
 \examples{
-\donttest{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3

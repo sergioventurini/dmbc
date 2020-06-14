@@ -15,7 +15,7 @@
 #'   \code{\link[coda]{mcmc}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -135,7 +135,7 @@ dmbc_fit_to_mcmc <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #'   \code{\link{dmbc_fit_list-class}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3
@@ -253,7 +253,7 @@ dmbc_fit_list_to_list <- function(res, include.burnin = FALSE, verbose = TRUE) {
 #'   \code{\link[coda]{mcmc.list}}.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #' 
 #' G <- 3

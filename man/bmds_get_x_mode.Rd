@@ -35,7 +35,7 @@ A real matrix containing the posterior mode latent configuration.
   largest posterior value during the MCMC.
 }
 \examples{
-\donttest{
+\dontrun{
 # Airline Distances Between Cities
 airline <- read.csv(file = system.file("extdata", "airline.csv",
   package = "dmbc"))

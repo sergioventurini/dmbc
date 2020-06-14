@@ -46,7 +46,7 @@ A \code{dmbc_fit_list} object.
   for a given set of \emph{S} dissimilarity matrices.
 }
 \examples{
-\donttest{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3

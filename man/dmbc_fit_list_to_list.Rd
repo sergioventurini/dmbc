@@ -24,7 +24,7 @@ An object of type \code{mcmc.list}.
   chains. It is intended for internal use mainly.
 }
 \examples{
-\donttest{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3

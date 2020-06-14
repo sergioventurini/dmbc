@@ -56,7 +56,7 @@ A list with the following elements:
   dimensions.
 }
 \examples{
-\donttest{
+\dontrun{
 # Airline Distances Between Cities
 airline <- read.csv(file = system.file("extdata", "airline.csv",
   package = "dmbc"))

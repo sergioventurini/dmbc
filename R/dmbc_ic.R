@@ -33,7 +33,7 @@
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' pmax <- 2

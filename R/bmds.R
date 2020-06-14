@@ -97,7 +97,7 @@ adjust_x <- function(x) {
 #'   scaling.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # Airline Distances Between Cities
 #' airline <- read.csv(file = system.file("extdata", "airline.csv",
 #'   package = "dmbc"))
@@ -185,7 +185,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #'   96, 1031-1044.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # Airline Distances Between Cities
 #' airline <- read.csv(file = system.file("extdata", "airline.csv",
 #'   package = "dmbc"))
@@ -531,7 +531,7 @@ bmds <- function(D, min_p = 1, max_pm1 = 6, burnin = 0, nsim = 13000, ic = TRUE,
 #'   Choice of Dimension", Journal of the American Statistical Association,
 #'   96, 1031-1044.
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # Road distances (in km) between 21 cities in Europe
 #' data(eurodist, package = "datasets")
 #' 

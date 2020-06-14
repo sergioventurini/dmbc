@@ -33,7 +33,7 @@
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -130,7 +130,7 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -229,7 +229,7 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -329,7 +329,7 @@ dmbc_get_ml <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -417,7 +417,7 @@ dmbc_get_map <- function(res, chain = 1) {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -525,7 +525,7 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 3
@@ -609,7 +609,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 #'   Package in \code{R}", Technical report.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' data(simdiss, package = "dmbc")
 #'
 #' G <- 5

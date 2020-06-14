@@ -39,7 +39,7 @@ A \code{dmbc_fit_list} object.
 \code{dmbc_fit()} is the main function that estimates a DMBC model.
 }
 \examples{
-\donttest{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3

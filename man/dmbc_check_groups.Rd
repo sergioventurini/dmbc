@@ -21,7 +21,7 @@ A length-one logical vector, which is equal to TRUE if all simulated chains
   fitted model provided agree or not.
 }
 \examples{
-\donttest{
+\dontrun{
 data(simdiss, package = "dmbc")
 
 G <- 3

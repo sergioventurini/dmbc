@@ -113,7 +113,7 @@ A named list with the control options as components.
 }
 }
 \examples{
-\donttest{
+\dontrun{
 data(simdiss, package = "dmbc")
 # Shorter run than default.
 sim.fit <- dmbc(simdiss,
