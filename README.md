@@ -2,10 +2,10 @@
 
 <!-- badges: start -->
 
-[![Travis build status](https://travis-ci.org/sergioventurini/dmbc.svg?branch=master)](https://travis-ci.org/sergioventurini/dmbc)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/dmbc)](https://cran.r-project.org/package=dmbc)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/dmbc?color=blue)](https://cran.r-project.org/package=dmbc)
+[![Travis build status](https://travis-ci.org/sergioventurini/dmbc.svg?branch=master)](https://travis-ci.org/sergioventurini/dmbc)
 
 <!-- badges: end -->
 
