@@ -19,7 +19,7 @@ set.seed(seed)
 
 control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
-  nchains = 1, thin = 10, store.burnin = TRUE, threads = 3,
+  nchains = 1, thin = 10, store.burnin = TRUE, threads = 1,
   parallel = "snow")
 sim.dmbc <- dmbc(simdiss, p, G, control)
 

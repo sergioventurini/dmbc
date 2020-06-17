@@ -228,13 +228,13 @@ void dmbc_mcmc_binom(
         expit(pi_g, alpha_plus_delta, m);
         dprodber(&prob[g], Dm_s, pi_g, m, 1);
         // if(any_na_nan(prob, G)){
-        //  Rprintf("### niter = %d  - Some NaN in prob[g]! ###\n", niter);
-        //  Rprintf("### niter = %d ###\n", niter);
-        //  Rprintf("prob[g] = %1.9f\n", prob[g]);
+        //  REprintf("### niter = %d  - Some NaN in prob[g]! ###\n", niter);
+        //  REprintf("### niter = %d ###\n", niter);
+        //  REprintf("prob[g] = %1.9f\n", prob[g]);
         //  for(int k = 0; k < m; k++){
         //    if((pi_g[k] == 0) || (pi_g[k] == 1)){
-        //      Rprintf("   k = %d - pi_g[k] = %1.9f\n", k, pi_g[k]);
-        //      Rprintf("   apd = %1.9f - a = %1.9f - d = %1.9f\n", alpha_plus_delta[k], alpha[g], delta[k]);
+        //      REprintf("   k = %d - pi_g[k] = %1.9f\n", k, pi_g[k]);
+        //      REprintf("   apd = %1.9f - a = %1.9f - d = %1.9f\n", alpha_plus_delta[k], alpha[g], delta[k]);
         //    }
         //  }
         // }
@@ -265,7 +265,7 @@ void dmbc_mcmc_binom(
 
     // print the information
     if(((niter % 500) == 0) && verbose){
-      Rprintf("   iteration %d/%d ==> acceptance z_i (avg): %1.4f - acceptance alpha (avg): %1.4f\n", niter, totiter, sum_z_i/(G*n*niter),
+      REprintf("   iteration %d/%d ==> acceptance z_i (avg): %1.4f - acceptance alpha (avg): %1.4f\n", niter, totiter, sum_z_i/(G*n*niter),
         sum_alpha/(G*niter));
     }
 

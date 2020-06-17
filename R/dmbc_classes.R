@@ -1413,7 +1413,7 @@ setMethod("update", "dmbc_ic",
       for (G.i in G.seq) {
         for (p.i in 1:pmax.old) {
           if (verbose)
-            cat("--- p = ", p.i, " -- G = ", G.i, " ---\n", sep = "")
+            message("--- p = ", p.i, " -- G = ", G.i, " ---")
           
           prior.i <- update_prior(prior, p.i, G.i)
           res <- dmbc(data = data, p = p.i, G = G.i, control = control, prior = prior.i)
@@ -1450,7 +1450,7 @@ setMethod("update", "dmbc_ic",
             ifelse(p.i > 1, sum(logcorrfact[2:p.i, G.i], na.rm = TRUE), 0))
           
           if (verbose) {
-            cat("\n")
+            message(" ")
           }
         }
         res_list <- list()
@@ -1461,7 +1461,7 @@ setMethod("update", "dmbc_ic",
       for (G.i in 1:Gmax) {
         for (p.i in p.seq) {
           if (verbose)
-            cat("--- p = ", p.i, " -- G = ", G.i, " ---\n", sep = "")
+            message("--- p = ", p.i, " -- G = ", G.i, " ---")
           
           prior.i <- update_prior(prior, p.i, G.i)
           res <- dmbc(data = data, p = p.i, G = G.i, control = control, prior = prior.i)
@@ -1499,7 +1499,7 @@ setMethod("update", "dmbc_ic",
             ifelse(p.i > 1, sum(logcorrfact[2:p.i, G.i], na.rm = TRUE), 0))
           
           if (verbose) {
-            cat("\n")
+            message(" ")
           }
         }
         res_list <- list()
@@ -1686,7 +1686,7 @@ setMethod("show",
             subj_str <- paste0(subj_str, ", ", subj_clg[h])
           }
         }
-        cat("Cluster", g, ": ", subj_str, "\n", sep = "")
+        cat("Cluster ", g, ": ", subj_str, "\n", sep = "")
       }
     }
 )

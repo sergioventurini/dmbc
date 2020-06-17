@@ -28,6 +28,7 @@ new.ic <- update(sim.ic, pmax = pmax, Gmax = Gmax)
 summary(new.ic)
 
 # plot the results
+library(bayesplot)
 color_scheme_set("mix-yellow-blue")
 p <- plot(new.ic, size = c(4, 1.5))
 p + panel_bg(fill = "gray90", color = NA)

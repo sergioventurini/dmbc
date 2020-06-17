@@ -329,24 +329,24 @@ print_matrix <- function(mat, rownm = NULL, colnm = NULL, colwidth = 10, between
   empty_string_between_cols <- strrep(" ", between_cols)
   empty_string_rows <- empty_string_cols <- character(nc)
 
-  message(empty_string_shift, appendLF = FALSE)
-  message(empty_string_firstcol, appendLF = FALSE)
-  message(empty_string_between_cols, appendLF = FALSE)
+  cat(empty_string_shift, sep = "")
+  cat(empty_string_firstcol, sep = "")
+  cat(empty_string_between_cols, sep = "")
   for (j in 1:nc) {
     empty_string_cols[j] <- strrep(" ", colwidth - nchar(colnm[j]))
-    message(empty_string_cols[j], colnm[j], appendLF = FALSE)
-    message(empty_string_between_cols, appendLF = FALSE)
+    cat(empty_string_cols[j], colnm[j], sep = "")
+    cat(empty_string_between_cols, sep = "")
   }
-  message(" ")
+  cat("\n")
   for (i in 1:nr) {
     empty_string_rows[i] <- strrep(" ", firstcolwidth - nchar(rownm[i]))
-    message(empty_string_shift, appendLF = FALSE)
-    message(rownm[i], empty_string_rows[i], appendLF = FALSE)
-    message(empty_string_between_cols, appendLF = FALSE)
+    cat(empty_string_shift, sep = "")
+    cat(rownm[i], empty_string_rows[i], sep = "")
+    cat(empty_string_between_cols, sep = "")
     for (j in 1:nc) {
-      message(mat_str[i, j], appendLF = FALSE)
-      message(empty_string_between_cols, appendLF = FALSE)
-      if (j == nc) message(" ")
+      cat(mat_str[i, j], sep = "")
+      cat(empty_string_between_cols, sep = "")
+      if (j == nc) cat("\n")
     }
   }
 }

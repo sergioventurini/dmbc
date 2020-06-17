@@ -40,8 +40,8 @@ class ETAProgressBar: public ProgressBar{
     public: // ===== main methods =====
       
       void display() {
-        Rprintf("     0%%   10   20   30   40   50   60   70   80   90   100%%\n");
-        Rprintf("     [----|----|----|----|----|----|----|----|----|----]\n");
+        REprintf("     0%%   10   20   30   40   50   60   70   80   90   100%%\n");
+        REprintf("     [----|----|----|----|----|----|----|----|----|----]\n");
         flush_console();
       }
       
@@ -83,8 +83,8 @@ class ETAProgressBar: public ProgressBar{
           char const* char_type = temp_str.c_str();
           
           // print: remove old and replace with new
-          Rprintf("\r");
-          Rprintf("%s", char_type);
+          REprintf("\r");
+          REprintf("%s", char_type);
           
           // finalize display when ready
           if(progress == 1) {
@@ -153,7 +153,7 @@ class ETAProgressBar: public ProgressBar{
       void _finalize_display() {
         if (_finalized) return;
         
-        Rprintf("\n");
+        REprintf("\n");
         flush_console();
         _finalized = true;
       }
