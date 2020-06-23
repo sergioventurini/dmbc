@@ -112,7 +112,7 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 		rverbose = as.integer(control[["verbose"]])
 	)
 
-	z.chain <- array(res.mcmc[[1]], c(totiter, n, p, G))
+	z.chain <- z.chain.p <- array(res.mcmc[[1]], c(totiter, n, p, G))
 	alpha.chain <- array(res.mcmc[[2]], c(totiter, G))
 	eta.chain <- array(res.mcmc[[3]], c(totiter, G))
 	sigma2.chain <- array(res.mcmc[[4]], c(totiter, G))
