@@ -18,7 +18,7 @@ dmbc_control(
   alpha.prop = 0.75,
   random.start = TRUE,
   partition = NULL,
-  method = "binary",
+  method = "manhattan",
   store.burnin = TRUE,
   verbose = FALSE,
   post.proc = TRUE
@@ -36,7 +36,7 @@ control_dmbc(
   alpha.prop = 0.75,
   random.start = TRUE,
   partition = NULL,
-  method = "binary",
+  method = "manhattan",
   store.burnin = TRUE,
   verbose = FALSE,
   post.proc = TRUE

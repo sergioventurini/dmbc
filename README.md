@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/dmbc)](https://cran.r-project.org/p
 
 ## Overview
 
-###### Current release: 0.3.2
+###### Current release: 0.3.3
 ###### R version required: at least 3.6.0
 `R` package for Bayesian model-based clustering of several dissimilarity
 matrices.
