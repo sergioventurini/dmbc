@@ -43,4 +43,4 @@ Depends:
 LinkingTo: Rcpp, RcppArmadillo, RcppProgress
 BugReports: https://github.com/sergioventurini/dmbc/issues
 Encoding: UTF-8
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
