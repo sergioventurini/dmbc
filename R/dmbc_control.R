@@ -34,18 +34,21 @@
 #' @param alpha.prop A length-one numeric vector providing the standard deviation
 #'   of the proposal distribution for the jump in the individual random effect value.
 #' @param random.start A length-one logical vector. If \code{TRUE} the starting
-#'   values are drawn randomly, otherwise.
+#'   values are drawn randomly, otherwise a user-defined starting partition must
+#'   be provided through the \code{partition} argument.
+#' @param partition A length-one numeric vector providing the user-defined
+#'   starting partition.
 #' @param method A length-one character vector that specifies the distance
 #'   measure to use in determining the initial partition. Allowed values are
 #'   those from the \code{\link{dist}()} function.
-#' @param partition A length-one numeric vector providing the user-defined
-#'   starting partition.
+#' @param procrustes A length-one logical vector. If \code{TRUE} the simulated
+#'   MCMC chains are post-processed through a Procrustes transformation.
+#' @param relabel A length-one logical vector. If \code{TRUE} the simulated
+#'   MCMC chains are relabelled to address the label-switching problem.
 #' @param store.burnin A logical scalar. If \code{TRUE}, the samples from the
 #'   burnin are also stored and returned.
 #' @param verbose A logical scalar. If \code{TRUE}, causes information to be
 #'   printed out about the progress of the fitting.
-#' @param post.proc A logical scalar. If \code{TRUE}, performs post-processing
-#'   after the model has been fitted.
 #' @param control A list of control options.
 #' @return A named list with the control options as components.
 #' @author Sergio Venturini \email{sergio.venturini@unito.it}
@@ -72,9 +75,10 @@ dmbc_control <- function(nsim = 5000,
                          random.start = TRUE,
                          partition = NULL,
                          method = "manhattan",
+                         procrustes = TRUE,
+                         relabel = TRUE,
                          store.burnin = TRUE,
-                         verbose = FALSE,
-                         post.proc = TRUE){
+                         verbose = FALSE){
   control <- list()
   for (arg in names(formals(sys.function())))
     control[[arg]] <- get(arg)
@@ -158,7 +162,11 @@ check_control <- function(control) {
     control_ok <- FALSE
     return(control_ok)
   }
-  if (!is.logical(control[["post.proc"]])) {
+  if (!is.logical(control[["procrustes"]])) {
+    control_ok <- FALSE
+    return(control_ok)
+  }
+  if (!is.logical(control[["relabel"]])) {
     control_ok <- FALSE
     return(control_ok)
   }

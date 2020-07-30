@@ -15,7 +15,7 @@ set.seed(seed)
 
 control <- list(burnin = burnin, nsim = nsim, z.prop = prm.prop[["z"]],
   alpha.prop = prm.prop[["alpha"]], random.start = TRUE, verbose = TRUE,
-  thin = 10, store.burnin = TRUE)
+  thin = 10, store.burnin = TRUE, procrustes = TRUE, relabel = FALSE)
 sim.ic <- dmbc_IC(data = simdiss, pmax = pmax, Gmax = Gmax, control = control,
   est = "mean")
 

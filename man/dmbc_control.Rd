@@ -19,9 +19,10 @@ dmbc_control(
   random.start = TRUE,
   partition = NULL,
   method = "manhattan",
+  procrustes = TRUE,
+  relabel = TRUE,
   store.burnin = TRUE,
-  verbose = FALSE,
-  post.proc = TRUE
+  verbose = FALSE
 )
 
 control_dmbc(
@@ -37,9 +38,10 @@ control_dmbc(
   random.start = TRUE,
   partition = NULL,
   method = "manhattan",
+  procrustes = TRUE,
+  relabel = TRUE,
   store.burnin = TRUE,
-  verbose = FALSE,
-  post.proc = TRUE
+  verbose = FALSE
 )
 
 check_control(control)
@@ -75,7 +77,8 @@ position.}
 of the proposal distribution for the jump in the individual random effect value.}
 
 \item{random.start}{A length-one logical vector. If \code{TRUE} the starting
-values are drawn randomly, otherwise.}
+values are drawn randomly, otherwise a user-defined starting partition must
+be provided through the \code{partition} argument.}
 
 \item{partition}{A length-one numeric vector providing the user-defined
 starting partition.}
@@ -84,14 +87,17 @@ starting partition.}
 measure to use in determining the initial partition. Allowed values are
 those from the \code{\link{dist}()} function.}
 
+\item{procrustes}{A length-one logical vector. If \code{TRUE} the simulated
+MCMC chains are post-processed through a Procrustes transformation.}
+
+\item{relabel}{A length-one logical vector. If \code{TRUE} the simulated
+MCMC chains are relabelled to address the label-switching problem.}
+
 \item{store.burnin}{A logical scalar. If \code{TRUE}, the samples from the
 burnin are also stored and returned.}
 
 \item{verbose}{A logical scalar. If \code{TRUE}, causes information to be
 printed out about the progress of the fitting.}
-
-\item{post.proc}{A logical scalar. If \code{TRUE}, performs post-processing
-after the model has been fitted.}
 
 \item{control}{A list of control options.}
 }

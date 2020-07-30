@@ -1,4 +1,4 @@
-# Script to simulate the simdiss object
+# Script to simulate the simdiss object included in the package
 # (the number of clusters is fixed and set to 3)
 make_simdata <- function(prob, n, S, seed, groups = c(0.3, 0.5, 0.2)) {
   set.seed(seed)

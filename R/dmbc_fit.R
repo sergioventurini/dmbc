@@ -125,85 +125,89 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 	logprior <- as.numeric(res.mcmc[[11]])
 	logpost <- as.numeric(res.mcmc[[12]])
 
-  if (control[["post.proc"]]) {
+  if (control[["procrustes"]] | control[["relabel"]]) {
   	# post-processing:
   	if (control[["verbose"]]) message("Post-processing the chain:")
 
-  	## Procrustes transformation of Z_g
-  	if (control[["verbose"]]) message("   - applying Procrustes transformation...")
-    if (control[["verbose"]]) {
-      pb <- dmbc_pb(min = 0, max = (totiter*G - 1), width = 49)
+    if (control[["procrustes"]]) {
+    	## Procrustes transformation of Z_g
+    	if (control[["verbose"]]) message("   - applying Procrustes transformation...")
+      if (control[["verbose"]]) {
+        pb <- dmbc_pb(min = 0, max = (totiter*G - 1), width = 49)
+      }
+      no <- 0
+    	for (niter in 1:totiter) {
+    		for (g in 1:G) {
+          if (control[["verbose"]]) dmbc_setpb(pb, no)
+    			if (p == 1) {
+    				z.chain.p[niter, , , g] <- as.numeric(MCMCpack::procrustes(as.matrix(z.chain[niter, , , g]),
+              as.matrix(z.chain[totiter, , , g]), translation = TRUE, dilation = FALSE)$X.new)
+    			} else {
+    				z.chain.p[niter, , , g] <- MCMCpack::procrustes(z.chain[niter, , , g], z.chain[totiter, , , g],
+              translation = TRUE, dilation = FALSE)$X.new
+    			}
+          no <- no + 1
+    		}
+    	}
+      if (control[["verbose"]]) {
+        # message("done!")
+        close(pb)
+      }
     }
-    no <- 0
-  	for (niter in 1:totiter) {
-  		for (g in 1:G) {
-        if (control[["verbose"]]) dmbc_setpb(pb, no)
-  			if (p == 1) {
-  				z.chain.p[niter, , , g] <- as.numeric(MCMCpack::procrustes(as.matrix(z.chain[niter, , , g]),
-            as.matrix(z.chain[totiter, , , g]), translation = TRUE, dilation = FALSE)$X.new)
-  			} else {
-  				z.chain.p[niter, , , g] <- MCMCpack::procrustes(z.chain[niter, , , g], z.chain[totiter, , , g],
-            translation = TRUE, dilation = FALSE)$X.new
-  			}
-        no <- no + 1
-  		}
-  	}
-    if (control[["verbose"]]) {
-      # message("done!")
-      close(pb)
+
+    if (control[["relabel"]]) {
+    	# relabel the parameter chain
+    	if (G > 1) {
+    		if (totiter > 10) {
+          if (control[["verbose"]]) message("   - relabeling the parameter chain...")
+    			init <- ifelse(totiter <= 100, 5, 100)
+    			
+    			theta <- .Call('dmbc_pack_par', PACKAGE = 'dmbc',
+    				radz = as.double(z.chain.p),
+    				radalpha = as.double(alpha.chain),
+    				radlambda = as.double(lambda.chain),
+    				rn = as.integer(n),
+    				rp = as.integer(p),
+    				rM = as.integer(totiter),
+    				rG = as.integer(G)
+    			)
+
+    			theta.relab <- .Call('dmbc_relabel', PACKAGE = 'dmbc',
+    				radtheta = as.double(theta),
+    				radz = as.double(z.chain.p),
+    				radalpha = as.double(alpha.chain),
+    				radeta = as.double(eta.chain),
+    				radsigma2 = as.double(sigma2.chain),
+    				radlambda = as.double(lambda.chain),
+    				radprob = as.double(prob.chain),
+    				raix_ind = as.integer(x.ind.chain),
+    				rinit = as.integer(init),
+    				rn = as.integer(n),
+    				rp = as.integer(p),
+    				rS = as.integer(S),
+    				rM = as.integer(totiter),
+    				rR = as.integer(m + 1),
+    				rG = as.integer(G),
+            rverbose = as.integer(control[["verbose"]])
+    			)
+
+    			theta <- array(theta.relab[[1]], c(totiter, (m + 1), G))  # this is not needed elsewhere
+    			z.chain.p <- array(theta.relab[[2]], c(totiter, n, p, G))
+    			alpha.chain <- array(theta.relab[[3]], c(totiter, G))
+    			eta.chain <- array(theta.relab[[4]], c(totiter, G))
+    			sigma2.chain <- array(theta.relab[[5]], c(totiter, G))
+    			lambda.chain <- array(theta.relab[[6]], c(totiter, G))
+    			prob.chain <- array(theta.relab[[7]], c(totiter, S, G))
+    			x.ind.chain <- array(theta.relab[[8]], c(totiter, S, G))
+    			x.chain <- t(apply(x.ind.chain, 1, function(x) as.integer(x %*% 1:G)))
+
+    			# if (control[["verbose"]]) # message("done!")
+    		} else {
+    			warning("the number of iterations is too small for relabeling; relabeling skipped.", call. = FALSE,
+            immediate. = TRUE)
+    		}
+    	}
     }
-
-  	# relabel the parameter chain
-  	if (G > 1) {
-  		if (totiter > 10) {
-        if (control[["verbose"]]) message("   - relabeling the parameter chain...")
-  			init <- ifelse(totiter <= 100, 5, 100)
-  			
-  			theta <- .Call('dmbc_pack_par', PACKAGE = 'dmbc',
-  				radz = as.double(z.chain.p),
-  				radalpha = as.double(alpha.chain),
-  				radlambda = as.double(lambda.chain),
-  				rn = as.integer(n),
-  				rp = as.integer(p),
-  				rM = as.integer(totiter),
-  				rG = as.integer(G)
-  			)
-
-  			theta.relab <- .Call('dmbc_relabel', PACKAGE = 'dmbc',
-  				radtheta = as.double(theta),
-  				radz = as.double(z.chain.p),
-  				radalpha = as.double(alpha.chain),
-  				radeta = as.double(eta.chain),
-  				radsigma2 = as.double(sigma2.chain),
-  				radlambda = as.double(lambda.chain),
-  				radprob = as.double(prob.chain),
-  				raix_ind = as.integer(x.ind.chain),
-  				rinit = as.integer(init),
-  				rn = as.integer(n),
-  				rp = as.integer(p),
-  				rS = as.integer(S),
-  				rM = as.integer(totiter),
-  				rR = as.integer(m + 1),
-  				rG = as.integer(G),
-          rverbose = as.integer(control[["verbose"]])
-  			)
-
-  			theta <- array(theta.relab[[1]], c(totiter, (m + 1), G))  # this is not needed elsewhere
-  			z.chain.p <- array(theta.relab[[2]], c(totiter, n, p, G))
-  			alpha.chain <- array(theta.relab[[3]], c(totiter, G))
-  			eta.chain <- array(theta.relab[[4]], c(totiter, G))
-  			sigma2.chain <- array(theta.relab[[5]], c(totiter, G))
-  			lambda.chain <- array(theta.relab[[6]], c(totiter, G))
-  			prob.chain <- array(theta.relab[[7]], c(totiter, S, G))
-  			x.ind.chain <- array(theta.relab[[8]], c(totiter, S, G))
-  			x.chain <- t(apply(x.ind.chain, 1, function(x) as.integer(x %*% 1:G)))
-
-  			# if (control[["verbose"]]) # message("done!")
-  		} else {
-  			warning("the number of iterations is too small for relabeling; relabeling skipped.", call. = FALSE,
-          immediate. = TRUE)
-  		}
-  	}
   }
 
   # apply thinning
