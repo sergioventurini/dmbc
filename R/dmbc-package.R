@@ -62,7 +62,7 @@
 #'  \item{\strong{General questions and help}:}{
 #'  To ask a question about \pkg{dmbc} send and email to:
 #'
-#'  \email{sergio.venturini@unito.it}.
+#'  \email{sergio.venturini@unicatt.it}.
 #' }
 #' }
 #'
@@ -73,9 +73,9 @@
 #' @seealso \code{\link[ggplot2]{ggsave}} in \pkg{ggplot2} for saving plots.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @useDynLib dmbc
 #' @import bayesplot

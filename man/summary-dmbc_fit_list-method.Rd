@@ -22,5 +22,5 @@ also includes the latent configuration coordinates.}
 Provide a summary of a \code{dmbc_fit_list} class instance.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

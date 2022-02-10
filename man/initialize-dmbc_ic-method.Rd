@@ -54,5 +54,5 @@ of an update of the DCIC calculations using additional \emph{p} and/or
 Create an instance of the \code{dmbc_ic} class using new/initialize.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

@@ -79,7 +79,7 @@ list.sum <- function(x) {
 #'
 #' @return A list with all elements added.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @examples
 #' G <- 5

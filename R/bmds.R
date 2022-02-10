@@ -10,7 +10,7 @@
 #' @return A length-one numeric vector providing the SSR for its arguments.
 #' @seealso \code{\link{bmds}} for (one-way) Bayesian (metric) multidimensional
 #'   scaling.
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @examples
 #' n <- 10000
 #' nr <- 200
@@ -46,7 +46,7 @@ comp_ssr <- function(x, diss) {
 #'   \item{\code{Sig_x}}{The variance and covariance matrix of the adjusted
 #'                       latent configuration.}
 #' }
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @examples
 #' n <- 100
 #' nr <- 20
@@ -95,7 +95,7 @@ adjust_x <- function(x) {
 #' @return A real matrix containing the posterior mode latent configuration.
 #' @seealso \code{\link{bmds}} for (one-way) Bayesian (metric) multidimensional
 #'   scaling.
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @examples
 #' \dontrun{
 #' # Airline Distances Between Cities
@@ -183,7 +183,7 @@ bmds_get_x_mode <- function(D, res, p.i, min_p, max_p, start, end) {
 #'   Oh, M.-S., Raftery, A. E. (2001), "Bayesian Multidimensional Scaling and
 #'   Choice of Dimension", Journal of the American Statistical Association,
 #'   96, 1031-1044.
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @examples
 #' \dontrun{
 #' # Airline Distances Between Cities
@@ -523,7 +523,7 @@ bmds <- function(D, min_p = 1, max_pm1 = 6, burnin = 0, nsim = 13000, ic = TRUE,
 #'     \item{\code{mdsic}}{A numeric vector with the values of MDSIC index.}
 #'     \item{\code{bic}}{A numeric vector with the values of the BIC index.}
 #'   }
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @seealso \code{\link{bmds}} for Bayesian (metric) multidimensional scaling
 #'   and \code{\link{comp_ssr}} for the computation of SSR.
 #' @references

@@ -14,5 +14,5 @@
 Provide a summary of a \code{dmbc_config} class instance.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

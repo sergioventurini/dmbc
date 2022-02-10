@@ -21,16 +21,16 @@
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -118,16 +118,16 @@ dmbc_get_postmean <- function(res, chain = 1) {
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -217,16 +217,16 @@ dmbc_get_postmedian <- function(res, chain = 1) {
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -317,16 +317,16 @@ dmbc_get_ml <- function(res, chain = 1) {
 #'       used}
 #'   }
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -405,16 +405,16 @@ dmbc_get_map <- function(res, chain = 1) {
 #'
 #' @return A \code{\link{dmbc_config}} object.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -512,7 +512,7 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #' @return A length-one logical vector, which is equal to TRUE if all simulated chains
 #'   provide the same cluster membership estimates, and FALSE otherwise.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_get_configuration}()} for a description of the
 #'   configuration extractor function.
@@ -520,9 +520,9 @@ dmbc_get_configuration <- function(res, chain = 1, est = "mean", labels = charac
 #'   DMBC model.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -594,7 +594,7 @@ dmbc_check_groups <- function(res, est = "mean") {
 #'
 #' @return An object of class \code{dmbc_fit_list}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc_check_groups}()} for checking the consistency
 #'   of the cluster memberships across chains for a fitted DMBC model.
@@ -604,9 +604,9 @@ dmbc_check_groups <- function(res, est = "mean") {
 #'   DMBC model.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{

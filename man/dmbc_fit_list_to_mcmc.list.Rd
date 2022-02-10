@@ -49,5 +49,5 @@ plot(sim.mcmc)
   \code{\link[coda]{mcmc.list}}.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

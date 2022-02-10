@@ -1,0 +1,17 @@
+bibentry(bibtype = "Article",
+  title        = "A {B}ayesian Approach for Model-Based Clustering of Several Binary Dissimilarity Matrices: The {dmbc} Package in {R}",
+  author       = c(person(given = "Sergio",
+                          family = "Venturini",
+                          email = "sergio.venturini@unicatt.it"),
+                   person(given = "Raffaella",
+                          family = "Piccarreta",
+                          email = "raffaella.piccarreta@unibocconi.it")),
+  journal      = "Journal of Statistical Software",
+  year         = "2021",
+  volume       = "100",
+  number       = "16",
+  pages        = "1--35",
+  doi          = "10.18637/jss.v100.i16",
+  header       = "To cite dmbc in publications use:"
+)
+

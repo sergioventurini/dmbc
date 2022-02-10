@@ -64,5 +64,5 @@ Oh, M.-S., Raftery, A. E. (2001), "Bayesian Multidimensional Scaling and
   and \code{\link{comp_ssr}} for the computation of SSR.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

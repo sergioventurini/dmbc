@@ -83,5 +83,5 @@ subjects (\emph{S}).}
 Create an instance of the \code{dmbc_fit} class using new/initialize.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

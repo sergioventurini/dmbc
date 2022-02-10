@@ -60,5 +60,5 @@ in the plots for labeling the objects.}
 Create an instance of the \code{dmbc_config} class using new/initialize.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

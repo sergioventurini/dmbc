@@ -15,12 +15,12 @@
 #' @rdname dmbc_data-class
 #' @aliases dmbc_data
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' showClass("dmbc_data")
@@ -49,7 +49,7 @@ setClass(Class = "dmbc_data",
 #'   developments will include the possibility to analyze continuous,
 #'   multinomial and count data.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases initialize,dmbc_data-method
 #' @aliases dmbc_data-initialize
@@ -76,7 +76,7 @@ setMethod("initialize", "dmbc_data",
 
 #' Show an instance of the \code{dmbc_data} class.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @param object An object of class \code{\link{dmbc_data}}.
 #'
@@ -99,7 +99,7 @@ setMethod("show",
 #'
 #' @param object An object of class \code{\link{dmbc_data}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases summary,dmbc_data-method
 #' @aliases dmbc_data-summary
@@ -137,7 +137,7 @@ setMethod("summary",
 #''   \code{par("mfrow")} or \code{par("mfcol")}. Can be a vector.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases plot,dmbc_data-method
 #' @aliases dmbc_data-plot
@@ -211,9 +211,9 @@ setMethod("plot",
 #' @aliases dmbc_model
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' showClass("dmbc_model")
@@ -239,7 +239,7 @@ setClass(Class = "dmbc_model",
 #'   developments will include the possibility to analyze continuous,
 #'   multinomial and count data.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases initialize,dmbc_model-method
 #' @aliases dmbc_model-initialize
@@ -265,7 +265,7 @@ setMethod("initialize", "dmbc_model",
 #'
 #' @param object An object of class \code{\link{dmbc_model}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases show,dmbc_model-method
 #' @aliases dmbc_model-show
@@ -328,9 +328,9 @@ setMethod("show",
 #' @rdname dmbc_fit-class
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' showClass("dmbc_fit")
@@ -396,7 +396,7 @@ setClass(Class = "dmbc_fit",
 #'   subjects (\emph{S}).
 #' @param model An object of class \code{\link{dmbc_model}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases initialize,dmbc_fit-method
 #' @aliases dmbc_fit-initialize
@@ -449,7 +449,7 @@ setMethod("initialize",
 #'
 #' @param object An object of class \code{\link{dmbc_fit}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases show,dmbc_fit-method
 #' @aliases dmbc_fit-show
@@ -477,7 +477,7 @@ setMethod("show",
 #'   also includes the latent configuration coordinates.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases summary,dmbc_fit-method
 #' @aliases dmbc_fit-summary
@@ -521,7 +521,7 @@ setGeneric("subset", function(x) standardGeneric("subset"))
 #'   to \code{pars}.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases subset,dmbc_fit-method
 #' @aliases dmbc_fit-subset
@@ -563,7 +563,7 @@ setMethod("subset",
 #'   \code{\link[bayesplot]{mcmc_combo}}).
 #' @param ... Further arguments to pass on.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases plot,dmbc_fit-method
 #' @aliases dmbc_fit-plot
@@ -726,9 +726,9 @@ setMethod("plot",
 #'   the list.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' showClass("dmbc_fit_list")
@@ -746,7 +746,7 @@ setClass(Class = "dmbc_fit_list",
 #' @param results A list whose elements are the \code{dmbc_fit} objects for
 #'   each simulated chain.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases initialize,dmbc_fit_list-method
 #' @aliases dmbc_fit_list-initialize
@@ -768,7 +768,7 @@ setMethod("initialize", "dmbc_fit_list",
 #'
 #' @param object An object of class \code{\link{dmbc_fit_list}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases show,dmbc_fit_list-method
 #' @aliases dmbc_fit_list-show
@@ -797,7 +797,7 @@ setMethod("show",
 #'   also includes the latent configuration coordinates.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases summary,dmbc_fit_list-method
 #' @aliases dmbc_fit_list-summary
@@ -841,7 +841,7 @@ setMethod("summary",
 #'   to \code{pars}.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases subset,dmbc_fit_list-method
 #' @aliases dmbc_fit_list-subset
@@ -883,7 +883,7 @@ setMethod("subset",
 #'   \code{\link[bayesplot]{mcmc_combo}}).
 #' @param ... Further arguments to pass on.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases plot,dmbc_fit_list-method
 #' @aliases dmbc_fit_list-plot
@@ -1063,9 +1063,9 @@ setMethod("plot",
 #' @aliases dmbc_ic
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' showClass("dmbc_ic")
@@ -1111,7 +1111,7 @@ setClass(Class = "dmbc_ic",
 #'   of an update of the DCIC calculations using additional \emph{p} and/or
 #'   \emph{G} values.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases initialize,dmbc_ic-method
 #' @aliases dmbc_ic-initialize
@@ -1145,7 +1145,7 @@ setMethod("initialize", "dmbc_ic",
 #'
 #' @param object An object of class \code{\link{dmbc_ic}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases show,dmbc_ic-method
 #' @aliases dmbc_ic-show
@@ -1180,7 +1180,7 @@ setMethod("show",
 #' @param G An optional length-one numeric vector providing the number of
 #'   clusters to use in the summary.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases summary,dmbc_ic-method
 #' @aliases dmbc_ic-summary
@@ -1254,7 +1254,7 @@ setMethod("summary",
 #'   points and lines in the plot.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases plot,dmbc_ic-method
 #' @aliases dmbc_ic-plot
@@ -1308,7 +1308,7 @@ setMethod("plot",
 #'   cluster to consider.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases update,dmbc_ic-method
 #' @aliases dmbc_ic-update
@@ -1320,9 +1320,9 @@ setMethod("plot",
 #'   in the returned object.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' \dontrun{
@@ -1554,9 +1554,9 @@ setMethod("update", "dmbc_ic",
 #' @aliases dmbc_config
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @examples
 #' showClass("dmbc_config")
@@ -1604,7 +1604,7 @@ setClass(Class = "dmbc_config",
 #' @param labels A character vector for the (optional) strings to use
 #'   in the plots for labeling the objects.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases initialize,dmbc_config-method
 #' @aliases dmbc_config-initialize
@@ -1646,7 +1646,7 @@ setMethod("initialize", "dmbc_config",
 #'
 #' @param object An object of class \code{\link{dmbc_config}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases show,dmbc_config-method
 #' @aliases dmbc_config-show
@@ -1695,7 +1695,7 @@ setMethod("show",
 #'
 #' @param object An object of class \code{\link{dmbc_config}}.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases summary,dmbc_config-method
 #' @aliases dmbc_config-summary
@@ -1733,7 +1733,7 @@ setMethod("summary",
 #'   added to the plot.
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases plot,dmbc_config-method
 #' @aliases dmbc_config-plot
@@ -1819,7 +1819,7 @@ setMethod("plot",
 #' @param newdata An object of no explicit specification (currently ignored).
 #' @param ... Further arguments to pass on (currently ignored).
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @aliases clusters,dmbc_config-method
 #' @aliases dmbc_config-clusters

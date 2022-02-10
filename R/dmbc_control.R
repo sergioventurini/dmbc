@@ -51,7 +51,7 @@
 #'   printed out about the progress of the fitting.
 #' @param control A list of control options.
 #' @return A named list with the control options as components.
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @seealso \code{\link{dmbc}()}
 #' @keywords model based clustering
 #' @examples

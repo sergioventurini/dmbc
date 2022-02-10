@@ -14,5 +14,5 @@
 Show an instance of the \code{dmbc_fit_list} class.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }

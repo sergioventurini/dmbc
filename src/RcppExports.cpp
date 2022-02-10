@@ -7,6 +7,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // dmbc_mcmc
 RcppExport SEXP dmbc_mcmc(SEXP raiD, SEXP raix, SEXP raing, SEXP radalpha, SEXP rn, SEXP rp, SEXP rG, SEXP rS, SEXP rtotiter, SEXP radZ, SEXP rgamma_z, SEXP reta, SEXP rgamma_alpha, SEXP rsigma2, SEXP rlambda, SEXP rhyper_eta_a, SEXP rhyper_eta_b, SEXP rhyper_sigma2_a, SEXP rhyper_sigma2_b, SEXP rhyper_lambda, SEXP rfamily, SEXP rverbose);
 RcppExport SEXP _dmbc_dmbc_mcmc(SEXP raiDSEXP, SEXP raixSEXP, SEXP raingSEXP, SEXP radalphaSEXP, SEXP rnSEXP, SEXP rpSEXP, SEXP rGSEXP, SEXP rSSEXP, SEXP rtotiterSEXP, SEXP radZSEXP, SEXP rgamma_zSEXP, SEXP retaSEXP, SEXP rgamma_alphaSEXP, SEXP rsigma2SEXP, SEXP rlambdaSEXP, SEXP rhyper_eta_aSEXP, SEXP rhyper_eta_bSEXP, SEXP rhyper_sigma2_aSEXP, SEXP rhyper_sigma2_bSEXP, SEXP rhyper_lambdaSEXP, SEXP rfamilySEXP, SEXP rverboseSEXP) {

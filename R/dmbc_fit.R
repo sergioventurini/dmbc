@@ -21,14 +21,14 @@
 #' @param start A named list of starting values for the MCMC algorithm (see
 #'   \code{\link{dmbc_init}}).
 #' @return A \code{dmbc_fit_list} object.
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #' @seealso \code{\link{dmbc_data}} for a description of the data format.
 #' @seealso \code{\link{dmbc_fit_list}} for a description of the elements
 #'   included in the returned object.
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #' @examples
 #' \dontrun{
 #' data(simdiss, package = "dmbc")
@@ -272,14 +272,14 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
 #'
 #' @return A length-one numeric vector of the log-likelihood value.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc}()}.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @export
 dmbc_logLik_rbmds <- function(D, Z, alpha) {
@@ -307,14 +307,14 @@ dmbc_logLik_rbmds <- function(D, Z, alpha) {
 #'
 #' @return A length-one numeric vector of the log-likelihood value.
 #'
-#' @author Sergio Venturini \email{sergio.venturini@unito.it}
+#' @author Sergio Venturini \email{sergio.venturini@unicatt.it}
 #'
 #' @seealso \code{\link{dmbc}()}.
 #'
 #' @references
-#'   Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+#'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-#'   Package in \code{R}", Technical report.
+#'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
 #' @export
 dmbc_logLik <- function(D, Z, alpha, lambda, x) {

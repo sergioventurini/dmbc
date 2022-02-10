@@ -58,9 +58,9 @@ p + panel_bg(fill = "gray90", color = NA)
 
 }
 \references{
-Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
+Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
-  Package in \code{R}", Technical report.
+  Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 }
 \seealso{
 \code{\link{dmbc}()} for fitting a DMBC model.
@@ -69,5 +69,5 @@ Venturini, S., Piccarreta, R. (2019), "A Bayesian Approach for Model-Based
   in the returned object.
 }
 \author{
-Sergio Venturini \email{sergio.venturini@unito.it}
+Sergio Venturini \email{sergio.venturini@unicatt.it}
 }
