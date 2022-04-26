@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/dmbc)](https://cran.r-project.org/p
 
 ## Overview
 
-###### Current release: 1.0.0
+###### Current release: 1.0.1
 ###### R version required: at least 3.6.0
 `R` package for Bayesian model-based clustering of several dissimilarity
 matrices.
@@ -32,5 +32,5 @@ Then, the easiest way to get the package is to install it from GitHub:
 devtools::install_github("sergioventurini/dmbc")
 ```
 
-See the help pages of the `dmbc()` and `dmbc_IC()` functions for some examples
-or have a look at the demos in the package.
+See the help pages of the `dmbc()` and `dmbc_IC()` functions for examples
+or run any of the demos available in the package.

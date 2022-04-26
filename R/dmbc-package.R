@@ -81,6 +81,7 @@
 #' @import bayesplot
 #' @import coda
 #' @import ggplot2
+#' @import ggrepel
 #' @import graphics
 #' @import stats
 NULL
