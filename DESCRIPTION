@@ -1,8 +1,8 @@
 Package: dmbc
 Type: Package
 Title: Model Based Clustering of Binary Dissimilarity Measurements
-Version: 1.0.0
-Date: 2021-11-21
+Version: 1.0.1
+Date: 2022-04-26
 Authors@R: c(
   person("Sergio", "Venturini", role=c("aut", "cre"), email = "sergio.venturini@unicatt.it"),
   person("Raffaella", "Piccarreta", role=c("ctb"), email = "raffaella.piccarreta@unibocconi.it"))
@@ -26,8 +26,8 @@ Imports:
     MCMCpack (>= 1.4-4),
     modeltools (>= 0.2-22),
     parallel (>= 3.6.1),
-    pcaPP (>= 1.9-73),
     robustbase (>= 0.93-5),
+    robustX (>= 1.2-5),
     stats4 (>= 3.6.0),
     tools
 Suggests:

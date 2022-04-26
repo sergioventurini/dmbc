@@ -167,14 +167,16 @@ log_marg_lik <- function(res, Z) {
 		q <- 3*G
 		theta <- cbind(res@results[[1]]@alpha.chain[tokeep, ], res@results[[1]]@sigma2.chain[tokeep, ],
       res@results[[1]]@lambda.chain[tokeep, ])
-		theta.star <- pcaPP::l1median(theta)
+    # theta.star <- pcaPP::l1median(theta)  # replaced by the next line because pcaPP has been archived by CRAN
+    theta.star <- robustX::L1median(theta)$estimate
 		theta.star[(2*G + 1):(3*G)] <- colMeans(theta)[(2*G + 1):(3*G)]   # needed cause the 'ddirichlet' function
                                                                       # returns a 0 when the sum of lambdas != 1
 		H.star <- robustbase::covMcd(theta[, -q])$cov   # last dimension removed otherwise the hessian is singular
 	} else {
 		q <- 2
 		theta <- cbind(res@results[[1]]@alpha.chain[tokeep, 1], res@results[[1]]@sigma2.chain[tokeep, 1])
-		theta.star <- pcaPP::l1median(theta)
+    # theta.star <- pcaPP::l1median(theta)  # replaced by the next line because pcaPP has been archived by CRAN
+    theta.star <- robustX::L1median(theta)$estimate
 		H.star <- robustbase::covMcd(theta)$cov
 	}
 	if (G > 1) {
