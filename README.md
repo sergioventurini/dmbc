@@ -33,4 +33,5 @@ devtools::install_github("sergioventurini/dmbc")
 ```
 
 See the help pages of the `dmbc()` and `dmbc_IC()` functions for examples
-or run any of the demos available in the package.
+or run any of the demos available in the package by executing the code
+`demo(_demo_name_, package = "dmbc")`.
