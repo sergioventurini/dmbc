@@ -36,7 +36,7 @@
 #'
 #' @section \pkg{dmbc} classes:
 #' The \pkg{dmbc} package defines the following new classes:
-#' \itemize{
+#' \describe{
 #'   \item{\code{\link{dmbc_data}}: }{defines the data to use in a DMBC model.}
 #'   \item{\code{\link{dmbc_model}}: }{defines a DMBC model.}
 #'   \item{\code{\link{dmbc_fit}}: }{defines the results of a DMBC analysis
@@ -52,7 +52,7 @@
 #'   for each one of these classes.
 #'
 #' @section Resources:
-#' \itemize{
+#' \describe{
 #'  \item{\strong{Bug reports}:}{
 #'  If you have noticed a bug that needs to be fixed, please let us know at the
 #'  \pkg{dmbc} issue tracker on GitHub:
