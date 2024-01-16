@@ -4,37 +4,40 @@
 
 // Note: RcppExport is an alias for extern "C"
 
-//' Internal functions for MCMC simulation.
-//'
-//' For internal use only.
-//'
-//' @param raiD internal SEXP data structure
-//' @param raix internal SEXP data structure
-//' @param raing internal SEXP data structure
-//' @param radalpha internal SEXP data structure
-//' @param rn internal SEXP data structure
-//' @param rp internal SEXP data structure
-//' @param rG internal SEXP data structure
-//' @param rS internal SEXP data structure
-//' @param rtotiter internal SEXP data structure
-//' @param radZ internal SEXP data structure
-//' @param rgamma_z internal SEXP data structure
-//' @param reta internal SEXP data structure
-//' @param rgamma_alpha internal SEXP data structure
-//' @param rsigma2 internal SEXP data structure
-//' @param rlambda internal SEXP data structure
-//' @param rhyper_eta_a internal SEXP data structure
-//' @param rhyper_eta_b internal SEXP data structure
-//' @param rhyper_sigma2_a internal SEXP data structure
-//' @param rhyper_sigma2_b internal SEXP data structure
-//' @param rhyper_lambda internal SEXP data structure
-//' @param rfamily internal SEXP data structure
-//' @param rverbose internal SEXP data structure
-//'
-//' @aliases dmbc-internal
-//' @aliases dmbc_internal
-//'
-// [[Rcpp::export]]
+// [[SV 20240116: documentation and exporting has been commented to avoid
+//                errors in compilation]]
+
+// //' Internal functions for MCMC simulation.
+// //'
+// //' For internal use only.
+// //'
+// //' @param raiD internal SEXP data structure
+// //' @param raix internal SEXP data structure
+// //' @param raing internal SEXP data structure
+// //' @param radalpha internal SEXP data structure
+// //' @param rn internal SEXP data structure
+// //' @param rp internal SEXP data structure
+// //' @param rG internal SEXP data structure
+// //' @param rS internal SEXP data structure
+// //' @param rtotiter internal SEXP data structure
+// //' @param radZ internal SEXP data structure
+// //' @param rgamma_z internal SEXP data structure
+// //' @param reta internal SEXP data structure
+// //' @param rgamma_alpha internal SEXP data structure
+// //' @param rsigma2 internal SEXP data structure
+// //' @param rlambda internal SEXP data structure
+// //' @param rhyper_eta_a internal SEXP data structure
+// //' @param rhyper_eta_b internal SEXP data structure
+// //' @param rhyper_sigma2_a internal SEXP data structure
+// //' @param rhyper_sigma2_b internal SEXP data structure
+// //' @param rhyper_lambda internal SEXP data structure
+// //' @param rfamily internal SEXP data structure
+// //' @param rverbose internal SEXP data structure
+// //'
+// //' @aliases dmbc-internal
+// //' @aliases dmbc_internal
+// //'
+// // [[Rcpp::export]]
 RcppExport SEXP dmbc_mcmc(
   SEXP raiD,
   SEXP raix,
@@ -115,25 +118,25 @@ RcppExport SEXP dmbc_mcmc(
   return rAns;
 }
 
-//' Function for relabeling the parameter chain
-//'
-//' @param radtheta internal SEXP data structure
-//' @param radz internal SEXP data structure
-//' @param radeta internal SEXP data structure
-//' @param radsigma2 internal SEXP data structure
-//' @param radlambda internal SEXP data structure
-//' @param radprob internal SEXP data structure
-//' @param raix_ind internal SEXP data structure
-//' @param rinit internal SEXP data structure
-//' @param rM internal SEXP data structure
-//' @param rR internal SEXP data structure
-//'
-//' @aliases dmbc-internal
-//' @aliases dmbc_internal
-//'
-//' @rdname dmbc_mcmc
-//'
-// [[Rcpp::export]]
+// //' Function for relabeling the parameter chain
+// //'
+// //' @param radtheta internal SEXP data structure
+// //' @param radz internal SEXP data structure
+// //' @param radeta internal SEXP data structure
+// //' @param radsigma2 internal SEXP data structure
+// //' @param radlambda internal SEXP data structure
+// //' @param radprob internal SEXP data structure
+// //' @param raix_ind internal SEXP data structure
+// //' @param rinit internal SEXP data structure
+// //' @param rM internal SEXP data structure
+// //' @param rR internal SEXP data structure
+// //'
+// //' @aliases dmbc-internal
+// //' @aliases dmbc_internal
+// //'
+// //' @rdname dmbc_mcmc
+// //'
+// // [[Rcpp::export]] [[SV 20240116: commented to avoid errors in compilation]]
 RcppExport SEXP dmbc_relabel(
   SEXP radtheta,
   SEXP radz,
@@ -184,11 +187,11 @@ RcppExport SEXP dmbc_relabel(
   return rAns;
 }
 
-//' Packing of the parameter chain to be run before relabeling
-//'
-//' @rdname dmbc_mcmc
-//'
-// [[Rcpp::export]]
+// //' Packing of the parameter chain to be run before relabeling
+// //'
+// //' @rdname dmbc_mcmc
+// //'
+// // [[Rcpp::export]] [[SV 20240116: commented to avoid errors in compilation]]
 RcppExport SEXP dmbc_pack_par(
   SEXP radz,
   SEXP radalpha,

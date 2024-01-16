@@ -259,10 +259,10 @@ dmbc <- function(data, p = 2, G = 3, control = dmbc_control(), prior = NULL, cl 
       for (g in 1:G) {
         if (control[["verbose"]]) dmbc_setpb(pb, no)
         if (p == 1) {
-          z.chain.p[it, , , g] <- as.numeric(MCMCpack::procrustes(as.matrix(z.chain[it, , , g]),
+          z.chain.p[it, , , g] <- as.numeric(procrustes(as.matrix(z.chain[it, , , g]),
             as.matrix(z.chain.p[(niter*nchains), , , g]), translation = TRUE, dilation = FALSE)$X.new)
         } else {
-          z.chain.p[it, , , g] <- MCMCpack::procrustes(z.chain[it, , , g], z.chain.p[(niter*nchains), , , g],
+          z.chain.p[it, , , g] <- procrustes(z.chain[it, , , g], z.chain.p[(niter*nchains), , , g],
             translation = TRUE, dilation = FALSE)$X.new
         }
         no <- no + 1

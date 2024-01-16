@@ -93,4 +93,7 @@ int factorial(const int& x);
 void permutations(int* perm, int n, int nperm, int byrow);
 void which_min(int* ans, const double* r, int n);
 
+// For registration
+void R_init_dmbc(DllInfo *dll);
+
 #endif

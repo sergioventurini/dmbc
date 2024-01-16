@@ -1,6 +1,6 @@
 #' Model-Based Clustering of Several Dissimilarity Matrices.
 #'
-#' @docType package
+#' _PACKAGE
 #'
 #' @name dmbc-package
 #' @aliases dmbc-pkg
@@ -77,7 +77,7 @@
 #'   Clustering of Several Binary Dissimilarity Matrices: the \pkg{dmbc}
 #'   Package in \code{R}", Journal of Statistical Software, 100, 16, 1--35, <10.18637/jss.v100.i16>.
 #'
-#' @useDynLib dmbc
+#' @useDynLib dmbc, .registration = TRUE
 #' @import bayesplot
 #' @import coda
 #' @import ggplot2

@@ -140,10 +140,10 @@ dmbc_fit <- function(D, p, G, family, control, prior, start) {
     		for (g in 1:G) {
           if (control[["verbose"]]) dmbc_setpb(pb, no)
     			if (p == 1) {
-    				z.chain.p[niter, , , g] <- as.numeric(MCMCpack::procrustes(as.matrix(z.chain[niter, , , g]),
+    				z.chain.p[niter, , , g] <- as.numeric(procrustes(as.matrix(z.chain[niter, , , g]),
               as.matrix(z.chain[totiter, , , g]), translation = TRUE, dilation = FALSE)$X.new)
     			} else {
-    				z.chain.p[niter, , , g] <- MCMCpack::procrustes(z.chain[niter, , , g], z.chain[totiter, , , g],
+    				z.chain.p[niter, , , g] <- procrustes(z.chain[niter, , , g], z.chain[totiter, , , g],
               translation = TRUE, dilation = FALSE)$X.new
     			}
           no <- no + 1
