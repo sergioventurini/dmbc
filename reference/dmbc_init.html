@@ -3,7 +3,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dmbc</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.3</span>
       </span>
     </div>
 
@@ -28,20 +28,20 @@
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/sergioventurini/dmbc/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Function to compute the starting values before fitting a DMBC models.</h1>
-    <small class="dont-index">Source: <a href="https://github.com/sergioventurini/dmbc/blob/HEAD/R/dmbc_init.R" class="external-link"><code>R/dmbc_init.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/sergioventurini/dmbc/blob/master/R/dmbc_init.R" class="external-link"><code>R/dmbc_init.R</code></a></small>
     <div class="hidden name"><code>dmbc_init.Rd</code></div>
     </div>
 
@@ -55,52 +55,50 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>D</dt>
+
+
+<dl><dt id="arg-d">D<a class="anchor" aria-label="anchor" href="#arg-d"></a></dt>
 <dd><p>A list whose elements are the dissimilarity matrices corresponding
 to the judgments expressed by the <em>S</em> subjects/raters. These matrices
 must be defined as a <code>dist</code> object.</p></dd>
 
 
-<dt>p</dt>
+<dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
 <dd><p>A length-one numeric vector indicating the number of dimensions of the
 latent space.</p></dd>
 
 
-<dt>G</dt>
+<dt id="arg-g">G<a class="anchor" aria-label="anchor" href="#arg-g"></a></dt>
 <dd><p>A length-one numeric vector indicating the number of cluster to
 partition the <em>S</em> subjects.</p></dd>
 
 
-<dt>family</dt>
+<dt id="arg-family">family<a class="anchor" aria-label="anchor" href="#arg-family"></a></dt>
 <dd><p>A length-one character vector representing the type of data to
 analyze. Currently, it accepts only the 'binomial' value, but future
 developments will include the possibility to analyze continuous,
 multinomial and count data.</p></dd>
 
 
-<dt>random.start</dt>
+<dt id="arg-random-start">random.start<a class="anchor" aria-label="anchor" href="#arg-random-start"></a></dt>
 <dd><p>A length-one logical vector. If <code>TRUE</code> the starting
 values are drawn randomly, otherwise.</p></dd>
 
 
-<dt>method</dt>
+<dt id="arg-method">method<a class="anchor" aria-label="anchor" href="#arg-method"></a></dt>
 <dd><p>A length-one character vector specifying the distance
 measure to use in determining the initial partition. Allowed values are
 those from the <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a>()</code> function.</p></dd>
 
 
-<dt>partition</dt>
+<dt id="arg-partition">partition<a class="anchor" aria-label="anchor" href="#arg-partition"></a></dt>
 <dd><p>A length-one numeric vector providing the user-defined
 starting partition.</p></dd>
 
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    
-
-<p>A named <code>list</code> with the following items:</p>
-<p></p>
-<dl><dt><code>z</code>: </dt>
+    <p>A named <code>list</code> with the following items:</p><dl><dt><code>z</code>: </dt>
 <dd><p>array of latent coordinates starting values</p></dd>
 
     <dt><code>x</code>: </dt>
@@ -121,13 +119,13 @@ starting partition.</p></dd>
     <dt><code>lambda</code>: </dt>
 <dd><p>numeric vector of lambda starting values</p></dd>
 
-  
+
 </dl></div>
     <div id="references">
     <h2>References</h2>
     <p>Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
   Clustering of Several Binary Dissimilarity Matrices: the <span class="pkg">dmbc</span>
-  Package in <code>R</code>", Journal of Statistical Software, 100, 16, 1--35, &lt;10.18637/jss.v100.i16&gt;.</p>
+  Package in <code>R</code>", Journal of Statistical Software, 100, 16, 1–35, &lt;10.18637/jss.v100.i16&gt;.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -240,15 +238,15 @@ starting partition.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 

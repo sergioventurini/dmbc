@@ -15,17 +15,19 @@ are derived using a hybrid Metropolis-Gibbs Markov Chain Monte Carlo
 algorithm. We also include a BIC-like criterion for jointly selecting the
 optimal number of clusters and latent space dimensions.
 For efficiency reasons, the core computations in the package are implemented
-using the C programming language and the RcppArmadillo package.
+using the C programming language and the
+RcppArmadillo
+package.
 The dmbc package also supports the simulation of multiple chains
 through the support of the parallel package.
-Plotting functionalities are imported from the nice bayesplot package.
-Currently, the package includes methods for binary data only. In future
-releases routines will be added specifically for continuous (i.e. normal),
-multinomial and count data."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+Plotting functionalities are imported from the nice bayesplot
+package. Currently, the package includes methods for binary data only. In
+future releases routines will be added specifically for continuous
+(i.e. normal), multinomial and count data."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -39,7 +41,7 @@ multinomial and count data."><!-- mathjax --><script src="https://cdnjs.cloudfla
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dmbc</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.3</span>
       </span>
     </div>
 
@@ -50,20 +52,20 @@ multinomial and count data."><!-- mathjax --><script src="https://cdnjs.cloudfla
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/sergioventurini/dmbc/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
-     
+
   </a>
 </li>
       </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Model-Based Clustering of Several Dissimilarity Matrices.</h1>
-    <small class="dont-index">Source: <a href="https://github.com/sergioventurini/dmbc/blob/HEAD/R/dmbc-package.R" class="external-link"><code>R/dmbc-package.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/sergioventurini/dmbc/blob/master/R/dmbc-package.R" class="external-link"><code>R/dmbc-package.R</code></a></small>
     <div class="hidden name"><code>dmbc-package.Rd</code></div>
     </div>
 
@@ -84,23 +86,21 @@ are derived using a hybrid Metropolis-Gibbs Markov Chain Monte Carlo
 algorithm. We also include a BIC-like criterion for jointly selecting the
 optimal number of clusters and latent space dimensions.</p>
 <p>For efficiency reasons, the core computations in the package are implemented
-using the <code>C</code> programming language and the <span class="pkg">RcppArmadillo</span> package.</p>
+using the <code>C</code> programming language and the
+<span class="pkg"><a href="https://rdrr.io/pkg/RcppArmadillo/man/RcppArmadillo-package.html" class="external-link">RcppArmadillo</a></span>
+package.</p>
 <p>The <span class="pkg">dmbc</span> package also supports the simulation of multiple chains
 through the support of the <span class="pkg">parallel</span> package.</p>
-<p>Plotting functionalities are imported from the nice <span class="pkg">bayesplot</span> package.
-Currently, the package includes methods for binary data only. In future
-releases routines will be added specifically for continuous (i.e. normal),
-multinomial and count data.</p>
+<p>Plotting functionalities are imported from the nice <span class="pkg"><a href="https://mc-stan.org/bayesplot/reference/bayesplot-package.html" class="external-link">bayesplot</a></span>
+package. Currently, the package includes methods for binary data only. In
+future releases routines will be added specifically for continuous
+(i.e. normal), multinomial and count data.</p>
     </div>
 
 
-    <div id="details">
-    <h2>Details</h2>
-    <p>_PACKAGE</p>
-    </div>
     <div id="dmbc-classes">
     <h2><span class="pkg">dmbc</span> classes</h2>
-    
+
 
 <p>The <span class="pkg">dmbc</span> package defines the following new classes:</p><dl><dt><code><a href="dmbc_data-class.html">dmbc_data</a></code>: </dt>
 <dd><p>defines the data to use in a DMBC model.</p></dd>
@@ -130,7 +130,7 @@ multinomial and count data.</p>
     </div>
     <div id="resources">
     <h2>Resources</h2>
-    
+
 
 <dl><dt><strong>Bug reports</strong>:</dt>
 <dd><p>If you have noticed a bug that needs to be fixed, please let us know at the
@@ -147,14 +147,14 @@ multinomial and count data.</p>
     <h2>References</h2>
     <p>Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
   Clustering of Several Binary Dissimilarity Matrices: the <span class="pkg">dmbc</span>
-  Package in <code>R</code>", Journal of Statistical Software, 100, 16, 1--35, &lt;10.18637/jss.v100.i16&gt;.</p>
+  Package in <code>R</code>", Journal of Statistical Software, 100, 16, 1–35, &lt;10.18637/jss.v100.i16&gt;.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="https://mc-stan.org/bayesplot/reference/theme_default.html" class="external-link">theme_default</a></code> for the default ggplot theme
- used by <span class="pkg">bayesplot</span>.</p>
+ used by <span class="pkg"><a href="https://mc-stan.org/bayesplot/reference/bayesplot-package.html" class="external-link">bayesplot</a></span>.</p>
 <p><code><a href="https://mc-stan.org/bayesplot/reference/bayesplot-colors.html" class="external-link">bayesplot-colors</a></code> to set or view the color
- scheme used for plotting with <span class="pkg">bayesplot</span>.</p>
+ scheme used for plotting with <span class="pkg"><a href="https://mc-stan.org/bayesplot/reference/bayesplot-package.html" class="external-link">bayesplot</a></span>.</p>
 <p><code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></code> in <span class="pkg">ggplot2</span> for saving plots.</p></div>
     </div>
 
@@ -170,15 +170,15 @@ multinomial and count data.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
