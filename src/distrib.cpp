@@ -94,7 +94,7 @@ void rmultinorm(double* dev, int n, const double* mean, const double* sigma, int
 // Density function for an inverse gamma random variable
 void dinvgamma(double* dens, const double* x, const double alpha, const double beta, int n, int logscale){
   if((alpha <= 0) || (beta <= 0)){
-    error("alpha (shape) and beta (scale) parameters in dinvgamma() need to be both strictly positive.\n");
+    Rf_error("alpha (shape) and beta (scale) parameters in dinvgamma() need to be both strictly positive.\n");
   }
 
   double lbeta = log(beta);
@@ -113,7 +113,7 @@ void dinvgamma(double* dens, const double* x, const double alpha, const double b
 // Inverse gamma random deviates
 void rinvgamma(double* dev, int n, const double alpha, const double beta){
   if((alpha <= 0) || (beta <= 0)){
-    error("alpha (shape) and beta (scale) parameters in rinvgamma() need to be both strictly positive.\n");
+    Rf_error("alpha (shape) and beta (scale) parameters in rinvgamma() need to be both strictly positive.\n");
   }
 
   for(int i = 0; i < n; i++){
@@ -136,11 +136,11 @@ void ddirichlet(double* dens, const double* x, const double* par, int n, int p, 
     for(int j = 0; j < p; j++){
       tmp += x_arma(i, j);
       if(x_arma(i, j) < 0 || x_arma(i, j) > 1){
-        error("some elements of x outside the [0, 1] range.\n");
+        Rf_error("some elements of x outside the [0, 1] range.\n");
       }
     }
     if(std::fabs(tmp - 1.0) >= sqrt(std::numeric_limits<double>::epsilon())){
-      error("some rows of x sum to a value different from 1.\n");
+      Rf_error("some rows of x sum to a value different from 1.\n");
     }
   }
 

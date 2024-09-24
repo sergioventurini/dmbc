@@ -1,5 +1,6 @@
 #' Model-Based Clustering of Several Dissimilarity Matrices.
 #'
+#' @keywords internal
 #' _PACKAGE
 #'
 #' @name dmbc-package
@@ -24,15 +25,17 @@
 #' optimal number of clusters and latent space dimensions.
 #'
 #' For efficiency reasons, the core computations in the package are implemented
-#' using the \code{C} programming language and the \pkg{RcppArmadillo} package.
+#' using the \code{C} programming language and the
+#' \pkg{\link[RcppArmadillo:RcppArmadillo]{RcppArmadillo}}
+#' package.
 #'
 #' The \pkg{dmbc} package also supports the simulation of multiple chains
-#' through the support of the \pkg{parallel} package.
+#' through the support of the \pkg{\link{parallel}} package.
 #'
-#' Plotting functionalities are imported from the nice \pkg{bayesplot} package.
-#' Currently, the package includes methods for binary data only. In future
-#' releases routines will be added specifically for continuous (i.e. normal),
-#' multinomial and count data.
+#' Plotting functionalities are imported from the nice \pkg{\link[bayesplot]{bayesplot}}
+#' package. Currently, the package includes methods for binary data only. In
+#' future releases routines will be added specifically for continuous
+#' (i.e. normal), multinomial and count data.
 #'
 #' @section \pkg{dmbc} classes:
 #' The \pkg{dmbc} package defines the following new classes:
@@ -67,10 +70,10 @@
 #' }
 #'
 #' @seealso \code{\link[bayesplot]{theme_default}} for the default ggplot theme
-#'  used by \pkg{bayesplot}.
+#'  used by \pkg{\link[bayesplot]{bayesplot}}.
 #' @seealso \code{\link[bayesplot]{bayesplot-colors}} to set or view the color
-#'  scheme used for plotting with \pkg{bayesplot}.
-#' @seealso \code{\link[ggplot2]{ggsave}} in \pkg{ggplot2} for saving plots.
+#'  scheme used for plotting with \pkg{\link[bayesplot]{bayesplot}}.
+#' @seealso \code{\link[ggplot2]{ggsave}} in \pkg{\link{ggplot2}} for saving plots.
 #'
 #' @references
 #'   Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based

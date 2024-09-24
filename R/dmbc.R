@@ -14,9 +14,10 @@
 #'   \code{\link{dmbc_control}()} for more details.
 #' @param prior A list containing the prior hyperparameters. See
 #'   \code{\link{dmbc_prior}()} for more details.
-#' @param cl An optional \pkg{parallel} or \pkg{snow} cluster for use if
-#'   \code{parallel = "snow"}. If not supplied, a cluster on the local machine
-#'   is created for the duration of the \code{dmbc()} call.
+#' @param cl An optional \pkg{\link{parallel}} or
+#'   \pkg{\href{https://CRAN.R-project.org/package=snow}{snow}}
+#'   cluster for use if \code{parallel = "snow"}. If not supplied, a cluster
+#'   on the local machine is created for the duration of the \code{dmbc()} call.
 #' @param post_all A length-one logical vector, which if TRUE applies a further
 #'   post-processing to the simulated chains (in case these are more than one).
 #' @return A \code{dmbc_fit_list} object.

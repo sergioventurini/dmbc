@@ -545,13 +545,12 @@ setMethod("subset",
 #'
 #' @param x An object of class \code{\link{dmbc_fit}}.
 #' @param what A length-one character vector providing the plot type to produce.
-#'   Admissible values are those provided by the \pkg{\link{bayesplot}} package,
+#'   Admissible values are those provided by the \pkg{\link[bayesplot]{bayesplot}} package,
 #'   that is: \code{acf}, \code{areas}, \code{dens}, \code{hex}, \code{hist},
 #'   \code{intervals}, \code{neff}, \code{pairs}, \code{parcoord}, \code{recover},
 #'   \code{rhat}, \code{scatter}, \code{trace}, \code{violin} or \code{combo}.
 #'   In particular, \code{combo} allows to mix different plot types. For more
-#'   details see the documentation of the \pkg{\link{bayesplot}} package,
-#'   starting from \code{\link[=MCMC-overview]{this overview page}}.
+#'   details see the documentation of the \pkg{\link[bayesplot]{bayesplot}} package.
 #' @param pars An optional character vector of parameter names. If neither 
 #'   \code{pars} nor \code{regex_pars} is specified, the default is to use all parameters.
 #' @param regex_pars An optional \code{\link[=grep]{regular expression}} to use for
@@ -865,13 +864,12 @@ setMethod("subset",
 #'
 #' @param x An object of class \code{\link{dmbc_fit_list}}.
 #' @param what A length-one character vector providing the plot type to produce.
-#'   Admissible values are those provided by the \pkg{\link{bayesplot}} package,
+#'   Admissible values are those provided by the \pkg{\link[bayesplot]{bayesplot}} package,
 #'   that is: \code{acf}, \code{areas}, \code{dens}, \code{hex}, \code{hist},
 #'   \code{intervals}, \code{neff}, \code{pairs}, \code{parcoord}, \code{recover},
 #'   \code{rhat}, \code{scatter}, \code{trace}, \code{violin} or \code{combo}.
 #'   In particular, \code{combo} allows to mix different plot types. For more
-#'   details see the documentation of the \pkg{\link{bayesplot}} package,
-#'   starting from \code{\link[=MCMC-overview]{this overview page}}.
+#'   details see the documentation of the \pkg{\link[bayesplot]{bayesplot}} package.
 #' @param pars An optional character vector of parameter names. If neither 
 #'   \code{pars} nor \code{regex_pars} is specified, the default is to use all parameters.
 #' @param regex_pars An optional \code{\link[=grep]{regular expression}} to use for

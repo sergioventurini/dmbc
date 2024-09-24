@@ -1,0 +1,2 @@
+load("/Users/Sergio/dev/dmbc/data/simdiss.RData")
+str(simdiss)

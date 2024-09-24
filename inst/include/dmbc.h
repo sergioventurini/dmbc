@@ -7,6 +7,9 @@
                          // the final release (see
                          // http://arma.sourceforge.net/docs.html)
 
+#define R_NO_REMAP
+#include <Rinternals.h>
+
 #include <R.h>
 #include <RcppArmadillo.h>
 #include <Rcpp.h>

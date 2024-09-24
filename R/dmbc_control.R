@@ -26,7 +26,7 @@
 #' @param seed An integer scalar. If supplied, provides the random number seed.
 #' @param parallel A length-one character vector indicating the type of parallel
 #'   operation to be used (if any). Possible values are \code{multicore}
-#'   (which worksonly on Unix/mcOS), \code{snow} and \code{no} (i.e. serial
+#'   (which works only on Unix/mcOS), \code{snow} and \code{no} (i.e. serial
 #'   instead of parallel computing).
 #' @param z.prop A length-one numeric vector providing the standard deviation of the
 #'   proposal distribution for the jump in the individual latent space

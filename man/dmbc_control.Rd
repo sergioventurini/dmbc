@@ -66,7 +66,7 @@ multiprocessing or distributed computing capabilities that may be available.}
 
 \item{parallel}{A length-one character vector indicating the type of parallel
 operation to be used (if any). Possible values are \code{multicore}
-(which worksonly on Unix/mcOS), \code{snow} and \code{no} (i.e. serial
+(which works only on Unix/mcOS), \code{snow} and \code{no} (i.e. serial
 instead of parallel computing).}
 
 \item{z.prop}{A length-one numeric vector providing the standard deviation of the
