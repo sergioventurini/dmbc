@@ -83,7 +83,7 @@ Venturini, S., Piccarreta, R. (2021), "A Bayesian Approach for Model-Based
 \code{\link[bayesplot]{bayesplot-colors}} to set or view the color
  scheme used for plotting with \pkg{\link[bayesplot]{bayesplot}}.
 
-\code{\link[ggplot2]{ggsave}} in \pkg{\link{ggplot2}} for saving plots.
+\code{\link[ggplot2]{ggsave}} in \pkg{\link[ggplot2]{ggplot2}} for saving plots.
 }
 \keyword{_PACKAGE}
 \keyword{internal}
